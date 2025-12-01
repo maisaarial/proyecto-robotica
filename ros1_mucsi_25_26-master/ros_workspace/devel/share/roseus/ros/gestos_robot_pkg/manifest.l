@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/roseus/ros/gestos_robot_pkg/manifest.l

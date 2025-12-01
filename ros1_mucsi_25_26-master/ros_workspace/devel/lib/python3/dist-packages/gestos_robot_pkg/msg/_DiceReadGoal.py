@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/lib/python3/dist-packages/gestos_robot_pkg/msg/_DiceReadGoal.py

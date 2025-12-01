@@ -1,0 +1,2 @@
+set(gestos_robot_pkg_MESSAGE_FILES "msg/DiceReadAction.msg;msg/DiceReadActionGoal.msg;msg/DiceReadActionResult.msg;msg/DiceReadActionFeedback.msg;msg/DiceReadGoal.msg;msg/DiceReadResult.msg;msg/DiceReadFeedback.msg;msg/GestoAction.msg;msg/GestoActionGoal.msg;msg/GestoActionResult.msg;msg/GestoActionFeedback.msg;msg/GestoGoal.msg;msg/GestoResult.msg;msg/GestoFeedback.msg;msg/Gesture.msg")
+set(gestos_robot_pkg_SERVICE_FILES "")

@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/cmake/gestos_robot_pkgConfig-version.cmake

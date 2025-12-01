@@ -1,0 +1,28 @@
+camera:
+  index: 1
+  width: 1280
+  height: 720
+  fps: 30
+
+dice_camera:    
+  index: 2       
+  width: 1280
+  height: 720
+  fps: 30
+
+thresholds:
+  ear_blink: 0.20          # EAR por debajo de esto = ojo cerrado
+  ear_open: 0.25           # EAR por encima de esto = ojo abierto
+  long_blink_ms: 700       # parpadeo largo (ms)
+  wink_min_frames: 4       # frames mínimos de guiño
+  fingers_tolerance_frames: 3
+  throw_dx_sum: 0.10       # umbral de movimiento lateral para tirar dado
+
+logic:
+  debounce_ms: 300
+  show_overlay: true
+
+robot:
+  mode: "stub"             # "stub" = solo imprime en consola
+  port: "COM5"
+  baudrate: 115200

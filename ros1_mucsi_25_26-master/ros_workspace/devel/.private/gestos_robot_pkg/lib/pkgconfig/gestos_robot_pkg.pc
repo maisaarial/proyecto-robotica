@@ -1,0 +1,8 @@
+prefix=/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg
+
+Name: gestos_robot_pkg
+Description: Description of gestos_robot_pkg
+Version: 0.0.0
+Cflags: -I/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include
+Libs: -L${prefix}/lib 
+Requires: 

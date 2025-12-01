@@ -1,0 +1,10 @@
+# Goal
+# No requiere parámetros
+---
+
+# Result
+int32 value   # valor del dado (-1 si no se detecta)
+---
+
+# Feedback
+string status # información de progreso

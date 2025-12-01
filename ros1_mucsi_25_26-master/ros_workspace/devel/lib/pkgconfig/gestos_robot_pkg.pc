@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/lib/pkgconfig/gestos_robot_pkg.pc

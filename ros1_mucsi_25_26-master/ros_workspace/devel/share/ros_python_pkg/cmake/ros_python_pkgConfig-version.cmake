@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/ros_python_pkg/share/ros_python_pkg/cmake/ros_python_pkgConfig-version.cmake

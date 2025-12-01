@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gennodejs/ros/gestos_robot_pkg/msg/GestoActionResult.js
