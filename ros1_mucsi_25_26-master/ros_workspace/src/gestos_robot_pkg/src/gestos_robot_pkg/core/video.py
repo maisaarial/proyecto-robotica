@@ -52,7 +52,7 @@ class Video:
         # Callback rápido: convierto y guardo con lock
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         with self._lock:
-            self._frame = frame
+            self.frame = frame
     
     #Devuelve deepcopy 
     def read(self) -> ndarray:

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #ap.py archivo editado para conectarse con ros
 import cv2
 
@@ -19,7 +20,7 @@ from gestos_robot_pkg.detectors.gestures_face import (
     es_guiño_roi,
     es_parpadeo_largo_roi,
 )
-from msg import Gesture
+from gestos_robot_pkg.msg import Gesture
 import copy
 
 from gestos_robot_pkg.ui.overlay import draw_status, draw_text
@@ -35,8 +36,8 @@ def main():
     # Cámara principal (gestos mano + rostro)
     # -------------------------
     video_main = Video(
-        topic_name="/camera_main/color/image_raw", #hay que cambiar
-        config_path="src/config/settings.yaml",
+        topic_name="/usb_cam/image_raw", #hay que cambiar
+        config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
         section="camera"
     )
 
@@ -57,8 +58,8 @@ def main():
         # -------------------------
         # LECTURA DE CÁMARA
         # -------------------------
-        ok_main, frame_main = video_main.read()
-        if not ok_main:
+        frame_main = video_main.read()
+        if frame_main is None:
             rospy.logwarn("[APP] No se pudo leer frame de la cámara principal.")
             rospy.sleep(0.05)
             continue

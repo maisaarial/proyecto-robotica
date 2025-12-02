@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import rospy
 import actionlib
 import time
@@ -17,7 +18,7 @@ class GestureActionServer:
         rospy.loginfo("[GESTURE-AS] Inicializando...")
 
         self.video_main = Video(
-            topic_name="/camera_main/color/image_raw", #hay que cambiar el nombre
+            topic_name="/usb_cam/image_raw", #hay que cambiar el nombre
             config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
             section="camera",
             wait_timeout=3.0
