@@ -5,6 +5,7 @@ import time
 import cv2
 from gestos_robot_pkg.msg import Gesture
 from gestos_robot_pkg.msg import GestoAction, GestoResult, GestoFeedback
+from gestos_robot_pkg.core.events import GestureEvent
 from gestos_robot_pkg.core.video import Video
 from gestos_robot_pkg.detectors.hands_detector import Hands
 from gestos_robot_pkg.detectors.face_detector import Face
@@ -69,47 +70,73 @@ class GestureActionServer:
 
             # comprobar condiciones según target
             detected = False
-            # Fichas por número de dedos
-            if target == "FICHA_ROJA" or target == "FICHA_AMARILLA" or target == "FICHA_VERDE":
-                if roi_hand is not None:
-                    _, dedos = clasificar_gesto_mano(roi_hand)
-                    if dedos is not None:
-                        if (target == "FICHA_ROJA" and dedos == 0) or \
-                           (target == "FICHA_AMARILLA" and dedos == 1) or \
-                           (target == "FICHA_VERDE" and dedos == 2):
-                            detected = True
-                            result.type = target
-                            result.source = "mano"
-                            result.fingers = int(dedos)
-                            result.rock = False
-                            result.wink = False
-            elif target == "FICHA_AZUL":
-                if roi_hand is not None and es_rock_roi(roi_hand):
+            
+            if roi_hand is not None:
+                gesto_mano, dedos = clasificar_gesto_mano(roi_hand)
+
+            if dedos is not None:
+                if dedos is not None and dedos >= 4:
+                    gesture = GestureEvent.INICIO
+                    gesture_label = "Inicio (mano abierta)"
+                elif dedos == 0:
+                    gesture = GestureEvent.FICHA_ROJA
+                    gesture_label = "Ficha roja (0 dedos)"
                     detected = True
                     result.type = target
                     result.source = "mano"
-                    result.fingers = -1
-                    result.rock = True
-                    result.wink = False
-            elif target == "TIRAR_DADO":
-                # detecta el gesto de tirar_dado (por ejemplo movimiento)
-                if roi_hand is not None and bbox_hand is not None and gesto_tirar_dado_roi(roi_hand, bbox_hand):
-                    detected = True
-                    result.type = target
-                    result.source = "mano"
-                    result.fingers = -1
+                    result.fingers = int(dedos)
                     result.rock = False
                     result.wink = False
-            elif target == "CONTINUAR":
-                if roi_face is not None:
-                    gray_face = cv2.cvtColor(roi_face, cv2.COLOR_BGR2GRAY)
-                    if es_guiño_roi(gray_face):
-                        detected = True
-                        result.type = target
-                        result.source = "rostro"
-                        result.fingers = -1
-                        result.wink = True
-                        result.rock = False
+                elif dedos == 1:
+                    gesture = GestureEvent.FICHA_AMARILLA
+                    gesture_label = "Ficha amarilla (1 dedo)"
+                    detected = True
+                    result.type = target
+                    result.source = "mano"
+                    result.fingers = int(dedos)
+                    result.rock = False
+                    result.wink = False
+                elif dedos == 3:
+                    gesture = GestureEvent.FICHA_VERDE
+                    gesture_label = "Ficha verde (3 dedos)"
+                    detected = True
+                    result.type = target
+                    result.source = "mano"
+                    result.fingers = int(dedos)
+                    result.rock = False
+                    result.wink = False
+
+            if es_rock_roi(roi_hand):
+                gesture = GestureEvent.FICHA_AZUL
+                gesture_label = "Ficha azul (🤘)"
+                detected = True
+                result.type = target
+                result.source = "mano"
+                result.fingers = -1
+                result.rock = True
+                result.wink = False
+
+            if bbox_hand is not None and gesto_tirar_dado_roi(roi_hand, bbox_hand):
+                gesture = GestureEvent.TIRAR_DADO
+                gesture_label = "Tirar dado (pulgar arriba)"
+                detected = True
+                result.type = target
+                result.source = "mano"
+                result.fingers = -1
+                result.rock = False
+                result.wink = False
+
+            if roi_face is not None:
+                gray_face = cv2.cvtColor(roi_face, cv2.COLOR_BGR2GRAY)
+                if es_guiño_roi(gray_face):
+                    gesture = GestureEvent.CONTINUAR
+                    gesture_label = "Continuar (guiño)"
+                    detected = True
+                    result.type = target
+                    result.source = "rostro"
+                    result.fingers = -1
+                    result.wink = True
+                    result.rock = False
 
 
             feedback.status = f"Buscando {target}"

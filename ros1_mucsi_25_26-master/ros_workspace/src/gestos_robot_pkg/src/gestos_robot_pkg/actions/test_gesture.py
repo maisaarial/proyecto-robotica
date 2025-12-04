@@ -24,11 +24,11 @@ class GestureActionClient:
         """Start or stop gesture detection loop."""
         gesture_type = msg.type
 
-        if gesture_type == "Inicio (5 dedos)" and not self.listening:
+        if gesture_type == "Inicio (mano abierta)" and not self.on:
             rospy.loginfo("[GESTURE-CLIENT] >>> INICIO recibido. Comenzando escucha.")
             self.on = True
 
-        elif gesture_type == "Detener (parpadeo largo)" and self.listening:
+        elif gesture_type == "Detener (parpadeo largo)" and self.on:
             rospy.loginfo("[GESTURE-CLIENT] >>> DETENER recibido. Terminando escucha.")
             self.on = False
 
@@ -37,7 +37,7 @@ class GestureActionClient:
         goal = GestoGoal()
 
         rospy.loginfo(f"[GESTURE-CLIENT] Sending request")
-        self.client.send_goal()
+        self.client.send_goal(goal)
         self.client.wait_for_result()
 
         result = self.client.get_result()
@@ -56,7 +56,7 @@ class GestureActionClient:
         return result
     
     def run(self):
-        rate = rospy.Rate(2)   # 2 Hz = call server max every 0.5 seconds
+        rate = rospy.Rate(0.1)   # 2 Hz = call server max every 0.5 seconds
         while not rospy.is_shutdown():
             if self.on:
                 self.request_gesture()
