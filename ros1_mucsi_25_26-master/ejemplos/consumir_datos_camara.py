@@ -42,7 +42,7 @@ class NodoCamara:
     # EVENTOS Y FUNCIONES BÁSICAS
     # -------------------------------------------
 
-    def onKey():
+    def onKey(self):
         global clicked, result
         tecla = cv2.waitKey(1) & 0xFF
         if tecla == ord('s'):
@@ -51,7 +51,7 @@ class NodoCamara:
             clicked = True
 
 
-    def getCentroides(mask):
+    def getCentroides(self, mask):
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         for c in contours:
             if cv2.contourArea(c) > 200:
@@ -63,7 +63,7 @@ class NodoCamara:
         return None, None
 
 
-    def casillaPunto(punto, casillas):
+    def casillaPunto(self, punto, casillas):
         for idx, casilla in enumerate(casillas):
             pts = np.array(casilla, np.int32)
             if cv2.pointPolygonTest(pts, punto, False) >= 0:
@@ -75,7 +75,7 @@ class NodoCamara:
     # DETECCIÓN DE CASILLAS VARIABLES Y COLOR (TABLERO PDF)
     # -----------------------------------------------------
 
-    def detectarCasillas(frame):
+    def detectarCasillas(self, frame):
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         blur = cv2.GaussianBlur(gray, (5,5), 0)
         edges = cv2.Canny(blur, 40, 160)
@@ -87,46 +87,44 @@ class NodoCamara:
 
         casillas = []
         area_min = 1500  # AJUSTABLE según tamaño visto en cámara
-        while(True):
-            for c in contours:
-                area = cv2.contourArea(c)
-                if area < area_min:
-                    continue
+        for c in contours:
+            area = cv2.contourArea(c)
+            if area < area_min:
+                continue
 
-                peri = cv2.arcLength(c, True)
-                approx = cv2.approxPolyDP(c, 0.02 * peri, True)
+            peri = cv2.arcLength(c, True)
+            approx = cv2.approxPolyDP(c, 0.02 * peri, True)
 
-                if len(approx) == 4:
-                    pts = approx.reshape(4,2).tolist()
+            if len(approx) == 4:
+                pts = approx.reshape(4,2).tolist()
 
-                    # Ordenar puntos (arriba izq -> arriba der -> abajo der -> abajo izq)
-                    pts = sorted(pts, key=lambda p: (p[1], p[0]))
-                    top = sorted(pts[:2], key=lambda p: p[0])
-                    bottom = sorted(pts[2:], key=lambda p: p[0])
-                    ordered = [top[0], top[1], bottom[1], bottom[0]]
+                # Ordenar puntos (arriba izq -> arriba der -> abajo der -> abajo izq)
+                pts = sorted(pts, key=lambda p: (p[1], p[0]))
+                top = sorted(pts[:2], key=lambda p: p[0])
+                bottom = sorted(pts[2:], key=lambda p: p[0])
+                ordered = [top[0], top[1], bottom[1], bottom[0]]
 
-                    casillas.append(ordered)
-                
-                elif len(approx) == 3:
-                    pts = approx.reshape(3,2).tolist()
+                casillas.append(ordered)
+            
+            elif len(approx) == 3:
+                pts = approx.reshape(3,2).tolist()
 
-                    # Ordenar puntos (arriba izq -> arriba der -> abajo izq -> abajo der)
-                    pts = sorted(pts, key=lambda p: (p[1], p[0]))
-                    top = pts[0]
-                    bottom = sorted(pts[1:], key=lambda p: p[0])
-                    ordered = [top, bottom[0], bottom[1]]
+                # Ordenar puntos (arriba izq -> arriba der -> abajo izq -> abajo der)
+                pts = sorted(pts, key=lambda p: (p[1], p[0]))
+                top = pts[0]
+                bottom = sorted(pts[1:], key=lambda p: p[0])
+                ordered = [top, bottom[0], bottom[1]]
 
-                    casillas.append(ordered)
-            if len(casillas) != nCasillas:
-                break
-        return casillas
+                casillas.append(ordered)
+        if len(casillas) != nCasillas:
+            return casillas
 
-    def getCentro(casilla):
+    def getCentro(self, casilla):
         cx = int(sum([p[0] for p in casilla]) / len(casilla))
         cy = int(sum([p[1] for p in casilla]) / len(casilla))
         return (cx, cy)
 
-    def detectarCasillasColor(casillas, frame):
+    def detectarCasillasColor(self, casillas, frame):
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
         resultados = []
 
@@ -155,11 +153,12 @@ class NodoCamara:
             else:
                 color = "blanco"
 
-            resultados.append((getCentro(casilla), color))
+            resultados.append((self.getCentro(casilla), color))
+
         print(resultados)
         return resultados
 
-    def ordenarCasillas(casillas):
+    def ordenarCasillas(self, casillas):
         # Ordenar casillas por posición (de arriba a abajo, de izquierda a derecha)
         def centroide(casilla):
             cx = sum([p[0] for p in casilla]) / len(casilla)
@@ -173,16 +172,16 @@ class NodoCamara:
     # DISTANCIAS Y COORDENADAS REALES
     # -------------------------------------------
 
-    def tamanoPx(contorno):
+    def tamanoPx(self, contorno):
         x, y, w, h = cv2.boundingRect(contorno)
         return (w + h) / 2
 
 
-    def calcularFocal(dist_real_cm, lado_real_cm, lado_px):
+    def calcularFocal(self, dist_real_cm, lado_real_cm, lado_px):
         return (lado_px * dist_real_cm) / lado_real_cm
 
 
-    def coordenadasReales(cx, cy, cx0, cy0):
+    def coordenadasReales(self, cx, cy, cx0, cy0):
         X = (cx - cx0) * escala_cm_px
         Y = (cy - cy0) * escala_cm_px
         Z = 0
@@ -205,28 +204,42 @@ class NodoCamara:
         while True:
             frame = deepcopy(self.cv_image)
             
-            while success and not clicked:
+            while self.success and not clicked:
 
                 frame_copy = frame.copy()
                 ycrcb = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
 
                 # ------------------------------ TABLERO --------------------------------
-                casillas = detectarCasillas(frame_copy)
+                terminar = True
+                while terminar:
+                    casillas = self.detectarCasillas(frame_copy)
+                    if len(casillas) == nCasillas:
+                        terminar = False
+                    else:
+                        frame_copy += 1
+                    if frame_copy > 10:
+                        #Printear error
+                        #rospy.logwarn("No se pudieron detectar las 20 casillas en 10 frames")
+                        #self.server.set_aborted(text="No se pudo enviar correctamente")
+                        terminar = False
+                
                 if len(casillas) != nCasillas:
-                    result = frame.copy()
-                    
-                    for i, casilla in enumerate(casillas):
-                        pts = np.array(casilla, np.int32)
-                        cv2.polylines(result, [pts], True, (0,255,0), 2)
+                    break
+                
+                result = frame.copy()
+                
+                for i, casilla in enumerate(casillas):
+                    pts = np.array(casilla, np.int32)
+                    cv2.polylines(result, [pts], True, (0,255,0), 2)
 
-                        cx = int(sum([p[0] for p in casilla]) / 4)
-                        cy = int(sum([p[1] for p in casilla]) / 4)
-                        cv2.putText(result, str(i), (cx, cy),
-                                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
-                    
-                    casillas = ordenarCasillas(casillas)
-                    color = detectarCasillasColor(casillas, frame)
-                    print(color)
+                    cx = int(sum([p[0] for p in casilla]) / 4)
+                    cy = int(sum([p[1] for p in casilla]) / 4)
+                    cv2.putText(result, str(i), (cx, cy),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+                
+                casillas = self.ordenarCasillas(casillas)
+                color = self.detectarCasillasColor(casillas, frame)
+                print(color)
                 # ------------------------ CUBOS ROJO/VERDE/AZUL ------------------------
                 # Convertimos a HSV
                 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -320,15 +333,15 @@ class NodoCamara:
                 centro_B, cont_B = fichas["azul"]
 
                 if centro_R:
-                    idx = casillaPunto(centro_R, casillas)
+                    idx = self.casillaPunto(centro_R, casillas)
                     print("Rojo en casilla:", idx)
 
                 if centro_G:
-                    idx = casillaPunto(centro_G, casillas)
+                    idx = self.casillaPunto(centro_G, casillas)
                     print("Verde en casilla:", idx)
 
                 if centro_B:
-                    idx = casillaPunto(centro_B, casillas)
+                    idx = self.casillaPunto(centro_B, casillas)
                     print("Azul en casilla:", idx)
 
 
@@ -336,9 +349,9 @@ class NodoCamara:
 
                 # Solo calibramos una vez usando la ficha roja (la que primero aparezca)
                 if focal_px is None and cont_R is not None:
-                    lado_px = tamanoPx(cont_R)
+                    lado_px = self.tamanoPx(cont_R)
                     if lado_px != 0:
-                        focal_px = calcularFocal(40, Diametro_CM, lado_px)
+                        focal_px = self.calcularFocal(40, Diametro_CM, lado_px)
                         escala_cm_px = Diametro_CM / lado_px
 
 
@@ -346,32 +359,31 @@ class NodoCamara:
 
                     # ----------- ROJO -----------
                     if centro_R:
-                        XR, YR, ZR = coordenadasReales(*centro_R, centro_img[0], centro_img[1])
+                        XR, YR, ZR = self.coordenadasReales(*centro_R, self.centro_img[0], self.centro_img[1])
                         cv2.putText(result, f"({XR:.1f},{YR:.1f})",
                                     (centro_R[0]+10, centro_R[1]),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,0,255), 2)
 
                     # ----------- VERDE ----------
                     if centro_G:
-                        XG, YG, ZG = coordenadasReales(*centro_G, centro_img[0], centro_img[1])
+                        XG, YG, ZG = self.coordenadasReales(*centro_G, self.centro_img[0], self.centro_img[1])
                         cv2.putText(result, f"({XG:.1f},{YG:.1f})",
                                     (centro_G[0]+10, centro_G[1]),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
 
                     # ----------- AZUL -----------
                     if centro_B:
-                        XB, YB, ZB = coordenadasReales(*centro_B, centro_img[0], centro_img[1])
+                        XB, YB, ZB = self.coordenadasReales(*centro_B, self.centro_img[0], self.centro_img[1])
                         cv2.putText(result, f"({XB:.1f},{YB:.1f})",
                                     (centro_B[0]+10, centro_B[1]),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
 
             # -------------------------------------------------------------------
 
-
-               
-            
+            if len(casillas) != nCasillas:
+                break
             rospy.sleep(1)
     
-if __name__=="__main__":
+if __name__== "__main__":
     nodo = NodoCamara()
     nodo.run()

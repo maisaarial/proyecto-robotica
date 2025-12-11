@@ -101,6 +101,7 @@ def detectarCasillas(frame):
             ordered = [top, bottom[0], bottom[1]]
 
             casillas.append(ordered)
+
     if len(casillas) != nCasillas:
         return []
     return casillas
@@ -192,23 +193,32 @@ while success and not clicked:
     ycrcb = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
 
     # ------------------------------ TABLERO --------------------------------
-    casillas = detectarCasillas(frame_copy)
-    if len(casillas) != nCasillas:
-        result = frame.copy()
-        
-        for i, casilla in enumerate(casillas):
-            pts = np.array(casilla, np.int32)
-            cv2.polylines(result, [pts], True, (0,255,0), 2)
+    while (True):
+        casillas = detectarCasillas(frame_copy)
+        if len(casillas) == nCasillas:
+            break
+        else:
+            frame_copy += 1
+        if frame_copy >= 10:
+            #Printear error
+            #rospy.logwarn("No se pudieron detectar las 20 casillas en 10 frames")
+            #self.server.set_aborted(text="No se pudo enviar correctamente")  
+            break
+    result = frame.copy()
+    for i, casilla in enumerate(casillas):
+        pts = np.array(casilla, np.int32)
+        cv2.polylines(result, [pts], True, (0,255,0), 2)
 
-            cx = int(sum([p[0] for p in casilla]) / 4)
-            cy = int(sum([p[1] for p in casilla]) / 4)
-            cv2.putText(result, str(i), (cx, cy),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
-        
-        casillas = ordenarCasillas(casillas)
-        color = detectarCasillasColor(casillas, frame)
-        print(color)
-      # ------------------------ CUBOS ROJO/VERDE/AZUL ------------------------
+        cx = int(sum([p[0] for p in casilla]) / 4)
+        cy = int(sum([p[1] for p in casilla]) / 4)
+        cv2.putText(result, str(i), (cx, cy),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+    
+    casillas = ordenarCasillas(casillas)
+    color = detectarCasillasColor(casillas, frame)
+    print(color)
+
+    # ------------------------ CUBOS ROJO/VERDE/AZUL ------------------------
     # Convertimos a HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
