@@ -391,6 +391,9 @@ catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/noetic/share/cpp_common/cmake
 
+//The directory containing a CMake configuration file for geometry_msgs.
+geometry_msgs_DIR:PATH=/opt/ros/noetic/share/geometry_msgs/cmake
+
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/home/laboratorio/ros_workspace/build/ros_python_pkg/gtest/googlemock
 
@@ -447,7 +450,7 @@ message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
 ros_python_pkg_BINARY_DIR:STATIC=/home/laboratorio/ros_workspace/build/ros_python_pkg
 
 //Value Computed by CMake
-ros_python_pkg_SOURCE_DIR:STATIC=/home/laboratorio/ros_workspace/src/ros_python_pkg-main
+ros_python_pkg_SOURCE_DIR:STATIC=/home/laboratorio/ros_workspace/src/detector_tablero
 
 //The directory containing a CMake configuration file for roscpp_serialization.
 roscpp_serialization_DIR:PATH=/opt/ros/noetic/share/roscpp_serialization/cmake
@@ -560,7 +563,7 @@ CMAKE_HAVE_PTHREAD_CREATE:INTERNAL=1
 CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/laboratorio/ros_workspace/src/ros_python_pkg-main
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/laboratorio/ros_workspace/src/detector_tablero
 //ADVANCED property for variable: CMAKE_INSTALL_BINDIR
 CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_INSTALL_DATADIR

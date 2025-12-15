@@ -5,4 +5,4 @@ Description: Description of ros_python_pkg
 Version: 0.0.0
 Cflags: 
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: message_runtime

@@ -1,4 +1,4 @@
-# Install script for directory: /home/laboratorio/ros_workspace/src/ros_python_pkg-main
+# Install script for directory: /home/laboratorio/ros_workspace/src/detector_tablero
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -159,13 +159,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_python_pkg" TYPE FILE FILES "/home/laboratorio/ros_workspace/src/ros_python_pkg-main/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_python_pkg" TYPE FILE FILES "/home/laboratorio/ros_workspace/src/detector_tablero/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros_python_pkg" TYPE PROGRAM FILES
-    "/home/laboratorio/ros_workspace/src/ros_python_pkg-main/scripts/*"
-    "/home/laboratorio/ros_workspace/src/ros_python_pkg-main/nodes/*"
+    "/home/laboratorio/ros_workspace/src/detector_tablero/scripts/*"
+    "/home/laboratorio/ros_workspace/src/detector_tablero/nodes/*"
     )
 endif()
 

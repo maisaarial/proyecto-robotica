@@ -43,7 +43,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/laboratorio/ros_workspace/src/ros_python_pkg-main
+CMAKE_SOURCE_DIR = /home/laboratorio/ros_workspace/src/detector_tablero
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/laboratorio/ros_workspace/build/ros_python_pkg
@@ -94,6 +94,6 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/clean
 
 gtest/googlemock/CMakeFiles/gmock.dir/depend:
-	cd /home/laboratorio/ros_workspace/build/ros_python_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/laboratorio/ros_workspace/src/ros_python_pkg-main /usr/src/googletest/googlemock /home/laboratorio/ros_workspace/build/ros_python_pkg /home/laboratorio/ros_workspace/build/ros_python_pkg/gtest/googlemock /home/laboratorio/ros_workspace/build/ros_python_pkg/gtest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/laboratorio/ros_workspace/build/ros_python_pkg && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/laboratorio/ros_workspace/src/detector_tablero /usr/src/googletest/googlemock /home/laboratorio/ros_workspace/build/ros_python_pkg /home/laboratorio/ros_workspace/build/ros_python_pkg/gtest/googlemock /home/laboratorio/ros_workspace/build/ros_python_pkg/gtest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/depend
 

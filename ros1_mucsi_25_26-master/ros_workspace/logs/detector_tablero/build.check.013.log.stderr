@@ -1,0 +1,14 @@
+[31m[1mCMake Error[0m at /home/laboratorio/ros_workspace/build/detector_tablero/cmake/detector_tablero-genmsg.cmake:3 (message):
+  Could not find messages which
+  '/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg'
+  depends on.  Did you forget to specify generate_messages(DEPENDENCIES ...)?
+
+  Cannot locate message [pose] in package [detector_tablero] with paths
+  [['/home/laboratorio/ros_workspace/src/detector_tablero/msg',
+  '/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg']]
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake:307 (include)
+  CMakeLists.txt:33 (generate_messages)
+
+
+make: *** [Makefile:460: cmake_check_build_system] Error 1

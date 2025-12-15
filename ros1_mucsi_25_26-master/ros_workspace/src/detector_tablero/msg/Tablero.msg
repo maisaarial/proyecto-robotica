@@ -1,2 +1,2 @@
-String[] colores
-Pose[] casillas
+string[] colores
+geometry_msgs/Pose casillas

@@ -48,7 +48,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/laboratorio/ros_workspace/src/ros_python_pkg-main
+CMAKE_SOURCE_DIR = /home/laboratorio/ros_workspace/src/detector_tablero
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/laboratorio/ros_workspace/build/ros_python_pkg

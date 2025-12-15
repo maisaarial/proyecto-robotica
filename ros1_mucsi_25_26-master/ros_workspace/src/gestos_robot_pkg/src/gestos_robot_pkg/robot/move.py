@@ -1,78 +1,124 @@
-#!/usr/bin/env python3
-from gestos_robot_pkg.actions.request_gesture import GestureActionClient
-from gestos_robot_pkg.msg import Gesture
+#!/usr/bin/python3
+
+import sys
+import yaml
+import copy
 import rospy
-import actionlib
-import time
+from moveit_commander import MoveGroupCommander, RobotCommander, roscpp_initialize, PlanningSceneInterface
+import moveit_msgs.msg
+from math import pi, tau, dist, fabs, cos
+from std_msgs.msg import String
+from moveit_commander.conversions import pose_to_list
+from typing import List
+from geometry_msgs.msg import Pose, PoseStamped
+from control_msgs.msg import GripperCommandAction, GripperCommandGoal, GripperCommandResult
+from actionlib import SimpleActionClient
 
-class Robot_Command:
-    def __init__(self, gesture_server : GestureActionClient):
-        self.gesture_server = gesture_server
-        self.on = False
-        self.players = []
-        
-        rospy.Subscriber("/gestos/stream", Gesture, self.stream_callback)
+class ControlRobot:
+    def __init__(self) -> None:
+        roscpp_initialize(sys.argv)
+        rospy.init_node("control_robot", anonymous=True)
+        self.robot = RobotCommander()
+        self.scene = PlanningSceneInterface()
+        self.group_name = "robot"
+        self.move_group = MoveGroupCommander(self.group_name)
+        self.gripper_action_client = SimpleActionClient("rg2_action_server", GripperCommandAction)
+        self.añadir_suelo()
+
+    def articulaciones_actuales(self) -> list:
+        return self.move_group.get_current_joint_values()
     
-    def stream_callback(self, msg):
-        """Start or stop gesture detection loop."""
-        gesture_type = msg.type
-
-        if gesture_type == "Inicio (mano abierta)" and not self.on:
-            rospy.loginfo("[GESTURE-STREAM] >>> INICIO recibido. Comenzando escucha.")
-            self.on = True
-            self.players = self.set_up()
-
-        elif gesture_type == "Detener (parpadeo largo)" and self.on:
-            rospy.loginfo("[GESTURE-STREAM] >>> DETENER recibido. Terminando escucha.")
-            self.on = False
+    def mover_articulaciones(self, joint_goal: List[float], wait: bool= True) -> bool:
+        return self.move_group.go(joint_goal, wait=wait)
     
-    def set_up(self):
-        # Choose number of players 
-        num_player = 0
-        while num_player == 0:
-            rospy.loginfo("[SET-UP] >>> Elegir numero de jugadores :")
-            result = self.gesture_server.request_gesture()
-            print(f"result : {result}")
-            if result == "Ficha roja (0 dedos)" :
-                num_player = 1
-            elif result == "Ficha amarilla (1 dedo)" :
-                num_player = 2
-            elif result == "Ficha azul (rock)" :
-                num_player = 3
-            elif result == "Ficha verde (3 dedos)" :
-                num_player = 4
-            else :
-                rospy.loginfo("[SET-UP] >>> El gesto no es apropiado.")
-            time.sleep(2)
-                
-        rospy.loginfo(f"[SET-UP] >>> Juego inicializado : {num_player} jugador.es")
-        
-        #Choose colors of players 
-        fichas_disponibles = ["Ficha roja (0 dedos)", "Ficha amarilla (1 dedo)", 
-                              "Ficha azul (rock)","Ficha verde (3 dedos)"]
-        players = []
-        for i in range (num_player):
-            rospy.loginfo(f"[SET-UP] >>> Elegir el color del jugadore {i} :")
-            color = None
-            while color is None :
-                result = self.gesture_server.request_gesture()
-                if result in fichas_disponibles:
-                    color = result
-                    fichas_disponibles.remove(result)
-                else : 
-                    rospy.loginfo(f"[SET-UP] >>> El gesto no es apropiado :")
-                    rospy.loginfo(f"[SET-UP] >>> Elegir el color del jugadore {i} :")
-                time.sleep(2)
-            players.append(color)
-        return players
+    def pose_actual(self) -> Pose:
+        return self.move_group.get_current_pose().pose
+    
+    def pose_a_stamped(self, pose: Pose) -> PoseStamped:
+        pose_stamped = PoseStamped()
+        pose_stamped.header.frame_id = "base_link"
+        pose_stamped.pose = pose
+        return pose_stamped
+    
+    def mover_a_pose(self, pose_goal: Pose, wait: bool=True) -> bool:
+        self.move_group.set_pose_target(pose_goal)
+        return self.move_group.go(wait=wait)
+    
+    def añadir_caja_a_escena_de_planificacion(self, pose_caja: Pose, name: str,
+                                  tamaño: tuple = (.1,.1,.1)) -> None:
+        box_pose = PoseStamped()
+        box_pose.header.frame_id = "base_link"
+        box_pose.pose = pose_caja
+        box_name = name
+        self.scene.add_box(box_name, box_pose, size=tamaño)
+
+    def mover_trayectoria(self, poses: List[Pose], wait: bool = True) -> bool:
+        poses_aux = copy.deepcopy(poses)
+        poses_aux.insert(0, self.pose_actual())
             
-    
+        (plan, fraction) = self.move_group.compute_cartesian_path(poses_aux, 0.01)
 
-if __name__ == "__main__":
-    rospy.init_node("robot_command")
-    server = GestureActionClient()
-    client = Robot_Command(server)
-    # Example repeated calls
-    rospy.loginfo("[ROBOT-COMMAND] Node started, waiting for gestures...")
-    rospy.spin()
-    #client.spin()
+        if fraction != 1.0:
+            return False
+        
+        return self.move_group.execute(plan, wait=wait)
+
+    def añadir_suelo(self) -> None:
+        pose_suelo = Pose()
+        pose_suelo.position.z = -0.026
+        self.añadir_caja_a_escena_de_planificacion(pose_suelo,"suelo",(2,2,.05))
+        
+    def mover_pinza(self, anchura_dedos: float, fuerza: float) -> bool:
+        goal = GripperCommandGoal()
+        goal.command.position = anchura_dedos
+        goal.command.max_effort = fuerza
+        self.gripper_action_client.send_goal(goal)
+        self.gripper_action_client.wait_for_result()
+        result = self.gripper_action_client.get_result()
+        
+        return result.reached_goal
+
+if __name__ == '__main__':
+    # Crear el objeto de tipo robot
+    control = ControlRobot()
+    
+    pi_medios = pi/2
+    # Mover el robot a articulaciones iniciales
+    #pose_actual = control.pose_actual()
+    with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
+        home_joints = yaml.safe_load(f)
+    control.mover_articulaciones(home_joints)
+    #pose_actual = control.articulaciones_actuales()
+    #pose_actual.position.z -= 0.1
+    #control.mover_a_pose(pose_actual)
+    #control.mover_articulaciones([0,-pi_medios,-pi_medios,-pi_medios,pi_medios,0])
+    '''
+    # Mover el robot a una pose
+    pose_actual = control.pose_actual()
+    pose_actual.position.z -= 0.1
+    control.mover_a_pose(pose_actual)
+    
+    # Mover el efector final del robot en línea recta a través de varias poses
+    poses = [] # Lista de poses que va a recorrer
+    
+    # Pose 1
+    pose_actual = control.pose_actual()
+    pose_actual.position.z += 0.1
+    poses.append(copy.deepcopy(pose_actual))
+    
+    # Pose 2
+    pose_actual.position.y += 0.1
+    poses.append(copy.deepcopy(pose_actual))
+    
+    # Pose 3
+    pose_actual.position.x += 0.1
+    poses.append(copy.deepcopy(pose_actual))
+    
+    # Pose 4
+    pose_actual.position.x -= 0.1
+    pose_actual.position.y -= 0.1
+    pose_actual.position.z -= 0.1
+    poses.append(copy.deepcopy(pose_actual))
+    
+    control.mover_trayectoria(poses)
+    '''

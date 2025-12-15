@@ -67,7 +67,7 @@ set(ros_python_pkg_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ros_python_pkg_SOURCE_PREFIX /home/laboratorio/ros_workspace/src/ros_python_pkg-main)
+  set(ros_python_pkg_SOURCE_PREFIX /home/laboratorio/ros_workspace/src/detector_tablero)
   set(ros_python_pkg_DEVEL_PREFIX /home/laboratorio/ros_workspace/devel/.private/ros_python_pkg)
   set(ros_python_pkg_INSTALL_PREFIX "")
   set(ros_python_pkg_PREFIX ${ros_python_pkg_DEVEL_PREFIX})
@@ -187,7 +187,7 @@ foreach(t ${ros_python_pkg_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

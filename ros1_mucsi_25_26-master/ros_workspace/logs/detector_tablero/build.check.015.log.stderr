@@ -1,0 +1,5 @@
+[31m[1mCMake Error[0m at /home/laboratorio/ros_workspace/src/detector_tablero/CMakeLists.txt:18 (roslaunch_add_file_check):
+  Unknown CMake command "roslaunch_add_file_check".
+
+
+make: *** [Makefile:460: cmake_check_build_system] Error 1

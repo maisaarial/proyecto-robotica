@@ -13,7 +13,7 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/home/laboratorio/ros_workspace/src/ros_python_pkg-main"
+echo_and_run cd "/home/laboratorio/ros_workspace/src/detector_tablero"
 
 # ensure that Python install destination exists
 echo_and_run mkdir -p "$DESTDIR/home/laboratorio/ros_workspace/install/lib/python3/dist-packages"
@@ -25,7 +25,7 @@ echo_and_run /usr/bin/env \
     PYTHONPATH="/home/laboratorio/ros_workspace/install/lib/python3/dist-packages:/home/laboratorio/ros_workspace/build/ros_python_pkg/lib/python3/dist-packages:$PYTHONPATH" \
     CATKIN_BINARY_DIR="/home/laboratorio/ros_workspace/build/ros_python_pkg" \
     "/usr/bin/python3" \
-    "/home/laboratorio/ros_workspace/src/ros_python_pkg-main/setup.py" \
+    "/home/laboratorio/ros_workspace/src/detector_tablero/setup.py" \
      \
     build --build-base "/home/laboratorio/ros_workspace/build/ros_python_pkg" \
     install \

@@ -1,48 +1,65 @@
 cmake_minimum_required(VERSION 3.0.2)
+project(detector_tablero)
 
-# EDIT: name of package
-project(ros_python_pkg)
-
-# EDIT: list all <build_depend> and <depend> package dependencies
+###################################
+## Find catkin and dependencies
+###################################
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  message_generation
+  actionlib_msgs
   geometry_msgs
-  message_runtime
+  genmsg
 )
 
 catkin_python_setup()
 
-catkin_package(CATKIN_DEPENDS message_runtime)
+###################################
+## Declare messages and actions
+###################################
+add_message_files(
+  DIRECTORY msg
+  FILES
+    Tablero.msg
+)
 
+add_action_files(
+  DIRECTORY action
+  FILES
+    Casillas.action
+)
+
+generate_messages(
+  DEPENDENCIES
+    std_msgs
+    actionlib_msgs
+    geometry_msgs
+)
+
+###################################
+## Catkin package
+###################################
+catkin_package(
+  CATKIN_DEPENDS
+    message_runtime
+    std_msgs
+    actionlib_msgs
+    geometry_msgs
+)
+
+###################################
+## Include directories
+###################################
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-# EDIT: list all executable python and shell scripts for installation
+###################################
+## Install scripts
+###################################
 install(PROGRAMS
-   scripts/*
-   nodes/*
-   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  scripts/*
+  nodes/*
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
-
-## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
-#   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
-
-## Add message files
-#add_message_files(
-#  FILES
-#  Tablero.msg
-#)
-
-## Generate added messages
-#generate_messages(
-#  DEPENDENCIES
-#  std_msgs
-#  geometry_msgs
-#  actionlib_msgs
-#)

@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg

@@ -1,0 +1,8 @@
+prefix=/home/laboratorio/ros_workspace/install
+
+Name: detector_tablero
+Description: Description of detector_tablero
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime std_msgs actionlib_msgs geometry_msgs

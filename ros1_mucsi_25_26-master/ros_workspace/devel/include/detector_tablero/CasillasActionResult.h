@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasActionResult.h

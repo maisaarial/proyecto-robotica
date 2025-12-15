@@ -9,7 +9,8 @@
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/laboratorio/ros_workspace/devel/.private/ros_python_pkg:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/laboratorio/ros_workspace/devel/.private/ros_python_pkg/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/laboratorio/ros_workspace/devel/.private/ros_python_pkg/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/laboratorio/ros_workspace/build/ros_python_pkg'
 export PYTHONPATH="/home/laboratorio/ros_workspace/devel/.private/ros_python_pkg/lib/python3/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/laboratorio/ros_workspace/devel/.private/ros_python_pkg/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/laboratorio/ros_workspace/src/ros_python_pkg-main:$ROS_PACKAGE_PATH"
+export ROS_PACKAGE_PATH="/home/laboratorio/ros_workspace/src/ros_python_pkg-main:/home/laboratorio/ros_workspace/src/detector_tablero:$ROS_PACKAGE_PATH"

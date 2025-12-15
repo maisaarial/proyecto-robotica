@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/ros_python_pkg/lib/python3/dist-packages/detector_tablero/__init__.py

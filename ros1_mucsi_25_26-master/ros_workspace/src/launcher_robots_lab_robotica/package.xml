@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <!-- EDIT: Package name, version description -->
-  <name>ros_python_pkg</name>
+  <name>launcher_robots_lab_robotica</name>
   <version>0.0.0</version>
   <description>The ros_python_pkg package</description>
 

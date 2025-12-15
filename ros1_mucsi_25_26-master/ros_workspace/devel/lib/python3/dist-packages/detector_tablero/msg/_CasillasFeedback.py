@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_CasillasFeedback.py

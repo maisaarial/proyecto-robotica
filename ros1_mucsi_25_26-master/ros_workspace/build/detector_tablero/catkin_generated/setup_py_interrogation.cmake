@@ -1,0 +1,7 @@
+set(detector_tablero_SETUP_PY_SETUP_MODULE "distutils.core")
+set(detector_tablero_SETUP_PY_VERSION "0.0.0")
+set(detector_tablero_SETUP_PY_SCRIPTS "")
+set(detector_tablero_SETUP_PY_PACKAGES "detector_tablero")
+set(detector_tablero_SETUP_PY_PACKAGE_DIRS "src/detector_tablero")
+set(detector_tablero_SETUP_PY_MODULES "")
+set(detector_tablero_SETUP_PY_MODULE_DIRS "")

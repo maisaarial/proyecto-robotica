@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package format="2">
   <!-- EDIT: Package name, version description -->
-  <name>ros_python_pkg</name>
+  <name>rg2_driver</name>
   <version>0.0.0</version>
-  <description>The ros_python_pkg package</description>
+  <description>The rg2_driver package</description>
 
   <!-- EDIT: Maintainer and author's name and email -->
   <maintainer email="daniel.kennedy.m1@gmail.com">Daniel Kennedy</maintainer>

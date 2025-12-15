@@ -1,0 +1,1 @@
+from detector_tablero.util.config_utils import *

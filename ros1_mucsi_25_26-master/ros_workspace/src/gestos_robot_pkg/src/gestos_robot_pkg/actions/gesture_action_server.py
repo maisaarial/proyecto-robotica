@@ -39,14 +39,7 @@ class GestureActionServer:
     # Execute callback para gestos por petición (fichas)
     def execute_cb(self, goal):
         """Goal.gesture es el nombre del gesto a detectar (string)."""
-        target = getattr(goal, "gesture", None)
-        if not target:
-            rospy.logwarn("[GESTURE-AS] Goal sin 'gesture'. Abortando.")
-            res = GestoResult()
-            self._as.set_aborted(res)
-            return
-
-        rospy.loginfo(f"[GESTURE-AS] Goal recibido: detectar '{target}'")
+        rospy.loginfo(f"[GESTURE-AS] Goal recibido: detectar")
         start_time = time.time()
         timeout = 15.0  # segundos para intentar detectar
         feedback = GestoFeedback()
@@ -57,8 +50,8 @@ class GestureActionServer:
             # -------------------------
             # LECTURA DE CÁMARAS
             # -------------------------
-            ok_main, frame_main = self.video_main.read()
-            if not ok_main:
+            frame_main = self.video_main.read()
+            if frame_main is None:
                 print("[APP] No se pudo leer frame de la cámara principal.")
                 break
 
@@ -82,7 +75,7 @@ class GestureActionServer:
                     gesture = GestureEvent.FICHA_ROJA
                     gesture_label = "Ficha roja (0 dedos)"
                     detected = True
-                    result.type = target
+                    result.type = gesture_label
                     result.source = "mano"
                     result.fingers = int(dedos)
                     result.rock = False
@@ -91,7 +84,7 @@ class GestureActionServer:
                     gesture = GestureEvent.FICHA_AMARILLA
                     gesture_label = "Ficha amarilla (1 dedo)"
                     detected = True
-                    result.type = target
+                    result.type = gesture_label
                     result.source = "mano"
                     result.fingers = int(dedos)
                     result.rock = False
@@ -100,7 +93,7 @@ class GestureActionServer:
                     gesture = GestureEvent.FICHA_VERDE
                     gesture_label = "Ficha verde (3 dedos)"
                     detected = True
-                    result.type = target
+                    result.type = gesture_label
                     result.source = "mano"
                     result.fingers = int(dedos)
                     result.rock = False
@@ -108,9 +101,9 @@ class GestureActionServer:
 
             if es_rock_roi(roi_hand):
                 gesture = GestureEvent.FICHA_AZUL
-                gesture_label = "Ficha azul (🤘)"
+                gesture_label = "Ficha azul (rock)"
                 detected = True
-                result.type = target
+                result.type = gesture_label
                 result.source = "mano"
                 result.fingers = -1
                 result.rock = True
@@ -120,7 +113,7 @@ class GestureActionServer:
                 gesture = GestureEvent.TIRAR_DADO
                 gesture_label = "Tirar dado (pulgar arriba)"
                 detected = True
-                result.type = target
+                result.type = gesture_label
                 result.source = "mano"
                 result.fingers = -1
                 result.rock = False
@@ -132,25 +125,25 @@ class GestureActionServer:
                     gesture = GestureEvent.CONTINUAR
                     gesture_label = "Continuar (guiño)"
                     detected = True
-                    result.type = target
+                    result.type = gesture_label
                     result.source = "rostro"
                     result.fingers = -1
                     result.wink = True
                     result.rock = False
 
 
-            feedback.status = f"Buscando {target}"
+            feedback.status = f"Buscando"
             self._as.publish_feedback(feedback)
 
             if detected:
                 self._as.set_succeeded(result)
-                rospy.loginfo(f"[GESTURE-AS] '{target}' detectado.")
+                rospy.loginfo(f"[GESTURE-AS] detectado.")
                 return
 
             rospy.sleep(0.05)
 
         # timeout sin detección
-        rospy.logwarn(f"[GESTURE-AS] Timeout detectando '{target}'")
+        rospy.logwarn(f"[GESTURE-AS] Timeout detectando")
         self._as.set_aborted(result)
 
 if __name__ == "__main__":

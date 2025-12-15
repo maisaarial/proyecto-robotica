@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/Tablero.js

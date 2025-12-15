@@ -1,5 +1,5 @@
 # CMake generated Testfile for 
-# Source directory: /home/laboratorio/ros_workspace/src/ros_python_pkg-main
+# Source directory: /home/laboratorio/ros_workspace/src/detector_tablero
 # Build directory: /home/laboratorio/ros_workspace/build/ros_python_pkg
 # 
 # This file includes the relevant testing commands required for 

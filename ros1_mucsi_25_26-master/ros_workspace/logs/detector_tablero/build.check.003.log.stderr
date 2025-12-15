@@ -1,0 +1,17 @@
+[31m[1mCMake Error[0m at /home/laboratorio/ros_workspace/build/detector_tablero/cmake/detector_tablero-genmsg.cmake:3 (message):
+  Could not find messages which
+  '/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg'
+  depends on.  Did you forget to specify generate_messages(DEPENDENCIES ...)?
+
+  Cannot locate message [Tablero]: unknown package [msg] on search path
+  [{{'detector_tablero':
+  ['/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg',
+  '/home/laboratorio/ros_workspace/src/detector_tablero/msg'], 'std_msgs':
+  ['/opt/ros/noetic/share/std_msgs/cmake/../msg'], 'actionlib_msgs':
+  ['/opt/ros/noetic/share/actionlib_msgs/cmake/../msg']}}]
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/noetic/share/genmsg/cmake/genmsg-extras.cmake:307 (include)
+  CMakeLists.txt:28 (generate_messages)
+
+
+make: *** [Makefile:460: cmake_check_build_system] Error 1
