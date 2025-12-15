@@ -1,0 +1,10 @@
+<launch>
+  <!-- Cargar parámetros -->
+  <rosparam file="$(find your_package)/config/settings.yaml" command="load"/>
+
+  <!-- Nodo de cámara -->
+  <node pkg="your_package" type="nodo_camara.py" name="nodo_camara" output="screen"/>
+
+  <!-- Action Server -->
+  <node pkg="your_package" type="check_boxes_server.py" name="check_boxes_server" output="screen"/>
+</launch>

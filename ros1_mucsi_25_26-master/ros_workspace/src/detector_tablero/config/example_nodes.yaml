@@ -1,0 +1,10 @@
+detection:
+  required_boxes: 20
+  max_retry_frames: 10
+  min_area: 1500
+  camera_topic: "/usb_cam/image_raw"
+
+robot:
+  arm_topic: "/arm_controller/command"
+  gripper_topic: "/gripper_controller/command"
+

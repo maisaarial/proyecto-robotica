@@ -1,0 +1,2 @@
+String[] colores
+Pose[] casillas
