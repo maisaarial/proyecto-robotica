@@ -2,7 +2,8 @@
 ---
 
 # Result
-Tablero[] casillas
+#Tablero[] casillas
+Cell[] casillas
 ---
 
 # Feedback

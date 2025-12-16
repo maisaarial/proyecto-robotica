@@ -18,7 +18,7 @@ class DiceReadServer:
 
         # Suscripción a la cámara del dado
         self.video_dice = Video(
-            topic_name="/camera_dice/image_raw",  # Topic ROS de la cámara del dado
+            topic_name="/usb_cam/image_raw",  # Topic ROS de la cámara del dado
             config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
             section="dice_camera", 
             wait_timeout=3.0
@@ -58,8 +58,8 @@ class DiceReadServer:
                     pass
                 break
 
-            ok, frame = self.video_dice.read()
-            if not ok or frame is None:
+            frame = self.video_dice.read()
+            if frame is None:
                 rospy.sleep(0.03)
                 continue
 

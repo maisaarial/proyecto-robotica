@@ -15,6 +15,8 @@
    "CASILLASGOAL"
    "<CASILLASRESULT>"
    "CASILLASRESULT"
+   "<CELL>"
+   "CELL"
    "<TABLERO>"
    "TABLERO"
   ))

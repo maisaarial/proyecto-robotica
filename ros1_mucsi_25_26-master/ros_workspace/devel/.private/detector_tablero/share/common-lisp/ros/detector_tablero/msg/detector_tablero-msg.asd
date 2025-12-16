@@ -21,6 +21,8 @@
     (:file "_package_CasillasGoal" :depends-on ("_package"))
     (:file "CasillasResult" :depends-on ("_package_CasillasResult"))
     (:file "_package_CasillasResult" :depends-on ("_package"))
+    (:file "Cell" :depends-on ("_package_Cell"))
+    (:file "_package_Cell" :depends-on ("_package"))
     (:file "Tablero" :depends-on ("_package_Tablero"))
     (:file "_package_Tablero" :depends-on ("_package"))
   ))

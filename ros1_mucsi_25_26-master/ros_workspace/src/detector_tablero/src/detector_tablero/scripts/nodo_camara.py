@@ -217,8 +217,8 @@ class NodoCamara:
 
         frames_without_success = 0
         frame = deepcopy(self.cv_image)
-            
-        frame_copy = frame.copy()
+        display = frame.copy()
+
         ycrcb = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
 
         # ------------------------------ TABLERO --------------------------------
@@ -254,11 +254,11 @@ class NodoCamara:
         
         for i, casilla in enumerate(casillas):
             pts = np.array(casilla, np.int32)
-            cv2.polylines(result, [pts], True, (0,255,0), 2)
+            cv2.polylines(display, [pts], True, (0,255,0), 2)
 
             cx = int(sum([p[0] for p in casilla]) / 4)
             cy = int(sum([p[1] for p in casilla]) / 4)
-            cv2.putText(result, str(i), (cx, cy),
+            cv2.putText(display, str(i), (cx, cy),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
         
         casillas = self.ordenarCasillas(casillas)
@@ -267,7 +267,7 @@ class NodoCamara:
 
         # ------------------------ CUBOS ROJO/VERDE/AZUL ------------------------
         # Convertimos a HSV
-        hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+        hsv = cv2.cvtColor(display, cv2.COLOR_BGR2HSV)
 
         # Kernel para limpiar ruido
         kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5,5))
@@ -404,6 +404,9 @@ class NodoCamara:
                             cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255,0,0), 2)
 
             rospy.sleep(1)
+        cv2.imshow("Deteccion tablero y fichas", display)
+        cv2.waitKey(1)
+
     
 if __name__== "__main__":
     nodo = NodoCamara()
