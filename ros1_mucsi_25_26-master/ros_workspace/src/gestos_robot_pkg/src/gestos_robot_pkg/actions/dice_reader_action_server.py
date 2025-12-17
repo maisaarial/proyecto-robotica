@@ -13,7 +13,6 @@ class DiceReadServer:
     def __init__(self):
         # Inicializa nodo ROS
         rospy.init_node("dice_reader_action_server")
-
         rospy.loginfo("[DADO] Inicializando cámara del dado...")
 
         # Suscripción a la cámara del dado
@@ -88,5 +87,5 @@ class DiceReadServer:
         self.server.set_aborted(result)
 
 if __name__ == "__main__":
-    DiceReadServer()
+    client = DiceReadServer()
     rospy.spin()

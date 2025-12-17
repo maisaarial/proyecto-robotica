@@ -15,7 +15,7 @@ class TableroActionClient:
 
         # --- ACTION CLIENT SETUP ---
         rospy.loginfo("[GESTURE-CLIENT] Waiting for server...")
-        self.client = actionlib.SimpleActionClient('tablero', CasillasAction)
+        self.client = actionlib.SimpleActionClient('/tablero', CasillasAction)
         self.client.wait_for_server()
         rospy.loginfo("[GESTURE-CLIENT] Server connected.")
 
