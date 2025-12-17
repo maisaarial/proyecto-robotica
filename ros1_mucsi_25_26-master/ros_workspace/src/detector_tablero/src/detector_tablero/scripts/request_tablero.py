@@ -8,34 +8,16 @@ import time
 
 class TableroActionClient:
     def __init__(self):
-        rospy.init_node('gesture_client', anonymous=True)
-
-        # --- LIST TO STORE DETECTED GESTURES ---
-        self.on = False
+        #rospy.init_node('tablero_client', anonymous=True)
 
         # --- ACTION CLIENT SETUP ---
-        rospy.loginfo("[GESTURE-CLIENT] Waiting for server...")
-        self.client = actionlib.SimpleActionClient('/tablero', CasillasAction)
+        rospy.loginfo("[Casillas-CLIENT] Waiting for server...")
+        self.client = actionlib.SimpleActionClient('tablero', CasillasAction)
         self.client.wait_for_server()
-        rospy.loginfo("[GESTURE-CLIENT] Server connected.")
-
-        #rospy.Subscriber("/gestos/stream", Gesture, self.stream_callback)
-    """
-    def stream_callback(self, msg):
-        '''Start or stop gesture detection loop.'''
-        gesture_type = msg.type
-
-        if gesture_type == "Inicio (mano abierta)" and not self.on:
-            rospy.loginfo("[GESTURE-CLIENT] >>> INICIO recibido. Comenzando escucha.")
-            self.on = True
-
-        elif gesture_type == "Detener (parpadeo largo)" and self.on:
-            rospy.loginfo("[GESTURE-CLIENT] >>> DETENER recibido. Terminando escucha.")
-            self.on = False
-    """
+        rospy.loginfo("[Casillas-CLIENT] Server connected.")
     
     def request_tablero(self, modo=1):
-        """Send a gesture request and append the result to the list."""
+        """Send a request for pieces by default, for cells with modo = 0, return a list of Ficha.msg or a list of Cell.msg"""
         time.sleep(2)
         tablero = None
         goal = CasillasGoal()
@@ -50,14 +32,14 @@ class TableroActionClient:
                 rospy.loginfo(f"[Casillas-CLIENT] Detected: {result.casillas}")
                 tablero = result.casillas
             else:
-                rospy.logwarn("[Casillas-CLIENT] Tablero not detected (timeout or abort)")
+                rospy.logwarn("[Casillas-CLIENT] Cells not detected (timeout or abort)")
             return tablero
         elif modo == 1 :
             if result and result.fichas:
                 rospy.loginfo(f"[Casillas-CLIENT] Detected: {result.fichas}")
                 tablero = result.fichas
             else:
-                rospy.logwarn("[Casillas-CLIENT] Tablero not detected (timeout or abort)")
+                rospy.logwarn("[Casillas-CLIENT] Pieces not detected (timeout or abort)")
             return tablero
             
     

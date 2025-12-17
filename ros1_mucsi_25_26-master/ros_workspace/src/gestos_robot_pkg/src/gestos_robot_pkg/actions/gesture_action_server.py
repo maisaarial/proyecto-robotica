@@ -70,10 +70,10 @@ class GestureActionServer:
             if dedos is not None:
                 if dedos is not None and dedos >= 4:
                     gesture = GestureEvent.INICIO
-                    gesture_label = "Inicio (mano abierta)"
+                    gesture_label = "(mano abierta)"
                 elif dedos == 0:
                     gesture = GestureEvent.FICHA_ROJA
-                    gesture_label = "Ficha roja (0 dedos)"
+                    gesture_label = "(0 dedos)"
                     detected = True
                     result.type = gesture_label
                     result.source = "mano"
@@ -82,7 +82,7 @@ class GestureActionServer:
                     result.wink = False
                 elif dedos == 1:
                     gesture = GestureEvent.FICHA_AMARILLA
-                    gesture_label = "Ficha amarilla (1 dedo)"
+                    gesture_label = "(1 dedo)"
                     detected = True
                     result.type = gesture_label
                     result.source = "mano"
@@ -91,7 +91,7 @@ class GestureActionServer:
                     result.wink = False
                 elif dedos == 3:
                     gesture = GestureEvent.FICHA_VERDE
-                    gesture_label = "Ficha verde (3 dedos)"
+                    gesture_label = "(3 dedos)"
                     detected = True
                     result.type = gesture_label
                     result.source = "mano"
@@ -101,7 +101,7 @@ class GestureActionServer:
 
             if es_rock_roi(roi_hand):
                 gesture = GestureEvent.FICHA_AZUL
-                gesture_label = "Ficha azul (rock)"
+                gesture_label = "(rock)"
                 detected = True
                 result.type = gesture_label
                 result.source = "mano"
@@ -111,7 +111,7 @@ class GestureActionServer:
 
             if bbox_hand is not None and gesto_tirar_dado_roi(roi_hand, bbox_hand):
                 gesture = GestureEvent.TIRAR_DADO
-                gesture_label = "Tirar dado (pulgar arriba)"
+                gesture_label = "(pulgar arriba)"
                 detected = True
                 result.type = gesture_label
                 result.source = "mano"
@@ -123,7 +123,7 @@ class GestureActionServer:
                 gray_face = cv2.cvtColor(roi_face, cv2.COLOR_BGR2GRAY)
                 if es_guiño_roi(gray_face):
                     gesture = GestureEvent.CONTINUAR
-                    gesture_label = "Continuar (guiño)"
+                    gesture_label = "(guiño)"
                     detected = True
                     result.type = gesture_label
                     result.source = "rostro"

@@ -74,7 +74,6 @@ class ControlRobot:
         self.gripper_action_client.send_goal(goal)
         self.gripper_action_client.wait_for_result()
         result = self.gripper_action_client.get_result()
-        
         return result.reached_goal
 
 if __name__ == '__main__':
