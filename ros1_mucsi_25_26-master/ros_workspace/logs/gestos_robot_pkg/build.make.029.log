@@ -1,0 +1,60 @@
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_GestoResult
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_GestoFeedback
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_GestoGoal
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_DiceReadFeedback
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_GestoActionGoal
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_Gesture
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_GestoAction
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_DiceReadActionGoal
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_DiceReadActionResult
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_DiceReadAction
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_DiceReadActionFeedback
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_DiceReadGoal
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_DiceReadResult
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_GestoActionResult
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target _gestos_robot_pkg_generate_messages_check_deps_GestoActionFeedback
+[  0%] Built target actionlib_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  2%] [34m[1mGenerating Lisp code from gestos_robot_pkg/GestoAction.msg[0m
+[  5%] [34m[1mGenerating C++ code from gestos_robot_pkg/GestoAction.msg[0m
+[  3%] [34m[1mGenerating Python from MSG gestos_robot_pkg/GestoAction[0m
+[  5%] [34m[1mGenerating C++ code from gestos_robot_pkg/GestoActionGoal.msg[0m
+[  6%] [34m[1mGenerating C++ code from gestos_robot_pkg/GestoActionResult.msg[0m
+[  7%] [34m[1mGenerating Javascript code from gestos_robot_pkg/GestoAction.msg[0m
+[ 28%] Built target gestos_robot_pkg_generate_messages_eus
+[ 29%] [34m[1mGenerating Python from MSG gestos_robot_pkg/GestoActionGoal[0m
+[ 31%] [34m[1mGenerating Javascript code from gestos_robot_pkg/GestoActionGoal.msg[0m
+[ 32%] [34m[1mGenerating Javascript code from gestos_robot_pkg/GestoActionResult.msg[0m
+[ 33%] [34m[1mGenerating Lisp code from gestos_robot_pkg/GestoActionGoal.msg[0m
+[ 35%] [34m[1mGenerating Lisp code from gestos_robot_pkg/GestoActionResult.msg[0m
+[ 36%] [34m[1mGenerating Lisp code from gestos_robot_pkg/GestoActionFeedback.msg[0m
+[ 37%] [34m[1mGenerating Lisp code from gestos_robot_pkg/GestoGoal.msg[0m
+[ 40%] [34m[1mGenerating Javascript code from gestos_robot_pkg/GestoActionFeedback.msg[0m
+[ 40%] [34m[1mGenerating Lisp code from gestos_robot_pkg/GestoResult.msg[0m
+[ 41%] [34m[1mGenerating C++ code from gestos_robot_pkg/GestoActionFeedback.msg[0m
+[ 42%] [34m[1mGenerating Javascript code from gestos_robot_pkg/GestoGoal.msg[0m
+[ 44%] [34m[1mGenerating Javascript code from gestos_robot_pkg/GestoResult.msg[0m
+[ 45%] [34m[1mGenerating Javascript code from gestos_robot_pkg/GestoFeedback.msg[0m
+[ 46%] [34m[1mGenerating Lisp code from gestos_robot_pkg/GestoFeedback.msg[0m
+[ 48%] [34m[1mGenerating Python from MSG gestos_robot_pkg/GestoActionResult[0m
+[ 49%] [34m[1mGenerating C++ code from gestos_robot_pkg/GestoGoal.msg[0m
+[ 50%] [34m[1mGenerating Python from MSG gestos_robot_pkg/GestoActionFeedback[0m
+[ 51%] [34m[1mGenerating C++ code from gestos_robot_pkg/GestoResult.msg[0m
+[ 53%] [34m[1mGenerating C++ code from gestos_robot_pkg/GestoFeedback.msg[0m
+[ 54%] [34m[1mGenerating Python from MSG gestos_robot_pkg/GestoResult[0m
+[ 64%] Built target gestos_robot_pkg_generate_messages_nodejs
+[ 66%] [34m[1mGenerating Python from MSG gestos_robot_pkg/GestoGoal[0m
+[ 67%] [34m[1mGenerating Python from MSG gestos_robot_pkg/GestoFeedback[0m
+[ 77%] Built target gestos_robot_pkg_generate_messages_lisp
+[ 88%] Built target gestos_robot_pkg_generate_messages_cpp
+[ 89%] [34m[1mGenerating Python msg __init__.py for gestos_robot_pkg[0m
+[100%] Built target gestos_robot_pkg_generate_messages_py
+[100%] Built target gestos_robot_pkg_generate_messages

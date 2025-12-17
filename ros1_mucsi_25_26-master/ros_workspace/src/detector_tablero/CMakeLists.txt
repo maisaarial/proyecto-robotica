@@ -22,6 +22,7 @@ add_message_files(
   DIRECTORY msg
   FILES
     Tablero.msg
+    Cell.msg
 )
 
 add_action_files(

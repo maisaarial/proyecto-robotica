@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import rospy
 import actionlib
+import yaml
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Pose
@@ -47,15 +48,29 @@ class NodoCamara:
         )
         self.server.start()
 
-        self.aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
+        self.aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
         self.aruco_params = cv2.aruco.DetectorParameters()
         #From Calibration
+        yaml_file = "/home/laboratorio/ros_workspace/src/detector_tablero/config/camera_calibration.yaml"
+
+        with open(yaml_file, "r") as f:
+            cam_data = yaml.safe_load(f)
+
+        # Extract camera matrix K
+        K = cam_data['camera_matrix']['data']
+        K = cam_data['camera_matrix']['data']
+        fx = K[0]   # K[0,0]
+        fy = K[4]   # K[1,1]
+        cx = K[2]   # K[0,2]
+        cy = K[5]   # K[1,2]
         self.camera_matrix = np.array([
             [fx, 0, cx],
             [0, fy, cy],
             [0,  0,  1]
         ])
 
+        # Extract distortion coefficients D
+        k1, k2, p1, p2, k3 = cam_data['distortion_coefficients']['data']      
         self.dist_coeffs = np.array([k1, k2, p1, p2, k3])
 
         

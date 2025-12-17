@@ -19,7 +19,7 @@ add_custom_target(gestos_robot_pkg_generate_messages ALL)
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg" NAME_WE)
 add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg" "gestos_robot_pkg/DiceReadActionFeedback:gestos_robot_pkg/DiceReadActionGoal:std_msgs/Header:gestos_robot_pkg/DiceReadActionResult:gestos_robot_pkg/DiceReadGoal:gestos_robot_pkg/DiceReadResult:gestos_robot_pkg/DiceReadFeedback:actionlib_msgs/GoalID:actionlib_msgs/GoalStatus"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg" "gestos_robot_pkg/DiceReadResult:gestos_robot_pkg/DiceReadActionGoal:gestos_robot_pkg/DiceReadActionFeedback:actionlib_msgs/GoalID:std_msgs/Header:actionlib_msgs/GoalStatus:gestos_robot_pkg/DiceReadActionResult:gestos_robot_pkg/DiceReadFeedback:gestos_robot_pkg/DiceReadGoal"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg" NAME_WE)
@@ -29,12 +29,12 @@ add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg" NAME_WE)
 add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:std_msgs/Header:gestos_robot_pkg/DiceReadResult"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg" "actionlib_msgs/GoalID:gestos_robot_pkg/DiceReadResult:std_msgs/Header:actionlib_msgs/GoalStatus"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg" NAME_WE)
 add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:gestos_robot_pkg/DiceReadFeedback:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg" "actionlib_msgs/GoalID:std_msgs/Header:actionlib_msgs/GoalStatus:gestos_robot_pkg/DiceReadFeedback"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg" NAME_WE)
@@ -54,7 +54,7 @@ add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg" NAME_WE)
 add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg" "gestos_robot_pkg/GestoResult:gestos_robot_pkg/GestoActionResult:std_msgs/Header:gestos_robot_pkg/GestoGoal:gestos_robot_pkg/GestoActionGoal:gestos_robot_pkg/GestoActionFeedback:actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:gestos_robot_pkg/GestoFeedback"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg" "gestos_robot_pkg/GestoActionFeedback:gestos_robot_pkg/GestoGoal:gestos_robot_pkg/GestoActionGoal:actionlib_msgs/GoalID:gestos_robot_pkg/GestoResult:std_msgs/Header:actionlib_msgs/GoalStatus:gestos_robot_pkg/GestoFeedback:gestos_robot_pkg/GestoActionResult"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg" NAME_WE)
@@ -64,12 +64,12 @@ add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg" NAME_WE)
 add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:gestos_robot_pkg/GestoResult:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg" "actionlib_msgs/GoalID:std_msgs/Header:actionlib_msgs/GoalStatus:gestos_robot_pkg/GestoResult"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg" NAME_WE)
 add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:std_msgs/Header:gestos_robot_pkg/GestoFeedback"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "gestos_robot_pkg" "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg" "actionlib_msgs/GoalID:std_msgs/Header:actionlib_msgs/GoalStatus:gestos_robot_pkg/GestoFeedback"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg" NAME_WE)
@@ -101,7 +101,7 @@ add_custom_target(_gestos_robot_pkg_generate_messages_check_deps_${_filename}
 _generate_msg_cpp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_cpp(gestos_robot_pkg
@@ -113,13 +113,13 @@ _generate_msg_cpp(gestos_robot_pkg
 _generate_msg_cpp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_cpp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_cpp(gestos_robot_pkg
@@ -143,7 +143,7 @@ _generate_msg_cpp(gestos_robot_pkg
 _generate_msg_cpp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_cpp(gestos_robot_pkg
@@ -155,13 +155,13 @@ _generate_msg_cpp(gestos_robot_pkg
 _generate_msg_cpp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_cpp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_cpp(gestos_robot_pkg
@@ -246,7 +246,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS gestos_robot_pkg_generate_messages_
 _generate_msg_eus(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_eus(gestos_robot_pkg
@@ -258,13 +258,13 @@ _generate_msg_eus(gestos_robot_pkg
 _generate_msg_eus(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_eus(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_eus(gestos_robot_pkg
@@ -288,7 +288,7 @@ _generate_msg_eus(gestos_robot_pkg
 _generate_msg_eus(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_eus(gestos_robot_pkg
@@ -300,13 +300,13 @@ _generate_msg_eus(gestos_robot_pkg
 _generate_msg_eus(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_eus(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_eus(gestos_robot_pkg
@@ -391,7 +391,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS gestos_robot_pkg_generate_messages_
 _generate_msg_lisp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_lisp(gestos_robot_pkg
@@ -403,13 +403,13 @@ _generate_msg_lisp(gestos_robot_pkg
 _generate_msg_lisp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_lisp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_lisp(gestos_robot_pkg
@@ -433,7 +433,7 @@ _generate_msg_lisp(gestos_robot_pkg
 _generate_msg_lisp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_lisp(gestos_robot_pkg
@@ -445,13 +445,13 @@ _generate_msg_lisp(gestos_robot_pkg
 _generate_msg_lisp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_lisp(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_lisp(gestos_robot_pkg
@@ -536,7 +536,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS gestos_robot_pkg_generate_messages_
 _generate_msg_nodejs(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_nodejs(gestos_robot_pkg
@@ -548,13 +548,13 @@ _generate_msg_nodejs(gestos_robot_pkg
 _generate_msg_nodejs(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_nodejs(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_nodejs(gestos_robot_pkg
@@ -578,7 +578,7 @@ _generate_msg_nodejs(gestos_robot_pkg
 _generate_msg_nodejs(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_nodejs(gestos_robot_pkg
@@ -590,13 +590,13 @@ _generate_msg_nodejs(gestos_robot_pkg
 _generate_msg_nodejs(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_nodejs(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_nodejs(gestos_robot_pkg
@@ -681,7 +681,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS gestos_robot_pkg_generate_messages_
 _generate_msg_py(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_py(gestos_robot_pkg
@@ -693,13 +693,13 @@ _generate_msg_py(gestos_robot_pkg
 _generate_msg_py(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_py(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_py(gestos_robot_pkg
@@ -723,7 +723,7 @@ _generate_msg_py(gestos_robot_pkg
 _generate_msg_py(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_py(gestos_robot_pkg
@@ -735,13 +735,13 @@ _generate_msg_py(gestos_robot_pkg
 _generate_msg_py(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_py(gestos_robot_pkg
   "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/gestos_robot_pkg
 )
 _generate_msg_py(gestos_robot_pkg

@@ -4,7 +4,7 @@ rosrun usb_cam usb_cam_node _video_device:=/dev/video0 _image_width:=640 _image_
 ##
 sudo apt-get install ros-noetic-camera-calibration
 
-rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.025 image:=/camera/image_raw camera:=/camera/camera_info
+rosrun camera_calibration cameracalibrator.py --size 4x4 --square 0.032 image:=/usb_cam/image_raw camera:=/usb_cam
 [size : nombre de carrés du ckerboard, square : longueur d'un coté en m]
 
 Après bouger le checkerboard en droit gauche, haut bas, profondeur, rotation tilt....

@@ -1,0 +1,1 @@
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/Cell.lisp

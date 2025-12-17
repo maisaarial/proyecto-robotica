@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasFeedback.h"
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasGoal.h"
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasResult.h"
+  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/Cell.h"
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/Tablero.h"
   "CMakeFiles/detector_tablero_generate_messages_cpp"
 )
