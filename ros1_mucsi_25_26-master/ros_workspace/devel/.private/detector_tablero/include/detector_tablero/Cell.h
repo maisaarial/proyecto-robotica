@@ -25,12 +25,12 @@ struct Cell_
   typedef Cell_<ContainerAllocator> Type;
 
   Cell_()
-    : idx()
+    : idx(0)
     , color()
     , pose()  {
     }
   Cell_(const ContainerAllocator& _alloc)
-    : idx(_alloc)
+    : idx(0)
     , color(_alloc)
     , pose(_alloc)  {
   (void)_alloc;
@@ -38,7 +38,7 @@ struct Cell_
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _idx_type;
+   typedef uint8_t _idx_type;
   _idx_type idx;
 
    typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _color_type;
@@ -135,12 +135,12 @@ struct MD5Sum< ::detector_tablero::Cell_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "6ff0b5688a4dc590464614af933c2f7d";
+    return "2776f6bc14bdac6c57654b95a8767244";
   }
 
   static const char* value(const ::detector_tablero::Cell_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x6ff0b5688a4dc590ULL;
-  static const uint64_t static_value2 = 0x464614af933c2f7dULL;
+  static const uint64_t static_value1 = 0x2776f6bc14bdac6cULL;
+  static const uint64_t static_value2 = 0x57654b95a8767244ULL;
 };
 
 template<class ContainerAllocator>
@@ -159,7 +159,7 @@ struct Definition< ::detector_tablero::Cell_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "string idx\n"
+    return "uint8 idx\n"
 "string color\n"
 "geometry_msgs/Pose pose\n"
 "================================================================================\n"
@@ -225,7 +225,7 @@ struct Printer< ::detector_tablero::Cell_<ContainerAllocator> >
     if (false || !indent.empty())
       s << std::endl;
     s << indent << "idx: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.idx);
+    Printer<uint8_t>::stream(s, indent + "  ", v.idx);
     if (true || !indent.empty())
       s << std::endl;
     s << indent << "color: ";

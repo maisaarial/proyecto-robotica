@@ -1,2 +1,4 @@
 (cl:in-package detector_tablero-msg)
-(cl:export '())
+(cl:export '(MODO-VAL
+          MODO
+))

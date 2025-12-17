@@ -28,7 +28,7 @@ class Cell {
         this.idx = initObj.idx
       }
       else {
-        this.idx = '';
+        this.idx = 0;
       }
       if (initObj.hasOwnProperty('color')) {
         this.color = initObj.color
@@ -48,7 +48,7 @@ class Cell {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type Cell
     // Serialize message field [idx]
-    bufferOffset = _serializer.string(obj.idx, buffer, bufferOffset);
+    bufferOffset = _serializer.uint8(obj.idx, buffer, bufferOffset);
     // Serialize message field [color]
     bufferOffset = _serializer.string(obj.color, buffer, bufferOffset);
     // Serialize message field [pose]
@@ -61,7 +61,7 @@ class Cell {
     let len;
     let data = new Cell(null);
     // Deserialize message field [idx]
-    data.idx = _deserializer.string(buffer, bufferOffset);
+    data.idx = _deserializer.uint8(buffer, bufferOffset);
     // Deserialize message field [color]
     data.color = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [pose]
@@ -71,9 +71,8 @@ class Cell {
 
   static getMessageSize(object) {
     let length = 0;
-    length += _getByteLength(object.idx);
     length += _getByteLength(object.color);
-    return length + 64;
+    return length + 61;
   }
 
   static datatype() {
@@ -83,13 +82,13 @@ class Cell {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '6ff0b5688a4dc590464614af933c2f7d';
+    return '2776f6bc14bdac6c57654b95a8767244';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    string idx
+    uint8 idx
     string color
     geometry_msgs/Pose pose
     ================================================================================
@@ -127,7 +126,7 @@ class Cell {
       resolved.idx = msg.idx;
     }
     else {
-      resolved.idx = ''
+      resolved.idx = 0
     }
 
     if (msg.color !== undefined) {

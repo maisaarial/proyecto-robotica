@@ -7,7 +7,7 @@ file(REMOVE_RECURSE
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_CasillasGoal.py"
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_CasillasResult.py"
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_Cell.py"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_Tablero.py"
+  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_Ficha.py"
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/__init__.py"
   "CMakeFiles/detector_tablero_generate_messages_py"
 )

@@ -4,6 +4,7 @@ detector_tablero
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/CasillasGoal.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/CasillasGoal.js
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/Cell.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/Cell.js
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/CasillasResult.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/CasillasResult.js
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/Ficha.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/Ficha.js
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/CasillasActionGoal.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/CasillasActionGoal.js
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/CasillasFeedback.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/CasillasFeedback.js
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/CasillasActionFeedback.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/CasillasActionFeedback.js
@@ -11,6 +12,7 @@ detector_tablero
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/Tablero.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/Tablero.js
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/gennodejs/ros/detector_tablero/msg/_index.js /home/laboratorio/ros_workspace/devel/share/gennodejs/ros/detector_tablero/msg/_index.js
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/manifest.l /home/laboratorio/ros_workspace/devel/share/roseus/ros/detector_tablero/manifest.l
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/Ficha.l /home/laboratorio/ros_workspace/devel/share/roseus/ros/detector_tablero/msg/Ficha.l
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/CasillasActionResult.l /home/laboratorio/ros_workspace/devel/share/roseus/ros/detector_tablero/msg/CasillasActionResult.l
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/Cell.l /home/laboratorio/ros_workspace/devel/share/roseus/ros/detector_tablero/msg/Cell.l
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/CasillasActionGoal.l /home/laboratorio/ros_workspace/devel/share/roseus/ros/detector_tablero/msg/CasillasActionGoal.l
@@ -21,6 +23,7 @@ detector_tablero
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/Tablero.l /home/laboratorio/ros_workspace/devel/share/roseus/ros/detector_tablero/msg/Tablero.l
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/CasillasActionFeedback.l /home/laboratorio/ros_workspace/devel/share/roseus/ros/detector_tablero/msg/CasillasActionFeedback.l
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/CasillasResult.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/CasillasResult.lisp
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/Ficha.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/Ficha.lisp
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/Tablero.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/Tablero.lisp
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/_package_CasillasActionGoal.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/_package_CasillasActionGoal.lisp
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/_package_CasillasResult.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/_package_CasillasResult.lisp
@@ -34,6 +37,7 @@ detector_tablero
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/detector_tablero-msg.asd /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/detector_tablero-msg.asd
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/Cell.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/Cell.lisp
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/_package_CasillasFeedback.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/_package_CasillasFeedback.lisp
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/_package_Ficha.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/_package_Ficha.lisp
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/CasillasActionResult.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/CasillasActionResult.lisp
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/CasillasFeedback.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/CasillasFeedback.lisp
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/common-lisp/ros/detector_tablero/msg/_package_CasillasAction.lisp /home/laboratorio/ros_workspace/devel/share/common-lisp/ros/detector_tablero/msg/_package_CasillasAction.lisp
@@ -61,6 +65,7 @@ detector_tablero
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_Tablero.py /home/laboratorio/ros_workspace/devel/lib/python3/dist-packages/detector_tablero/msg/_Tablero.py
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_CasillasAction.py /home/laboratorio/ros_workspace/devel/lib/python3/dist-packages/detector_tablero/msg/_CasillasAction.py
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_CasillasActionFeedback.py /home/laboratorio/ros_workspace/devel/lib/python3/dist-packages/detector_tablero/msg/_CasillasActionFeedback.py
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_Ficha.py /home/laboratorio/ros_workspace/devel/lib/python3/dist-packages/detector_tablero/msg/_Ficha.py
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/python3/dist-packages/detector_tablero/msg/_CasillasActionResult.py /home/laboratorio/ros_workspace/devel/lib/python3/dist-packages/detector_tablero/msg/_CasillasActionResult.py
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/lib/pkgconfig/detector_tablero.pc /home/laboratorio/ros_workspace/devel/lib/pkgconfig/detector_tablero.pc
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasActionFeedback.h /home/laboratorio/ros_workspace/devel/include/detector_tablero/CasillasActionFeedback.h
@@ -70,5 +75,6 @@ detector_tablero
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/Cell.h /home/laboratorio/ros_workspace/devel/include/detector_tablero/Cell.h
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasFeedback.h /home/laboratorio/ros_workspace/devel/include/detector_tablero/CasillasFeedback.h
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasAction.h /home/laboratorio/ros_workspace/devel/include/detector_tablero/CasillasAction.h
+/home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/Ficha.h /home/laboratorio/ros_workspace/devel/include/detector_tablero/Ficha.h
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasResult.h /home/laboratorio/ros_workspace/devel/include/detector_tablero/CasillasResult.h
 /home/laboratorio/ros_workspace/devel/.private/detector_tablero/include/detector_tablero/CasillasGoal.h /home/laboratorio/ros_workspace/devel/include/detector_tablero/CasillasGoal.h

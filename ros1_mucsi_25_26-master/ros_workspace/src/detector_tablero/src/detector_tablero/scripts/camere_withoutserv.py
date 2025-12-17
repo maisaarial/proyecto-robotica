@@ -268,6 +268,7 @@ class NodoCamara:
             colors = {"rojo":(0,0,255), "verde":(0,255,0), "azul":(255,0,0)}
             for color, (centro, _) in fichas.items():
                 if centro:
+                    #cambiar a pose
                     x, y, z = self.piezaPixelToAruco(centro[0], centro[1], rvec, tvec)
                     self.fichas_coord[color] = {"position" : [x,y,z]}
                     #print(f"{color}: x={x:.2f} cm, y={y:.2f} cm")

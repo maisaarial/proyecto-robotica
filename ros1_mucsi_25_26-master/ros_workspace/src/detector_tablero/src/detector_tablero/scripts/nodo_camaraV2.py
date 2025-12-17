@@ -72,6 +72,8 @@ class NodoCamara:
         # Extract distortion coefficients D
         k1, k2, p1, p2, k3 = cam_data['distortion_coefficients']['data']      
         self.dist_coeffs = np.array([k1, k2, p1, p2, k3])
+        
+        self.casillas = None
 
         
         

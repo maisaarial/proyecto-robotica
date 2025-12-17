@@ -15,7 +15,7 @@ class TableroActionClient:
 
         # --- ACTION CLIENT SETUP ---
         rospy.loginfo("[GESTURE-CLIENT] Waiting for server...")
-        self.client = actionlib.SimpleActionClient('casillas', CasillasAction)
+        self.client = actionlib.SimpleActionClient('tablero', CasillasAction)
         self.client.wait_for_server()
         rospy.loginfo("[GESTURE-CLIENT] Server connected.")
 
@@ -34,26 +34,36 @@ class TableroActionClient:
             self.on = False
     """
     
-    def request_tablero(self):
+    def request_tablero(self, modo=1):
         """Send a gesture request and append the result to the list."""
         time.sleep(2)
         tablero = None
         goal = CasillasGoal()
+        goal.modo = modo
         rospy.loginfo(f"[Casillas-CLIENT] Sending request")
         self.client.send_goal(goal)
         self.client.wait_for_result()
 
         result = self.client.get_result()
-
-        if result and result.casillas:
-            rospy.loginfo(f"[Casillas-CLIENT] Detected: {result.casillas}")
-            tablero = result.casillas
-        else:
-            rospy.logwarn("[Casillas-CLIENT] Gesture not detected (timeout or abort)")
-        return tablero
+        if modo == 0 :
+            if result and result.casillas:
+                rospy.loginfo(f"[Casillas-CLIENT] Detected: {result.casillas}")
+                tablero = result.casillas
+            else:
+                rospy.logwarn("[Casillas-CLIENT] Tablero not detected (timeout or abort)")
+            return tablero
+        elif modo == 1 :
+            if result and result.fichas:
+                rospy.loginfo(f"[Casillas-CLIENT] Detected: {result.fichas}")
+                tablero = result.fichas
+            else:
+                rospy.logwarn("[Casillas-CLIENT] Tablero not detected (timeout or abort)")
+            return tablero
+            
     
     def run(self):
         rate = rospy.Rate(0.2)   # 2 Hz = call server max every 0.5 seconds
+        res = self.request_tablero(modo = 0)
         while not rospy.is_shutdown():
             res = self.request_tablero()
             rate.sleep()

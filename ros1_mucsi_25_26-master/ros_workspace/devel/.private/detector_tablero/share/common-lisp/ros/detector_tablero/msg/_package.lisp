@@ -17,7 +17,7 @@
    "CASILLASRESULT"
    "<CELL>"
    "CELL"
-   "<TABLERO>"
-   "TABLERO"
+   "<FICHA>"
+   "FICHA"
   ))
 

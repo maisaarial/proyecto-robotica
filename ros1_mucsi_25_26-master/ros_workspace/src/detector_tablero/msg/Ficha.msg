@@ -1,0 +1,3 @@
+string color
+int32 idx
+geometry_msgs/Pose pose

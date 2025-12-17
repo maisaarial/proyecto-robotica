@@ -8,7 +8,7 @@ file(REMOVE_RECURSE
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/CasillasGoal.l"
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/CasillasResult.l"
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/Cell.l"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/Tablero.l"
+  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/roseus/ros/detector_tablero/msg/Ficha.l"
   "CMakeFiles/detector_tablero_generate_messages_eus"
 )
 

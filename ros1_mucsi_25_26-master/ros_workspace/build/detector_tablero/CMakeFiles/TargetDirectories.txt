@@ -9,6 +9,7 @@
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/detector_tablero_gencpp.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasFeedback.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
+/home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/detector_tablero_genlisp.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/std_msgs_generate_messages_lisp.dir
@@ -36,10 +37,9 @@
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/detector_tablero_generate_messages_lisp.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/geometry_msgs_generate_messages_eus.dir
+/home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/geometry_msgs_generate_messages_py.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/detector_tablero_generate_messages.dir
-/home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
-/home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionGoal.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/install/strip.dir
 /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionResult.dir

@@ -17,34 +17,34 @@ add_custom_target(detector_tablero_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg" NAME_WE)
-add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg" "geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/Quaternion"
-)
-
 get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg" NAME_WE)
 add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg" "geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/Quaternion"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg" "geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/Pose"
+)
+
+get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg" NAME_WE)
+add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg" "geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/Pose"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg" NAME_WE)
 add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg" "detector_tablero/CasillasActionResult:detector_tablero/CasillasActionFeedback:actionlib_msgs/GoalID:detector_tablero/Cell:geometry_msgs/Pose:detector_tablero/CasillasGoal:actionlib_msgs/GoalStatus:geometry_msgs/Point:geometry_msgs/Quaternion:detector_tablero/CasillasActionGoal:std_msgs/Header:detector_tablero/CasillasFeedback:detector_tablero/CasillasResult"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg" "detector_tablero/CasillasActionGoal:std_msgs/Header:geometry_msgs/Pose:actionlib_msgs/GoalID:geometry_msgs/Quaternion:actionlib_msgs/GoalStatus:detector_tablero/Ficha:detector_tablero/CasillasFeedback:detector_tablero/CasillasResult:detector_tablero/CasillasActionResult:detector_tablero/Cell:geometry_msgs/Point:detector_tablero/CasillasGoal:detector_tablero/CasillasActionFeedback"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg" NAME_WE)
 add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg" "detector_tablero/CasillasGoal:actionlib_msgs/GoalID:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg" "std_msgs/Header:actionlib_msgs/GoalID:detector_tablero/CasillasGoal"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg" NAME_WE)
 add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg" "actionlib_msgs/GoalID:detector_tablero/Cell:geometry_msgs/Pose:actionlib_msgs/GoalStatus:geometry_msgs/Point:geometry_msgs/Quaternion:std_msgs/Header:detector_tablero/CasillasResult"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg" "std_msgs/Header:geometry_msgs/Pose:actionlib_msgs/GoalID:geometry_msgs/Quaternion:actionlib_msgs/GoalStatus:detector_tablero/Ficha:detector_tablero/CasillasResult:detector_tablero/Cell:geometry_msgs/Point"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg" NAME_WE)
 add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg" "actionlib_msgs/GoalStatus:detector_tablero/CasillasFeedback:actionlib_msgs/GoalID:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg" "std_msgs/Header:actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:detector_tablero/CasillasFeedback"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg" NAME_WE)
@@ -54,7 +54,7 @@ add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg" NAME_WE)
 add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg" "geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/Quaternion:detector_tablero/Cell"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "detector_tablero" "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg" "geometry_msgs/Pose:geometry_msgs/Quaternion:detector_tablero/Ficha:detector_tablero/Cell:geometry_msgs/Point"
 )
 
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg" NAME_WE)
@@ -69,39 +69,39 @@ add_custom_target(_detector_tablero_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_cpp(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_cpp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_cpp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_cpp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_cpp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_cpp(detector_tablero
@@ -113,7 +113,7 @@ _generate_msg_cpp(detector_tablero
 _generate_msg_cpp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_cpp(detector_tablero
@@ -137,9 +137,9 @@ add_custom_target(detector_tablero_generate_messages_cpp
 add_dependencies(detector_tablero_generate_messages detector_tablero_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg" NAME_WE)
-add_dependencies(detector_tablero_generate_messages_cpp _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg" NAME_WE)
+add_dependencies(detector_tablero_generate_messages_cpp _detector_tablero_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_cpp _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_cpp _detector_tablero_generate_messages_check_deps_${_filename})
@@ -166,39 +166,39 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS detector_tablero_generate_messages_
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_eus(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_eus(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_eus(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_eus(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_eus(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_eus(detector_tablero
@@ -210,7 +210,7 @@ _generate_msg_eus(detector_tablero
 _generate_msg_eus(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_eus(detector_tablero
@@ -234,9 +234,9 @@ add_custom_target(detector_tablero_generate_messages_eus
 add_dependencies(detector_tablero_generate_messages detector_tablero_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg" NAME_WE)
-add_dependencies(detector_tablero_generate_messages_eus _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg" NAME_WE)
+add_dependencies(detector_tablero_generate_messages_eus _detector_tablero_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_eus _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_eus _detector_tablero_generate_messages_check_deps_${_filename})
@@ -263,39 +263,39 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS detector_tablero_generate_messages_
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_lisp(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_lisp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_lisp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_lisp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_lisp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_lisp(detector_tablero
@@ -307,7 +307,7 @@ _generate_msg_lisp(detector_tablero
 _generate_msg_lisp(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_lisp(detector_tablero
@@ -331,9 +331,9 @@ add_custom_target(detector_tablero_generate_messages_lisp
 add_dependencies(detector_tablero_generate_messages detector_tablero_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg" NAME_WE)
-add_dependencies(detector_tablero_generate_messages_lisp _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg" NAME_WE)
+add_dependencies(detector_tablero_generate_messages_lisp _detector_tablero_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_lisp _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_lisp _detector_tablero_generate_messages_check_deps_${_filename})
@@ -360,39 +360,39 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS detector_tablero_generate_messages_
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_nodejs(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_nodejs(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_nodejs(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_nodejs(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_nodejs(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_nodejs(detector_tablero
@@ -404,7 +404,7 @@ _generate_msg_nodejs(detector_tablero
 _generate_msg_nodejs(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_nodejs(detector_tablero
@@ -428,9 +428,9 @@ add_custom_target(detector_tablero_generate_messages_nodejs
 add_dependencies(detector_tablero_generate_messages detector_tablero_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg" NAME_WE)
-add_dependencies(detector_tablero_generate_messages_nodejs _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg" NAME_WE)
+add_dependencies(detector_tablero_generate_messages_nodejs _detector_tablero_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_nodejs _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_nodejs _detector_tablero_generate_messages_check_deps_${_filename})
@@ -457,39 +457,39 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS detector_tablero_generate_messages_
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_py(detector_tablero
-  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_py(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_py(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_py(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_py(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_py(detector_tablero
@@ -501,7 +501,7 @@ _generate_msg_py(detector_tablero
 _generate_msg_py(detector_tablero
   "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Pose.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg;/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/detector_tablero
 )
 _generate_msg_py(detector_tablero
@@ -525,9 +525,9 @@ add_custom_target(detector_tablero_generate_messages_py
 add_dependencies(detector_tablero_generate_messages detector_tablero_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg" NAME_WE)
-add_dependencies(detector_tablero_generate_messages_py _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg" NAME_WE)
+add_dependencies(detector_tablero_generate_messages_py _detector_tablero_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_py _detector_tablero_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/laboratorio/ros_workspace/devel/.private/detector_tablero/share/detector_tablero/msg/CasillasAction.msg" NAME_WE)
 add_dependencies(detector_tablero_generate_messages_py _detector_tablero_generate_messages_check_deps_${_filename})

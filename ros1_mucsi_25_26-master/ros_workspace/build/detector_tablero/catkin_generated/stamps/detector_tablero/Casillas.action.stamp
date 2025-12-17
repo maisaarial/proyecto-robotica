@@ -1,9 +1,10 @@
 # Goal
+uint8 modo #0 tablero y 1 fichas
 ---
 
 # Result
-#Tablero[] casillas
 Cell[] casillas
+Ficha[] fichas
 ---
 
 # Feedback

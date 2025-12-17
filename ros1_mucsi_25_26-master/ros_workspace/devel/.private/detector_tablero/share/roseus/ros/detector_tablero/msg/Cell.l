@@ -21,12 +21,12 @@
 (defmethod detector_tablero::Cell
   (:init
    (&key
-    ((:idx __idx) "")
+    ((:idx __idx) 0)
     ((:color __color) "")
     ((:pose __pose) (instance geometry_msgs::Pose :init))
     )
    (send-super :init)
-   (setq _idx (string __idx))
+   (setq _idx (round __idx))
    (setq _color (string __color))
    (setq _pose __pose)
    self)
@@ -46,8 +46,8 @@
   (:serialization-length
    ()
    (+
-    ;; string _idx
-    4 (length _idx)
+    ;; uint8 _idx
+    1
     ;; string _color
     4 (length _color)
     ;; geometry_msgs/Pose _pose
@@ -57,8 +57,8 @@
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; string _idx
-       (write-long (length _idx) s) (princ _idx s)
+     ;; uint8 _idx
+       (write-byte _idx s)
      ;; string _color
        (write-long (length _color) s) (princ _color s)
      ;; geometry_msgs/Pose _pose
@@ -67,8 +67,8 @@
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; string _idx
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _idx (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; uint8 _idx
+     (setq _idx (sys::peek buf ptr- :char)) (incf ptr- 1)
    ;; string _color
      (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _color (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
    ;; geometry_msgs/Pose _pose
@@ -77,10 +77,10 @@
    self)
   )
 
-(setf (get detector_tablero::Cell :md5sum-) "6ff0b5688a4dc590464614af933c2f7d")
+(setf (get detector_tablero::Cell :md5sum-) "2776f6bc14bdac6c57654b95a8767244")
 (setf (get detector_tablero::Cell :datatype-) "detector_tablero/Cell")
 (setf (get detector_tablero::Cell :definition-)
-      "string idx
+      "uint8 idx
 string color
 geometry_msgs/Pose pose
 ================================================================================
@@ -109,6 +109,6 @@ float64 w
 
 
 
-(provide :detector_tablero/Cell "6ff0b5688a4dc590464614af933c2f7d")
+(provide :detector_tablero/Cell "2776f6bc14bdac6c57654b95a8767244")
 
 

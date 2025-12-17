@@ -21,8 +21,8 @@ catkin_python_setup()
 add_message_files(
   DIRECTORY msg
   FILES
-    Tablero.msg
     Cell.msg
+    Ficha.msg
 )
 
 add_action_files(

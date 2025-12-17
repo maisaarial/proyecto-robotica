@@ -70,6 +70,7 @@ clean: CMakeFiles/detector_tablero_genpy.dir/clean
 clean: CMakeFiles/detector_tablero_gencpp.dir/clean
 clean: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasFeedback.dir/clean
 clean: CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+clean: CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 clean: CMakeFiles/detector_tablero_genlisp.dir/clean
 clean: CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
 clean: CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
@@ -96,10 +97,9 @@ clean: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasAction.
 clean: CMakeFiles/detector_tablero_generate_messages_lisp.dir/clean
 clean: CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 clean: CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+clean: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/clean
 clean: CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 clean: CMakeFiles/detector_tablero_generate_messages.dir/clean
-clean: CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-clean: CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/clean
 clean: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionGoal.dir/clean
 clean: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionResult.dir/clean
 clean: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionFeedback.dir/clean
@@ -170,13 +170,13 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 
 # All Build rule for target.
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasFeedback.dir/all
+CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Cell.dir/all
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasAction.dir/all
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
-CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
-CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/all
+CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/all
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionResult.dir/all
 CMakeFiles/detector_tablero_generate_messages_nodejs.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionFeedback.dir/all
@@ -337,6 +337,33 @@ geometry_msgs_generate_messages_cpp: CMakeFiles/geometry_msgs_generate_messages_
 CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
 	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
+
+# All Build rule for target.
+CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
+.PHONY : CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles 0
+.PHONY : CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_nodejs: CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# clean rule for target.
+CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+.PHONY : CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/detector_tablero_genlisp.dir
@@ -780,8 +807,8 @@ CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/_detector_t
 CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
 CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasAction.dir/all
+CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/all
 CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/all
 CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionResult.dir/all
 CMakeFiles/detector_tablero_generate_messages_py.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionFeedback.dir/all
@@ -900,7 +927,7 @@ CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/std_msgs_g
 CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasAction.dir/all
 CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
-CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/all
+CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/all
 CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionResult.dir/all
 CMakeFiles/detector_tablero_generate_messages_eus.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionFeedback.dir/all
@@ -938,7 +965,7 @@ CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/_detector_
 CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasAction.dir/all
-CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/all
+CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/all
 CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionResult.dir/all
 CMakeFiles/detector_tablero_generate_messages_cpp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionFeedback.dir/all
@@ -1003,7 +1030,7 @@ CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/_detector
 CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
 CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasAction.dir/all
-CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/all
+CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/all
 CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionGoal.dir/all
 CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionResult.dir/all
 CMakeFiles/detector_tablero_generate_messages_lisp.dir/all: CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionFeedback.dir/all
@@ -1085,6 +1112,33 @@ CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
 .PHONY : CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir
+
+# All Build rule for target.
+CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/all:
+	$(MAKE) -f CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/build.make CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/depend
+	$(MAKE) -f CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/build.make CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles --progress-num= "Built target _detector_tablero_generate_messages_check_deps_Ficha"
+.PHONY : CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles 0
+.PHONY : CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/rule
+
+# Convenience name for target.
+_detector_tablero_generate_messages_check_deps_Ficha: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/rule
+
+.PHONY : _detector_tablero_generate_messages_check_deps_Ficha
+
+# clean rule for target.
+CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/clean:
+	$(MAKE) -f CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/build.make CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/clean
+.PHONY : CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/geometry_msgs_generate_messages_py.dir
 
 # All Build rule for target.
@@ -1141,60 +1195,6 @@ detector_tablero_generate_messages: CMakeFiles/detector_tablero_generate_message
 CMakeFiles/detector_tablero_generate_messages.dir/clean:
 	$(MAKE) -f CMakeFiles/detector_tablero_generate_messages.dir/build.make CMakeFiles/detector_tablero_generate_messages.dir/clean
 .PHONY : CMakeFiles/detector_tablero_generate_messages.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
-
-# All Build rule for target.
-CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
-.PHONY : CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles 0
-.PHONY : CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# clean rule for target.
-CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-.PHONY : CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir
-
-# All Build rule for target.
-CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/all:
-	$(MAKE) -f CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/build.make CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/depend
-	$(MAKE) -f CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/build.make CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles --progress-num= "Built target _detector_tablero_generate_messages_check_deps_Tablero"
-.PHONY : CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboratorio/ros_workspace/build/detector_tablero/CMakeFiles 0
-.PHONY : CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/rule
-
-# Convenience name for target.
-_detector_tablero_generate_messages_check_deps_Tablero: CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/rule
-
-.PHONY : _detector_tablero_generate_messages_check_deps_Tablero
-
-# clean rule for target.
-CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/clean:
-	$(MAKE) -f CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/build.make CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/clean
-.PHONY : CMakeFiles/_detector_tablero_generate_messages_check_deps_Tablero.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/_detector_tablero_generate_messages_check_deps_CasillasActionGoal.dir

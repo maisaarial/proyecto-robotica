@@ -9,10 +9,10 @@ import struct
 import geometry_msgs.msg
 
 class Cell(genpy.Message):
-  _md5sum = "6ff0b5688a4dc590464614af933c2f7d"
+  _md5sum = "2776f6bc14bdac6c57654b95a8767244"
   _type = "detector_tablero/Cell"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """string idx
+  _full_text = """uint8 idx
 string color
 geometry_msgs/Pose pose
 ================================================================================
@@ -38,7 +38,7 @@ float64 z
 float64 w
 """
   __slots__ = ['idx','color','pose']
-  _slot_types = ['string','string','geometry_msgs/Pose']
+  _slot_types = ['uint8','string','geometry_msgs/Pose']
 
   def __init__(self, *args, **kwds):
     """
@@ -58,13 +58,13 @@ float64 w
       super(Cell, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
       if self.idx is None:
-        self.idx = ''
+        self.idx = 0
       if self.color is None:
         self.color = ''
       if self.pose is None:
         self.pose = geometry_msgs.msg.Pose()
     else:
-      self.idx = ''
+      self.idx = 0
       self.color = ''
       self.pose = geometry_msgs.msg.Pose()
 
@@ -81,11 +81,7 @@ float64 w
     """
     try:
       _x = self.idx
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      buff.write(_get_struct_B().pack(_x))
       _x = self.color
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -109,14 +105,8 @@ float64 w
         self.pose = geometry_msgs.msg.Pose()
       end = 0
       start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.idx = str[start:end].decode('utf-8', 'rosmsg')
-      else:
-        self.idx = str[start:end]
+      end += 1
+      (self.idx,) = _get_struct_B().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -143,11 +133,7 @@ float64 w
     """
     try:
       _x = self.idx
-      length = len(_x)
-      if python3 or type(_x) == unicode:
-        _x = _x.encode('utf-8')
-        length = len(_x)
-      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      buff.write(_get_struct_B().pack(_x))
       _x = self.color
       length = len(_x)
       if python3 or type(_x) == unicode:
@@ -172,14 +158,8 @@ float64 w
         self.pose = geometry_msgs.msg.Pose()
       end = 0
       start = end
-      end += 4
-      (length,) = _struct_I.unpack(str[start:end])
-      start = end
-      end += length
-      if python3:
-        self.idx = str[start:end].decode('utf-8', 'rosmsg')
-      else:
-        self.idx = str[start:end]
+      end += 1
+      (self.idx,) = _get_struct_B().unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -207,3 +187,9 @@ def _get_struct_7d():
     if _struct_7d is None:
         _struct_7d = struct.Struct("<7d")
     return _struct_7d
+_struct_B = None
+def _get_struct_B():
+    global _struct_B
+    if _struct_B is None:
+        _struct_B = struct.Struct("<B")
+    return _struct_B

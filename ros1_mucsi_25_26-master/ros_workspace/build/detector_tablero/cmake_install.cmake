@@ -149,8 +149,8 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/detector_tablero/msg" TYPE FILE FILES
-    "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Tablero.msg"
     "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Cell.msg"
+    "/home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg"
     )
 endif()
 

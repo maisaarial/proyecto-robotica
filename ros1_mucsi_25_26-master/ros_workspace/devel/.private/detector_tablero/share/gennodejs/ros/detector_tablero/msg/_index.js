@@ -2,7 +2,7 @@
 "use strict";
 
 let Cell = require('./Cell.js');
-let Tablero = require('./Tablero.js');
+let Ficha = require('./Ficha.js');
 let CasillasFeedback = require('./CasillasFeedback.js');
 let CasillasAction = require('./CasillasAction.js');
 let CasillasActionResult = require('./CasillasActionResult.js');
@@ -13,7 +13,7 @@ let CasillasGoal = require('./CasillasGoal.js');
 
 module.exports = {
   Cell: Cell,
-  Tablero: Tablero,
+  Ficha: Ficha,
   CasillasFeedback: CasillasFeedback,
   CasillasAction: CasillasAction,
   CasillasActionResult: CasillasActionResult,

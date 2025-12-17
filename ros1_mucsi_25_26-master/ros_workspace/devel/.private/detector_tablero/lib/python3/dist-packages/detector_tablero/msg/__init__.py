@@ -6,4 +6,5 @@ from ._CasillasFeedback import *
 from ._CasillasGoal import *
 from ._CasillasResult import *
 from ._Cell import *
+from ._Ficha import *
 from ._Tablero import *
