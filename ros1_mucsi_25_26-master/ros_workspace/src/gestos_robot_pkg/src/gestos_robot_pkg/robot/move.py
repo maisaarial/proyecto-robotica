@@ -84,12 +84,22 @@ if __name__ == '__main__':
     pi_medios = pi/2
     # Mover el robot a articulaciones iniciales
     #pose_actual = control.pose_actual()
+    
+####################################### HOME ##################################
+    # para coger pose home
+    #home_joints = control.articulaciones_actuales()
+    #print(home_joints)
     with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
         home_joints = yaml.safe_load(f)
     control.mover_articulaciones(home_joints)
+    
+##############################################################################
+
+####
+
     #pose_actual = control.articulaciones_actuales()
     #pose_actual.position.z -= 0.1
-    #control.mover_a_pose(pose_actual)
+    # control.mover_a_pose(pose_actual)
     #control.mover_articulaciones([0,-pi_medios,-pi_medios,-pi_medios,pi_medios,0])
     '''
     # Mover el robot a una pose
