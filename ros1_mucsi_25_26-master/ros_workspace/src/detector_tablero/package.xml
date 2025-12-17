@@ -1,35 +1,41 @@
 <?xml version="1.0"?>
 <package format="2">
-  <!-- EDIT: Package name, version description -->
-  <name>ros_python_pkg</name>
-  <version>0.0.0</version>
-  <description>The ros_python_pkg package</description>
 
-  <!-- EDIT: Maintainer and author's name and email -->
+  <name>detector_tablero</name>
+  <version>0.1.0</version>
+  <description>
+    Action server ROS para detección de tablero y fichas con visión por computador,
+    devolviendo posiciones en coordenadas reales (cm).
+  </description>
+
   <maintainer email="daniel.kennedy.m1@gmail.com">Daniel Kennedy</maintainer>
   <author email="daniel.kennedy.m1@gmail.com">Daniel Kennedy</author>
 
-  <!-- EDIT: License -->
-  <license>GNU General Public License Version 3</license>
+  <license>GPL-3.0</license>
 
-  <!-- Required for all packages -->
+  <!-- Build system -->
   <buildtool_depend>catkin</buildtool_depend>
 
-  <!-- Required for all Python packages -->
-  <depend>rospy</depend>
-
-  <!-- EDIT: Add/change depend tags to specify what this package depends on. -->
-  <!-- Valid keys are any Catkin packages in this workspace's src/ directory, -->
-  <!-- any installed ROS package, or any ROS-recognized system dependency -->
-  <!-- (see this link for the current list: https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml)-->
-  <depend>std_msgs</depend>
-  <depend>geometry_msgs</depend>
-  <depend>actionlib_msgs</depend>
-  <exec_depend>message_runtime</exec_depend>
-
-  <build_depend>message_runtime</build_depend>
+  <!-- Build-time dependencies -->
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
   <build_depend>message_generation</build_depend>
 
+  <!-- Run-time dependencies -->
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>actionlib_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+  <!-- This package does not export libraries -->
   <export>
   </export>
+
 </package>

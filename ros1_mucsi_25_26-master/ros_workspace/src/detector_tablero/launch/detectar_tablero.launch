@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Parámetros -->
+  <param name="required_boxes" value="20" />
+  <param name="max_retry_frames" value="15" />
+
+  <!-- Nodo de cámara -->
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam" output="screen">
+    <param name="video_device" value="/dev/video0" />
+  </node>
+
+  <!-- Action Server -->
+  <node pkg="detector_tablero"
+        type="nodo_camara_action_server.py"
+        name="nodo_camara_action_server"
+        output="screen" />
+
+</launch>

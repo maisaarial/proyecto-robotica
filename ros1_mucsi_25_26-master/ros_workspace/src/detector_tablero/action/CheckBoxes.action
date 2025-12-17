@@ -1,0 +1,12 @@
+# Goal
+bool detect
+
+---
+# Result
+Tablero[] casillas
+Ficha[] fichas
+
+---
+# Feedback
+int32 detected_boxes
+int32 detected_fichas
