@@ -7,13 +7,13 @@ import time
 class DiceActionClient:
     def __init__(self):
         #rospy.init_node('gesture_client', anonymous=True)
-
+        rospy.init_node("dice_reader")
         # --- LIST TO STORE DETECTED GESTURES ---
         self.on = False
 
         # --- ACTION CLIENT SETUP ---
         rospy.loginfo("[DICE-CLIENT] Waiting for server...")
-        self.client = actionlib.SimpleActionClient('dice_action', DiceReadAction)
+        self.client = actionlib.SimpleActionClient('read_dice', DiceReadAction)
         self.client.wait_for_server()
         rospy.loginfo("[DICE-CLIENT] Server connected.")
 
