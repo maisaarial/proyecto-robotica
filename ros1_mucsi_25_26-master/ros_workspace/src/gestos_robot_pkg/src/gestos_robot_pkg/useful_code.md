@@ -1,5 +1,10 @@
 rosrun usb_cam usb_cam_node _video_device:=/dev/video0 _image_width:=640 _image_height:=480 _framerate:=30
 
+en cada terminal a ejecutar y tambien en el master
+export ROS_IP=10.172.21.27
+echo $ROS_IP
+export ROS_MASTER_URI=http://10.172.21.26:11311
+echo $ROS_MASTER_URI
 
 ##
 sudo apt-get install ros-noetic-camera-calibration

@@ -221,7 +221,6 @@ class TableroActionServer:
     # Main loop
     # -------------------------
     def execute_cb(self, goal):
-        cv2.namedWindow("Deteccion tablero y fichas")
         rate = rospy.Rate(10)
         if self.cv_image is None:
             rate.sleep()       
