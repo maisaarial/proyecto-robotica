@@ -123,12 +123,12 @@ struct MD5Sum< ::detector_tablero::CasillasResult_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "4531f2ed2bafe22df2a2808861003ac8";
+    return "889ad1042553438270f2c0c5938aacea";
   }
 
   static const char* value(const ::detector_tablero::CasillasResult_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x4531f2ed2bafe22dULL;
-  static const uint64_t static_value2 = 0xf2a2808861003ac8ULL;
+  static const uint64_t static_value1 = 0x889ad10425534382ULL;
+  static const uint64_t static_value2 = 0x70f2c0c5938aaceaULL;
 };
 
 template<class ContainerAllocator>
@@ -155,7 +155,8 @@ struct Definition< ::detector_tablero::CasillasResult_<ContainerAllocator> >
 "\n"
 "================================================================================\n"
 "MSG: detector_tablero/Cell\n"
-"string label\n"
+"string idx\n"
+"string color\n"
 "geometry_msgs/Pose pose\n"
 "================================================================================\n"
 "MSG: geometry_msgs/Pose\n"

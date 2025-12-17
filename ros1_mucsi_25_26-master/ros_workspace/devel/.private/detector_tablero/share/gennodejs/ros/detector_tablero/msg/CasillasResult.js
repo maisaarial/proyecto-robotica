@@ -71,7 +71,7 @@ class CasillasResult {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '4531f2ed2bafe22df2a2808861003ac8';
+    return '889ad1042553438270f2c0c5938aacea';
   }
 
   static messageDefinition() {
@@ -85,7 +85,8 @@ class CasillasResult {
     
     ================================================================================
     MSG: detector_tablero/Cell
-    string label
+    string idx
+    string color
     geometry_msgs/Pose pose
     ================================================================================
     MSG: geometry_msgs/Pose

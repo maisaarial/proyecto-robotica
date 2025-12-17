@@ -19,15 +19,22 @@ class Cell {
   constructor(initObj={}) {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
-      this.label = null;
+      this.idx = null;
+      this.color = null;
       this.pose = null;
     }
     else {
-      if (initObj.hasOwnProperty('label')) {
-        this.label = initObj.label
+      if (initObj.hasOwnProperty('idx')) {
+        this.idx = initObj.idx
       }
       else {
-        this.label = '';
+        this.idx = '';
+      }
+      if (initObj.hasOwnProperty('color')) {
+        this.color = initObj.color
+      }
+      else {
+        this.color = '';
       }
       if (initObj.hasOwnProperty('pose')) {
         this.pose = initObj.pose
@@ -40,8 +47,10 @@ class Cell {
 
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type Cell
-    // Serialize message field [label]
-    bufferOffset = _serializer.string(obj.label, buffer, bufferOffset);
+    // Serialize message field [idx]
+    bufferOffset = _serializer.string(obj.idx, buffer, bufferOffset);
+    // Serialize message field [color]
+    bufferOffset = _serializer.string(obj.color, buffer, bufferOffset);
     // Serialize message field [pose]
     bufferOffset = geometry_msgs.msg.Pose.serialize(obj.pose, buffer, bufferOffset);
     return bufferOffset;
@@ -51,8 +60,10 @@ class Cell {
     //deserializes a message object of type Cell
     let len;
     let data = new Cell(null);
-    // Deserialize message field [label]
-    data.label = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [idx]
+    data.idx = _deserializer.string(buffer, bufferOffset);
+    // Deserialize message field [color]
+    data.color = _deserializer.string(buffer, bufferOffset);
     // Deserialize message field [pose]
     data.pose = geometry_msgs.msg.Pose.deserialize(buffer, bufferOffset);
     return data;
@@ -60,8 +71,9 @@ class Cell {
 
   static getMessageSize(object) {
     let length = 0;
-    length += _getByteLength(object.label);
-    return length + 60;
+    length += _getByteLength(object.idx);
+    length += _getByteLength(object.color);
+    return length + 64;
   }
 
   static datatype() {
@@ -71,13 +83,14 @@ class Cell {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '9c3f82e0386cdc62646fa06389817172';
+    return '6ff0b5688a4dc590464614af933c2f7d';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    string label
+    string idx
+    string color
     geometry_msgs/Pose pose
     ================================================================================
     MSG: geometry_msgs/Pose
@@ -110,11 +123,18 @@ class Cell {
       msg = {};
     }
     const resolved = new Cell(null);
-    if (msg.label !== undefined) {
-      resolved.label = msg.label;
+    if (msg.idx !== undefined) {
+      resolved.idx = msg.idx;
     }
     else {
-      resolved.label = ''
+      resolved.idx = ''
+    }
+
+    if (msg.color !== undefined) {
+      resolved.color = msg.color;
+    }
+    else {
+      resolved.color = ''
     }
 
     if (msg.pose !== undefined) {
