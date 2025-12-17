@@ -16,21 +16,26 @@
 
 (defclass detector_tablero::Cell
   :super ros::object
-  :slots (_label _pose ))
+  :slots (_idx _color _pose ))
 
 (defmethod detector_tablero::Cell
   (:init
    (&key
-    ((:label __label) "")
+    ((:idx __idx) "")
+    ((:color __color) "")
     ((:pose __pose) (instance geometry_msgs::Pose :init))
     )
    (send-super :init)
-   (setq _label (string __label))
+   (setq _idx (string __idx))
+   (setq _color (string __color))
    (setq _pose __pose)
    self)
-  (:label
-   (&optional __label)
-   (if __label (setq _label __label)) _label)
+  (:idx
+   (&optional __idx)
+   (if __idx (setq _idx __idx)) _idx)
+  (:color
+   (&optional __color)
+   (if __color (setq _color __color)) _color)
   (:pose
    (&rest __pose)
    (if (keywordp (car __pose))
@@ -41,8 +46,10 @@
   (:serialization-length
    ()
    (+
-    ;; string _label
-    4 (length _label)
+    ;; string _idx
+    4 (length _idx)
+    ;; string _color
+    4 (length _color)
     ;; geometry_msgs/Pose _pose
     (send _pose :serialization-length)
     ))
@@ -50,26 +57,31 @@
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; string _label
-       (write-long (length _label) s) (princ _label s)
+     ;; string _idx
+       (write-long (length _idx) s) (princ _idx s)
+     ;; string _color
+       (write-long (length _color) s) (princ _color s)
      ;; geometry_msgs/Pose _pose
        (send _pose :serialize s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; string _label
-     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _label (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; string _idx
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _idx (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
+   ;; string _color
+     (let (n) (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4) (setq _color (subseq buf ptr- (+ ptr- n))) (incf ptr- n))
    ;; geometry_msgs/Pose _pose
      (send _pose :deserialize buf ptr-) (incf ptr- (send _pose :serialization-length))
    ;;
    self)
   )
 
-(setf (get detector_tablero::Cell :md5sum-) "9c3f82e0386cdc62646fa06389817172")
+(setf (get detector_tablero::Cell :md5sum-) "6ff0b5688a4dc590464614af933c2f7d")
 (setf (get detector_tablero::Cell :datatype-) "detector_tablero/Cell")
 (setf (get detector_tablero::Cell :definition-)
-      "string label
+      "string idx
+string color
 geometry_msgs/Pose pose
 ================================================================================
 MSG: geometry_msgs/Pose
@@ -97,6 +109,6 @@ float64 w
 
 
 
-(provide :detector_tablero/Cell "9c3f82e0386cdc62646fa06389817172")
+(provide :detector_tablero/Cell "6ff0b5688a4dc590464614af933c2f7d")
 
 

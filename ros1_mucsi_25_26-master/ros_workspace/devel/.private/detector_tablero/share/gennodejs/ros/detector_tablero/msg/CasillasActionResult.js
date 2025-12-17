@@ -12,8 +12,8 @@ const _arrayDeserializer = _deserializer.Array;
 const _finder = _ros_msg_utils.Find;
 const _getByteLength = _ros_msg_utils.getByteLength;
 let CasillasResult = require('./CasillasResult.js');
-let actionlib_msgs = _finder('actionlib_msgs');
 let std_msgs = _finder('std_msgs');
+let actionlib_msgs = _finder('actionlib_msgs');
 
 //-----------------------------------------------------------
 
@@ -86,7 +86,7 @@ class CasillasActionResult {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '69e021c834750e46c8a04cd23eacdaa5';
+    return '16cb34c62e6325abd85c84334e7477cd';
   }
 
   static messageDefinition() {
@@ -163,7 +163,8 @@ class CasillasActionResult {
     
     ================================================================================
     MSG: detector_tablero/Cell
-    string label
+    string idx
+    string color
     geometry_msgs/Pose pose
     ================================================================================
     MSG: geometry_msgs/Pose

@@ -1,2 +1,3 @@
-string label
+string idx
+string color
 geometry_msgs/Pose pose

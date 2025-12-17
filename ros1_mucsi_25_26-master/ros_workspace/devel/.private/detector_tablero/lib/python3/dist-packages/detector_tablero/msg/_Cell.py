@@ -9,10 +9,11 @@ import struct
 import geometry_msgs.msg
 
 class Cell(genpy.Message):
-  _md5sum = "9c3f82e0386cdc62646fa06389817172"
+  _md5sum = "6ff0b5688a4dc590464614af933c2f7d"
   _type = "detector_tablero/Cell"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """string label
+  _full_text = """string idx
+string color
 geometry_msgs/Pose pose
 ================================================================================
 MSG: geometry_msgs/Pose
@@ -36,8 +37,8 @@ float64 y
 float64 z
 float64 w
 """
-  __slots__ = ['label','pose']
-  _slot_types = ['string','geometry_msgs/Pose']
+  __slots__ = ['idx','color','pose']
+  _slot_types = ['string','string','geometry_msgs/Pose']
 
   def __init__(self, *args, **kwds):
     """
@@ -47,7 +48,7 @@ float64 w
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       label,pose
+       idx,color,pose
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -56,12 +57,15 @@ float64 w
     if args or kwds:
       super(Cell, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
-      if self.label is None:
-        self.label = ''
+      if self.idx is None:
+        self.idx = ''
+      if self.color is None:
+        self.color = ''
       if self.pose is None:
         self.pose = geometry_msgs.msg.Pose()
     else:
-      self.label = ''
+      self.idx = ''
+      self.color = ''
       self.pose = geometry_msgs.msg.Pose()
 
   def _get_types(self):
@@ -76,7 +80,13 @@ float64 w
     :param buff: buffer, ``StringIO``
     """
     try:
-      _x = self.label
+      _x = self.idx
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self.color
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
@@ -104,9 +114,18 @@ float64 w
       start = end
       end += length
       if python3:
-        self.label = str[start:end].decode('utf-8', 'rosmsg')
+        self.idx = str[start:end].decode('utf-8', 'rosmsg')
       else:
-        self.label = str[start:end]
+        self.idx = str[start:end]
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.color = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.color = str[start:end]
       _x = self
       start = end
       end += 56
@@ -123,7 +142,13 @@ float64 w
     :param numpy: numpy python module
     """
     try:
-      _x = self.label
+      _x = self.idx
+      length = len(_x)
+      if python3 or type(_x) == unicode:
+        _x = _x.encode('utf-8')
+        length = len(_x)
+      buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
+      _x = self.color
       length = len(_x)
       if python3 or type(_x) == unicode:
         _x = _x.encode('utf-8')
@@ -152,9 +177,18 @@ float64 w
       start = end
       end += length
       if python3:
-        self.label = str[start:end].decode('utf-8', 'rosmsg')
+        self.idx = str[start:end].decode('utf-8', 'rosmsg')
       else:
-        self.label = str[start:end]
+        self.idx = str[start:end]
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      start = end
+      end += length
+      if python3:
+        self.color = str[start:end].decode('utf-8', 'rosmsg')
+      else:
+        self.color = str[start:end]
       _x = self
       start = end
       end += 56

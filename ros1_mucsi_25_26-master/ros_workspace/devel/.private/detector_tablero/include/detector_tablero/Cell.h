@@ -25,19 +25,24 @@ struct Cell_
   typedef Cell_<ContainerAllocator> Type;
 
   Cell_()
-    : label()
+    : idx()
+    , color()
     , pose()  {
     }
   Cell_(const ContainerAllocator& _alloc)
-    : label(_alloc)
+    : idx(_alloc)
+    , color(_alloc)
     , pose(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _label_type;
-  _label_type label;
+   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _idx_type;
+  _idx_type idx;
+
+   typedef std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> _color_type;
+  _color_type color;
 
    typedef  ::geometry_msgs::Pose_<ContainerAllocator>  _pose_type;
   _pose_type pose;
@@ -71,7 +76,8 @@ return s;
 template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::detector_tablero::Cell_<ContainerAllocator1> & lhs, const ::detector_tablero::Cell_<ContainerAllocator2> & rhs)
 {
-  return lhs.label == rhs.label &&
+  return lhs.idx == rhs.idx &&
+    lhs.color == rhs.color &&
     lhs.pose == rhs.pose;
 }
 
@@ -129,12 +135,12 @@ struct MD5Sum< ::detector_tablero::Cell_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "9c3f82e0386cdc62646fa06389817172";
+    return "6ff0b5688a4dc590464614af933c2f7d";
   }
 
   static const char* value(const ::detector_tablero::Cell_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x9c3f82e0386cdc62ULL;
-  static const uint64_t static_value2 = 0x646fa06389817172ULL;
+  static const uint64_t static_value1 = 0x6ff0b5688a4dc590ULL;
+  static const uint64_t static_value2 = 0x464614af933c2f7dULL;
 };
 
 template<class ContainerAllocator>
@@ -153,7 +159,8 @@ struct Definition< ::detector_tablero::Cell_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "string label\n"
+    return "string idx\n"
+"string color\n"
 "geometry_msgs/Pose pose\n"
 "================================================================================\n"
 "MSG: geometry_msgs/Pose\n"
@@ -194,7 +201,8 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.label);
+      stream.next(m.idx);
+      stream.next(m.color);
       stream.next(m.pose);
     }
 
@@ -216,8 +224,12 @@ struct Printer< ::detector_tablero::Cell_<ContainerAllocator> >
   {
     if (false || !indent.empty())
       s << std::endl;
-    s << indent << "label: ";
-    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.label);
+    s << indent << "idx: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.idx);
+    if (true || !indent.empty())
+      s << std::endl;
+    s << indent << "color: ";
+    Printer<std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>>::stream(s, indent + "  ", v.color);
     if (true || !indent.empty())
       s << std::endl;
     s << indent << "pose: ";
