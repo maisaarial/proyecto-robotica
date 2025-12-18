@@ -175,7 +175,7 @@ class NodoCamaraActionServer:
             elif 25 < h <= 35 and s > 120 and v > 140:
                 color = "amarillo"
 
-            elif 140 <= h <= 170 and s > 150 and v > 150:
+            elif 155 <= h <= 170 and 69 <= s <= 151 and 134 <= v < 233:
                 color = "rosa"
 
             elif 120 <= h <= 140 and 95 <= s <= 200  and 120 <= v <= 195:
