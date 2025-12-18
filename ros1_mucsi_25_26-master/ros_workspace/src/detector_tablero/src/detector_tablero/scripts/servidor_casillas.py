@@ -13,7 +13,7 @@ from detector_tablero.msg import CasillasAction, CasillasResult, CasillasFeedbac
 import time
 
 Diametro_CM = 50.0   # lado real en centímetros
-nCasillas = 21
+nCasillas = 20
 
 # Almacenar información de las fichas
 fichas = {
@@ -35,6 +35,7 @@ class TableroActionServer:
             auto_start=False
         )
         self.server.start()
+        self.casillas = None
         
         # ArUco
         self.aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
@@ -76,7 +77,7 @@ class TableroActionServer:
         cam_marker = -R.T @ tvec.reshape(3,1)
         scale = -cam_marker[2] / ray_marker[2]
         P = cam_marker + scale * ray_marker
-        return float(P[0]), float(P[1]), 0.0
+        return float(P[0])/100, float(P[1])/100, 0.0
     
     def centro_cerca(self, c1, c2, thresh=12):
         return np.linalg.norm(
@@ -246,7 +247,6 @@ class TableroActionServer:
                 if self.casillas is not None :
                     tablero_list = []
                     self.casillas.sort(key=lambda c: (self.getCentro(c)[0]))
-                    self.casillas.pop()
                     colores = self.detectarCasillasColor(self.casillas, frame)
                         
                     for idx, (centro, color) in enumerate(colores):

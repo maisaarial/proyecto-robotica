@@ -71,7 +71,7 @@ class NodoCamara:
         cam_marker = -R.T @ tvec.reshape(3,1)
         scale = -cam_marker[2] / ray_marker[2]
         P = cam_marker + scale * ray_marker
-        return float(P[0]), float(P[1]), 0.0
+        return float(P[0])/100, float(P[1])/100, 0.0
     
     def centro_cerca(self, c1, c2, thresh=12):
         return np.linalg.norm(
@@ -128,7 +128,7 @@ class NodoCamara:
                     continue
 
                 casillas.append(ordered)
-        if len(casillas) == nCasillas:
+        if len(casillas) == 20:
             return casillas
         return None
 
@@ -238,9 +238,6 @@ class NodoCamara:
             if casillas is not None :
                 tablero_list = []
                 casillas.sort(key=lambda c: (self.getCentro(c)[0]))
-                len(casillas)
-                casillas.pop()
-                len(casillas)
                 colores = self.detectarCasillasColor(casillas, frame)
                 for idx, c in enumerate(casillas):
                     pts = np.array(c, np.int32)
@@ -258,8 +255,6 @@ class NodoCamara:
                     c.pose = p
                     c.color = colores_duros[idx]
                     tablero_list.append(c)
-                    
-                    print (f"idx : {idx}, color {c.color}")
                        
 
 
