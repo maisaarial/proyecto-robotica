@@ -4,13 +4,14 @@ import yaml
 import copy
 import rospy
 import numpy as np
+import time
 from moveit_commander import MoveGroupCommander, RobotCommander, roscpp_initialize, PlanningSceneInterface
 import moveit_msgs.msg
 from math import pi, tau, dist, fabs, cos
 from std_msgs.msg import String
 from moveit_commander.conversions import pose_to_list
 from typing import List
-from geometry_msgs.msg import Pose, PoseStamped
+from geometry_msgs.msg import Pose, PoseStamped, Point, Quaternion
 from control_msgs.msg import GripperCommandAction, GripperCommandGoal, GripperCommandResult
 from actionlib import SimpleActionClient
 from gestos_robot_pkg.actions.request_tablero import TableroActionClient
@@ -18,7 +19,7 @@ from gestos_robot_pkg.actions.request_tablero import TableroActionClient
 class ControlRobot:
     def __init__(self) -> None:
         roscpp_initialize(sys.argv)
-        rospy.init_node("control_robot", anonymous=True)
+        #rospy.init_node("control_robot", anonymous=True)
         self.robot = RobotCommander()
         self.scene = PlanningSceneInterface()
         self.group_name = "robot"
@@ -90,45 +91,91 @@ class ControlRobot:
         result = self.gripper_action_client.get_result()
         return result.reached_goal
     
-    def move_home_to_cell(self, casillas, idx_cell):
+    def move_to_home(self):
         with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
             home_joints = yaml.safe_load(f)
         self.mover_articulaciones(home_joints)
+    
+    def move_piece_to_cell(self, ficha, casillas, idx_cell):
+        self.mover_pinza(anchura_dedos=80, fuerza=20)
+        home = self.pose_actual()
+        pose_1 = self.pose_actual()
+        pose_2 = self.pose_actual()
         
-        new_pose = control.pose_actual()
+        goal_piece = ficha.pose
+        pose_1.position.x -= goal_piece.position.x - self.robot_relative_x
+        pose_1.position.y -=  goal_piece.position.y - self.robot_relative_y
+        
+        '''p1 = np.array([home.position.x, home.position.y, home.position.z])
+        p2 = np.array([pose_1.position.x, pose_1.position.y, pose_1.position.z])
+        
+        puntos = np.linspace(p1, p2, 5)
+        for point in puntos:
+            self.mover_a_pose(Pose(position=Point(x=point[0], y=point[1], z=point[2])))'''
+        
+        self.mover_a_pose(pose_1)
+        pose_1.position.z -= 0.028
+        self.mover_a_pose(pose_1)
+        time.sleep(2)
+        self.mover_pinza(anchura_dedos=10, fuerza=20)
+        time.sleep(2)
+        pose_1.position.z += 0.028
+        self.mover_a_pose(pose_1)
+        
+        
         goal_cell = casillas[idx_cell].pose
-        new_pose.position.x -= goal_cell.position.x - self.robot_relative_x
-        new_pose.position.y -=  goal_cell.position.y - self.robot_relative_y
+        pose_2.position.x -= goal_cell.position.x - self.robot_relative_x
+        pose_2.position.y -=  goal_cell.position.y - self.robot_relative_y
         
-        control.mover_a_pose(new_pose)
+        '''p1 = np.array([pose_1.position.x, pose_1.position.y, pose_1.position.z])
+        p2 = np.array([pose_2.position.x, pose_2.position.y, pose_2.position.z])
+        
+        puntos = np.linspace(p1, p2, 5)
+        for point in puntos:
+            self.mover_a_pose(Pose(position=Point(x=point[0], y=point[1], z=point[2])))'''
+        
+        self.mover_a_pose(pose_2)
+        pose_2.position.z -= 0.028
+        self.mover_a_pose(pose_2)
+        time.sleep(2)
+        self.mover_pinza(anchura_dedos=80, fuerza=20)
+        pose_2.position.z += 0.028
+        self.mover_a_pose(pose_2)
+        
+        
+        '''p1 = np.array([pose_2.position.x, pose_2.position.y, pose_2.position.z])
+        p1 = np.array([home.position.x, home.position.y, home.position.z])
+        
+        puntos = np.linspace(p1, p2, 5)
+        for point in puntos:
+            self.mover_a_pose(Pose(position=Point(x=point[0], y=point[1], z=point[2])))'''
+        
+        self.move_to_home()
         
         
 
 if __name__ == '__main__':
     # Crear el objeto de tipo robot
-    control = ControlRobot()
-    tablero = TableroActionClient()
     
-    pi_medios = pi/2
     # Mover el robot a articulaciones iniciales
     #pose_actual = control.pose_actual()
     
 ################################### test Tablero ##############################
+    '''control = ControlRobot()
+    pose = Pose(position=Point(0,0,0.5))
+    control.añadir_caja_a_escena_de_planificacion(pose,"obstaculo",(2,2,.05))
+    
+    
     with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
         home_joints = yaml.safe_load(f)
     control.mover_articulaciones(home_joints)
+    tablero = TableroActionClient()
+    casillas = tablero.request_tablero(0)
+    pi_medios = pi/2
+    control.mover_pinza(anchura_dedos=40, fuerza=20)
+    if casillas is not None : 
+        control.move_piece_to_cell(casillas[4], casillas, 19)'''
     
-    if test is not None :
-        new_pose = control.pose_actual()
-        cell_16 = test[11].pose
-        print(f"avant {new_pose.position.x}")
-        new_pose.position.x -= cell_16.position.x - robot_relative_x
-        print(f"apres {new_pose.position.x}")
-        print(f"avant {new_pose.position.y}")
-        new_pose.position.y -=  cell_16.position.y -robot_relative_y
-        print(f"apres {new_pose.position.y}")
-        
-        control.mover_a_pose(new_pose)
     
 ####################################### HOME ##################################
     # para coger pose home

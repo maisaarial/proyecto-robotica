@@ -2,9 +2,11 @@
 from gestos_robot_pkg.actions.request_gesture import GestureActionClient
 from gestos_robot_pkg.actions.request_dice import DiceActionClient
 from gestos_robot_pkg.actions.request_tablero import TableroActionClient
+from gestos_robot_pkg.robot.move import ControlRobot
 from gestos_robot_pkg.msg import Gesture
 #from detector_tablero.src.detector_tablero.scripts.request_tablero import TableroActionClient
 import rospy
+from geometry_msgs.msg import Pose, PoseStamped, Point
 import actionlib
 import time
 from copy import deepcopy
@@ -22,10 +24,12 @@ class Robot_Command:
     def __init__(self, 
                  gesture_server : GestureActionClient,
                  tablero_server : TableroActionClient,
+                 control : ControlRobot,
                  dice_server=None):
         self.gesture_server = gesture_server
         self.dice_server = dice_server
         self.tablero_server = tablero_server
+        self.control = control
         self.on = False
         self.players = []
         self.cells = None
@@ -41,16 +45,24 @@ class Robot_Command:
         if gesture_type == "(mano abierta)" and not self.on:
             rospy.loginfo("[GESTURE-STREAM] >>> INICIO recibido. Comenzando escucha.")
             self.on = True
+            self.control.move_to_home()
+            pose = Pose(position=Point(0,0,0.5))
+            control.añadir_caja_a_escena_de_planificacion(pose,"obstaculo",(2,2,.05))
             self.cells = None
             while self.cells is None:
                 self.cells = self.tablero_server.request_tablero(modo=0)
-            self.setup_players()
+            #self.setup_players()
+            self.players_default()
             self.pieces = self.tablero_server.request_tablero()
+            
             self.game()
 
         elif gesture_type == "(parpadeo largo)" and self.on:
             rospy.loginfo("[GESTURE-STREAM] >>> DETENER recibido. Terminando escucha.")
             self.on = False
+            
+    def players_default(self):
+        self.players = [Player("rojo", "robot"), Player("verde", "robot") ]
     
     def setup_players(self):
         """Select the number of players as well as their colors and types""" 
@@ -105,15 +117,23 @@ class Robot_Command:
         #Oca
         if color_cell == "amarillo":
             rospy.loginfo(f"[Game] >>>  Goose cell : go to next similar")
+            #Determine osition of the following siñilar cell
             following_cells = deepcopy(self.cells)
             following_cells = following_cells[player.position +1:]
             next_cell = next((c for c in following_cells if c.color == "amarillo"), None)
             rospy.loginfo(f"[Game] >>> next similar = {next_cell.idx}")
             player.position = next_cell.idx
+            
             #move piece to next cell
+            player_piece = None
+            while player_piece is None :
+                self.pieces = self.tablero_server.request_tablero()
+                player_piece = next((p for p in self.pieces if p.color == player.color), None)
+            self.control.move_piece_to_cell(player_piece, self.cells, player.position)    
+            
         #Posada
         elif color_cell == "rosa":
-            rospy.loginfo(f"[Game] >>>  Well cell : stqy trapped")
+            rospy.loginfo(f"[Game] >>>  Well cell : stay trapped")
             player.trapped = True
         #Calavera
         elif color_cell == "morado":
@@ -121,6 +141,13 @@ class Robot_Command:
             #move piece to start()
             player.position = 0
             rospy.loginfo(f"[Game] >>>  new position : {player.position}")
+            
+            player_piece = None
+            while player_piece is None :
+                self.pieces = self.tablero_server.request_tablero()
+                player_piece = next((p for p in self.pieces if p.color == player.color), None)
+            self.control.move_piece_to_cell(player_piece, self.cells, player.position)
+            
         elif color_cell == "naranja":
             rospy.loginfo(f"[Game] >>>  dice cell : replay")
             player.replay = True
@@ -165,9 +192,12 @@ class Robot_Command:
         if player_piece is not None : 
             player.position += dice_value
             rospy.loginfo(f"[Game] >>>  new position = {player.position}")
-            current_pose = player_piece.pose
-            new_cell = self.cells[player.position]
-            # robot move_piece_to_cell(pose_piece, new_cell.pose)
+            self.pieces = self.tablero_server.request_tablero()
+            player_piece = None
+            while player_piece is None :
+                self.pieces = self.tablero_server.request_tablero()
+                player_piece = next((p for p in self.pieces if p.color == player.color), None)
+            self.control.move_piece_to_cell(player_piece, self.cells, player.position)
 
     def game(self):
         """Game mechanic for a normal turn""" 
@@ -179,14 +209,15 @@ class Robot_Command:
                         rospy.loginfo(f"[Game] >>> Wait your next turn")
                         player.trapped = False
                 #If not we consider he'll play at least once
-                player.replay = True
-                while player.replay: 
-                    if player.type == "human" :
-                        self.human_turn(player)
-                    else :  
-                        self.robot_turn(player)
-                    self.check_termination(player) 
-                    self.check_rules(player) #if not replay cell sets player.replay at False and breaks loop
+                else :
+                    player.replay = True
+                    while player.replay: 
+                        if player.type == "human" :
+                            self.human_turn(player)
+                        else :  
+                            self.robot_turn(player)
+                        self.check_termination(player) 
+                        self.check_rules(player) #if not replay cell sets player.replay at False and breaks loop
                    
     
 
@@ -195,7 +226,8 @@ if __name__ == "__main__":
     gesture_server = GestureActionClient()
     #dice_server = DiceActionClient()
     tablero_server = TableroActionClient()
-    client = Robot_Command(gesture_server, tablero_server)
+    control = ControlRobot()
+    client = Robot_Command(gesture_server, tablero_server, control)
     # Example repeated calls
     rospy.loginfo("[ROBOT-COMMAND] Node started, waiting for gestures...")
     rospy.spin()
