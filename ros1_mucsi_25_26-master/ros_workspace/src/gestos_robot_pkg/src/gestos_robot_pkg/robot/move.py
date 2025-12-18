@@ -3,6 +3,7 @@ import sys
 import yaml
 import copy
 import rospy
+import numpy as np
 from moveit_commander import MoveGroupCommander, RobotCommander, roscpp_initialize, PlanningSceneInterface
 import moveit_msgs.msg
 from math import pi, tau, dist, fabs, cos
@@ -12,6 +13,7 @@ from typing import List
 from geometry_msgs.msg import Pose, PoseStamped
 from control_msgs.msg import GripperCommandAction, GripperCommandGoal, GripperCommandResult
 from actionlib import SimpleActionClient
+from gestos_robot_pkg.actions.request_tablero import TableroActionClient
 
 class ControlRobot:
     def __init__(self) -> None:
@@ -23,6 +25,9 @@ class ControlRobot:
         self.move_group = MoveGroupCommander(self.group_name)
         self.gripper_action_client = SimpleActionClient("rg2_action_server", GripperCommandAction)
         self.añadir_suelo()
+        
+        self.robot_relative_x = -0.016
+        self.robot_relative_y = 0.18
 
     def articulaciones_actuales(self) -> list:
         return self.move_group.get_current_joint_values()
@@ -84,14 +89,46 @@ class ControlRobot:
         self.gripper_action_client.wait_for_result()
         result = self.gripper_action_client.get_result()
         return result.reached_goal
+    
+    def move_home_to_cell(self, casillas, idx_cell):
+        with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
+            home_joints = yaml.safe_load(f)
+        self.mover_articulaciones(home_joints)
+        
+        new_pose = control.pose_actual()
+        goal_cell = casillas[idx_cell].pose
+        new_pose.position.x -= goal_cell.position.x - self.robot_relative_x
+        new_pose.position.y -=  goal_cell.position.y - self.robot_relative_y
+        
+        control.mover_a_pose(new_pose)
+        
+        
 
 if __name__ == '__main__':
     # Crear el objeto de tipo robot
     control = ControlRobot()
+    tablero = TableroActionClient()
     
     pi_medios = pi/2
     # Mover el robot a articulaciones iniciales
     #pose_actual = control.pose_actual()
+    
+################################### test Tablero ##############################
+    with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
+        home_joints = yaml.safe_load(f)
+    control.mover_articulaciones(home_joints)
+    
+    if test is not None :
+        new_pose = control.pose_actual()
+        cell_16 = test[11].pose
+        print(f"avant {new_pose.position.x}")
+        new_pose.position.x -= cell_16.position.x - robot_relative_x
+        print(f"apres {new_pose.position.x}")
+        print(f"avant {new_pose.position.y}")
+        new_pose.position.y -=  cell_16.position.y -robot_relative_y
+        print(f"apres {new_pose.position.y}")
+        
+        control.mover_a_pose(new_pose)
     
 ####################################### HOME ##################################
     # para coger pose home
@@ -100,10 +137,8 @@ if __name__ == '__main__':
     #home_pose = control.pose_actual()
     #print(home_pose)
     '''
-    control.mover_pinza(anchura_dedos=0, fuerza=20)'''
-    with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
-        home_joints = yaml.safe_load(f)
-    control.mover_articulaciones(home_joints)
+    control.mover_pinza(anchura_dedos=0, fuerza=20)
+    '''
     '''with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/pre_dice_position.yaml", "r") as f:
         fst_joints = yaml.safe_load(f)
     control.mover_articulaciones(fst_joints)

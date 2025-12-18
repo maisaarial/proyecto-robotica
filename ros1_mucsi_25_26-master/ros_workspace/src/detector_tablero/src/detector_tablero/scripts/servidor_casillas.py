@@ -10,7 +10,7 @@ from geometry_msgs.msg import Pose
 from copy import deepcopy
 from detector_tablero.msg import Cell, Ficha
 from detector_tablero.msg import CasillasAction, CasillasResult, CasillasFeedback
-
+import time
 
 Diametro_CM = 50.0   # lado real en centímetros
 nCasillas = 21
@@ -265,6 +265,7 @@ class TableroActionServer:
                     break
                 else:
                     frames_without_success += 1
+                    time.sleep(1)
                     
                 if frames_without_success >= 10:
                     rospy.logwarn("No se pudieron detectar las casillas en el tiempo límite")

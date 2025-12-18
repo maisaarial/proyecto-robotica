@@ -109,12 +109,11 @@ class Robot_Command:
         if color_cell == "amarillo":
             a=1
         elif color_cell == "rosa":
-            a=1
+            player.trapped = True
         elif color_cell == "morado":
-            a=1
+            #move piece to start()
+            player.position = 0
         elif color_cell == "naranja":
-            a=1
-        else : 
             a=1
 
     def human_turn(self,player):
