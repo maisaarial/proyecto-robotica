@@ -43,28 +43,17 @@ class DiceReadServer:
         result = DiceReadResult()
 
         #Mostrar la ventana de la cámara del dado
-        cv2.namedWindow("Camara Dado - Action Server", cv2.WINDOW_NORMAL)
-        rospy.loginfo("[DADO] Solicitud recibida: leyendo dado...mostrando cámara durante 30s.")
-
         while not rospy.is_shutdown():
 
             # ❗ Si pasaron 30s -> cerrar ventana y salir
             if time.time() - start_time > window_duration:
-                rospy.loginfo("Cerrando ventana del dado después de 30 segundos.")
-                try:
-                    cv2.destroyWindow("Camara Dado - Action Server")
-                except Exception:
-                    pass
+                rospy.loginfo("No hemos detectado un dado después de 30 segundos.")
                 break
 
             frame = self.video_dice.read()
             if frame is None:
                 rospy.sleep(0.03)
                 continue
-
-            # Mostrar ventana
-            cv2.imshow("Camara Dado - Action Server", frame)
-            cv2.waitKey(1)
 
             # Probar detección
             value, annotated = self.detector.detect(frame)  # tu detect devuelve (value, frame_annot)
@@ -73,10 +62,6 @@ class DiceReadServer:
 
             if value is not None:
                 result.value = int(value)
-                try:
-                    cv2.destroyWindow("Camara Dado - Action Server")
-                except Exception:
-                    pass
                 self.server.set_succeeded(result)
                 return
 

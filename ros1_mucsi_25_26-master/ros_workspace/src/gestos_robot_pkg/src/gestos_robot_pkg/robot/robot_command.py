@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from gestos_robot_pkg.actions.request_gesture import GestureActionClient
+from gestos_robot_pkg.actions.request_dice import DiceActionClient
 from gestos_robot_pkg.msg import Gesture
 from detector_tablero.src.detector_tablero.scripts.request_tablero import TableroActionClient
 import rospy
@@ -15,8 +16,12 @@ class Player:
         self.replay = False
         
 class Robot_Command:
-    def __init__(self, gesture_server : GestureActionClient, tablero_server : TableroActionClient):
+    def __init__(self, 
+                 gesture_server : GestureActionClient, 
+                 dice_server : DiceActionClient, 
+                 tablero_server : TableroActionClient):
         self.gesture_server = gesture_server
+        self.dice_server = dice_server
         self.tablero_server = tablero_server
         self.on = False
         self.players = []
@@ -141,8 +146,10 @@ class Robot_Command:
             else :
                 time.sleep(1)
         #throwthedice() 
-        #requestdice() in a while
-        dice_value = 2
+        dice_value = -1
+        while dice_value == -1 :
+            dice_value = self.dice_server.request_dice()
+            time.sleep(1)
         player_piece = next((p for p in self.pieces if p.color == player.color), None)
         if player_piece is not None : 
             player.position += dice_value
@@ -173,8 +180,10 @@ class Robot_Command:
 
 if __name__ == "__main__":
     rospy.init_node("robot_command")
-    server = GestureActionClient()
-    client = Robot_Command(server)
+    gesture_server = GestureActionClient()
+    dice_server = DiceActionClient()
+    tablero_server = TableroActionClient()
+    client = Robot_Command(gesture_server, dice_server, tablero_server)
     # Example repeated calls
     rospy.loginfo("[ROBOT-COMMAND] Node started, waiting for gestures...")
     rospy.spin()

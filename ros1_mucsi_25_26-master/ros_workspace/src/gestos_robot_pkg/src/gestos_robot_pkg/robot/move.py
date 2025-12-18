@@ -33,6 +33,15 @@ class ControlRobot:
     def pose_actual(self) -> Pose:
         return self.move_group.get_current_pose().pose
     
+    def pose_from_yaml(self, path):
+        yaml_file = path
+        with open(yaml_file, "r") as f:
+            yaml_pose = yaml.safe_load(f)
+        pose = Pose()
+        pose.position.x, pose.position.y, pose.position.z  = yaml_pose['position']['x'], yaml_pose['position']['y'], yaml_pose['position']['z']
+        pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w = yaml_pose['orientation']['x'], yaml_pose['orientation']['y'], yaml_pose['orientation']['z'], yaml_pose['orientation']['w']
+        return pose
+    
     def pose_a_stamped(self, pose: Pose) -> PoseStamped:
         pose_stamped = PoseStamped()
         pose_stamped.header.frame_id = "base_link"
@@ -88,10 +97,31 @@ if __name__ == '__main__':
     # para coger pose home
     #home_joints = control.articulaciones_actuales()
     #print(home_joints)
+    #home_pose = control.pose_actual()
+    #print(home_pose)
+    '''
+    control.mover_pinza(anchura_dedos=0, fuerza=20)'''
     with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
         home_joints = yaml.safe_load(f)
     control.mover_articulaciones(home_joints)
+    '''with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/pre_dice_position.yaml", "r") as f:
+        fst_joints = yaml.safe_load(f)
+    control.mover_articulaciones(fst_joints)
+    with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/dice_position.yaml", "r") as f:
+        scnd_joints = yaml.safe_load(f)
+    control.mover_articulaciones(scnd_joints)'''
+    '''
+    home_pose = control.pose_actual()
+    print(home_pose)
+    yaml_file = "/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/dice_pose.yaml"
+    pose = control.pose_from_yaml(yaml_file)
     
+    control.mover_a_pose(pose)
+    control.mover_pinza(anchura_dedos=50, fuerza=20)
+    control.mover_a_pose(home_pose)
+    with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position.yaml", "r") as f:
+        home_joints = yaml.safe_load(f)
+    control.mover_articulaciones(home_joints)'''
 ##############################################################################
 
 ####
