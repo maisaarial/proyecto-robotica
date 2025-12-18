@@ -6,6 +6,7 @@ from detector_tablero.src.detector_tablero.scripts.request_tablero import Tabler
 import rospy
 import actionlib
 import time
+import deepcopy
 
 class Player:
     def __init__(self, color, type):
@@ -103,18 +104,23 @@ class Robot_Command:
     def check_rules(self, player):
         """Check whether the current cell has an associated rule"""
         color_cell = self.cells[player.position].color
-        # for trap set à true
-        # for get back malus : robot move the piece to updated position
-        # for replay : player.replay = True sinon False
+        player.replay = False
+        #Oca
         if color_cell == "amarillo":
-            a=1
+            following_cells = deepcopy(self.cells)
+            following_cells = following_cells[player.position +1:]
+            next_cell = next((c for c in following_cells if c.color == "amarillo"), None)
+            #move piece to next cell
+        #Posada
         elif color_cell == "rosa":
             player.trapped = True
+        #Calavera
         elif color_cell == "morado":
             #move piece to start()
             player.position = 0
         elif color_cell == "naranja":
-            a=1
+            player.replay = True
+        
 
     def human_turn(self,player):
         rospy.loginfo(f"[Game] >>> Player {player.color} : your turn !")
