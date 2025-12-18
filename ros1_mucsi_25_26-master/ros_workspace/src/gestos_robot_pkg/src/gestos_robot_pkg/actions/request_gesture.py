@@ -38,17 +38,13 @@ class GestureActionClient:
         time.sleep(2)
         gesture = None
         goal = GestoGoal()
-        rospy.loginfo(f"[GESTURE-CLIENT] Sending request")
         self.client.send_goal(goal)
         self.client.wait_for_result()
 
         result = self.client.get_result()
 
         if result and result.type:
-            rospy.loginfo(f"[GESTURE-CLIENT] Detected: {result.type}")
             gesture = result.type
-        else:
-            rospy.logwarn("[GESTURE-CLIENT] Gesture not detected (timeout or abort)")
         return gesture
     
     def run(self):

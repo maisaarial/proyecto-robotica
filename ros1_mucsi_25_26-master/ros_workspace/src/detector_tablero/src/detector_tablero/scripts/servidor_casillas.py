@@ -27,7 +27,7 @@ class TableroActionServer:
         rospy.init_node('tablero', anonymous=True)
         self.bridge = CvBridge()
         self.cv_image = None
-        rospy.Subscriber('/usb_cam/image_raw', Image, self.__cb_image)
+        rospy.Subscriber('/cam_tablero/image_raw', Image, self.__cb_image)
         self.server = actionlib.SimpleActionServer(
             'tablero',
             CasillasAction,

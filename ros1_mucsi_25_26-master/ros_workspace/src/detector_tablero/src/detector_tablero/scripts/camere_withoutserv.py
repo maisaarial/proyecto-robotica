@@ -26,7 +26,7 @@ class NodoCamara:
         rospy.init_node('nodo_camara', anonymous=True)
         self.bridge = CvBridge()
         self.cv_image = None
-        rospy.Subscriber('/usb_cam/image_raw', Image, self.__cb_image)
+        rospy.Subscriber('/cam_tablero/image_raw', Image, self.__cb_image)
         
         # ArUco
         self.aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)

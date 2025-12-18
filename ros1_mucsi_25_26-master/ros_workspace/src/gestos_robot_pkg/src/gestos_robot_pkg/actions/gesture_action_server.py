@@ -19,7 +19,7 @@ class GestureActionServer:
         rospy.loginfo("[GESTURE-AS] Inicializando...")
 
         self.video_main = Video(
-            topic_name="/usb_cam/image_raw", #hay que cambiar el nombre
+            topic_name="/cam_gestos/image_raw", #hay que cambiar el nombre
             config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
             section="camera",
             wait_timeout=3.0
@@ -67,57 +67,57 @@ class GestureActionServer:
             if roi_hand is not None:
                 gesto_mano, dedos = clasificar_gesto_mano(roi_hand)
 
-            if dedos is not None:
-                if dedos is not None and dedos >= 4:
-                    gesture = GestureEvent.INICIO
-                    gesture_label = "(mano abierta)"
-                elif dedos == 0:
-                    gesture = GestureEvent.FICHA_ROJA
-                    gesture_label = "(0 dedos)"
+                if dedos is not None:
+                    if dedos is not None and dedos >= 4:
+                        gesture = GestureEvent.INICIO
+                        gesture_label = "(mano abierta)"
+                    elif dedos == 0:
+                        gesture = GestureEvent.FICHA_ROJA
+                        gesture_label = "(0 dedos)"
+                        detected = True
+                        result.type = gesture_label
+                        result.source = "mano"
+                        result.fingers = int(dedos)
+                        result.rock = False
+                        result.wink = False
+                    elif dedos == 1:
+                        gesture = GestureEvent.FICHA_AMARILLA
+                        gesture_label = "(1 dedo)"
+                        detected = True
+                        result.type = gesture_label
+                        result.source = "mano"
+                        result.fingers = int(dedos)
+                        result.rock = False
+                        result.wink = False
+                    elif dedos == 3:
+                        gesture = GestureEvent.FICHA_VERDE
+                        gesture_label = "(3 dedos)"
+                        detected = True
+                        result.type = gesture_label
+                        result.source = "mano"
+                        result.fingers = int(dedos)
+                        result.rock = False
+                        result.wink = False
+
+                if es_rock_roi(roi_hand):
+                    gesture = GestureEvent.FICHA_AZUL
+                    gesture_label = "(rock)"
                     detected = True
                     result.type = gesture_label
                     result.source = "mano"
-                    result.fingers = int(dedos)
-                    result.rock = False
-                    result.wink = False
-                elif dedos == 1:
-                    gesture = GestureEvent.FICHA_AMARILLA
-                    gesture_label = "(1 dedo)"
-                    detected = True
-                    result.type = gesture_label
-                    result.source = "mano"
-                    result.fingers = int(dedos)
-                    result.rock = False
-                    result.wink = False
-                elif dedos == 3:
-                    gesture = GestureEvent.FICHA_VERDE
-                    gesture_label = "(3 dedos)"
-                    detected = True
-                    result.type = gesture_label
-                    result.source = "mano"
-                    result.fingers = int(dedos)
-                    result.rock = False
+                    result.fingers = -1
+                    result.rock = True
                     result.wink = False
 
-            if es_rock_roi(roi_hand):
-                gesture = GestureEvent.FICHA_AZUL
-                gesture_label = "(rock)"
-                detected = True
-                result.type = gesture_label
-                result.source = "mano"
-                result.fingers = -1
-                result.rock = True
-                result.wink = False
-
-            if bbox_hand is not None and gesto_tirar_dado_roi(roi_hand, bbox_hand):
-                gesture = GestureEvent.TIRAR_DADO
-                gesture_label = "(pulgar arriba)"
-                detected = True
-                result.type = gesture_label
-                result.source = "mano"
-                result.fingers = -1
-                result.rock = False
-                result.wink = False
+                if bbox_hand is not None and gesto_tirar_dado_roi(roi_hand, bbox_hand):
+                    gesture = GestureEvent.TIRAR_DADO
+                    gesture_label = "(pulgar arriba)"
+                    detected = True
+                    result.type = gesture_label
+                    result.source = "mano"
+                    result.fingers = -1
+                    result.rock = False
+                    result.wink = False
 
             if roi_face is not None:
                 gray_face = cv2.cvtColor(roi_face, cv2.COLOR_BGR2GRAY)

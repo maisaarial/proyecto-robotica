@@ -40,11 +40,11 @@ def main():
     
     
     video_main = Video(
-        topic_name="/usb_cam/image_raw", #hay que cambiar
+        topic_name="/cam_gestos/image_raw", #hay que cambiar
         config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
         section="camera")
     video_dice = Video(
-        topic_name="/usb_cam/image_raw", #hay que cambiar
+        topic_name="/cam_gestos/image_raw", #hay que cambiar
         config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
         section="camera")
 
