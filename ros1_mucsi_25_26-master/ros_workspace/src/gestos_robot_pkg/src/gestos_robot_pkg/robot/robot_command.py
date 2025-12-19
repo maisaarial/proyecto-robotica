@@ -163,13 +163,11 @@ class Robot_Command:
                 finished = True
             else :
                 time.sleep(1)
-        self.pieces = self.tablero_server.request_tablero()
-        player_piece = next((p for p in self.pieces if p.color == player.color), None)
-        if player_piece is not None : 
-            player.position = player_piece.idx
-        else : 
-            rospy.loginfo(f"[Game] >>> Player {player.color} : piece out of bound !")
-        return player_piece
+        player_piece = None
+        while player_piece is None :
+            self.pieces = self.tablero_server.request_tablero()
+            player_piece = next((p for p in self.pieces if p.color == player.color), None)
+        player.position = player_piece.idx
     
     def robot_turn(self,player):
         rospy.loginfo(f"[Game] >>> Player {player.color} : robot's turn !")
@@ -181,23 +179,19 @@ class Robot_Command:
                 finished = True
             else :
                 time.sleep(1)
-        #throwthedice() 
-        '''dice_value = -1
+        control.tirar_dado() 
+        dice_value = -1
         while dice_value == -1 :
             dice_value = self.dice_server.request_dice()
-            time.sleep(1)'''
-        dice_value = random.randint(1,6)
+            time.sleep(1)
         rospy.loginfo(f"[Game] >>>  dice = {dice_value}")
-        player_piece = next((p for p in self.pieces if p.color == player.color), None)
-        if player_piece is not None : 
-            player.position += dice_value
-            rospy.loginfo(f"[Game] >>>  new position = {player.position}")
+        player_piece = None
+        while player_piece is None :
             self.pieces = self.tablero_server.request_tablero()
-            player_piece = None
-            while player_piece is None :
-                self.pieces = self.tablero_server.request_tablero()
-                player_piece = next((p for p in self.pieces if p.color == player.color), None)
-            self.control.move_piece_to_cell(player_piece, self.cells, player.position)
+            player_piece = next((p for p in self.pieces if p.color == player.color), None)
+        player.position += dice_value
+        rospy.loginfo(f"[Game] >>>  new position = {player.position}")
+        self.control.move_piece_to_cell(player_piece, self.cells, player.position)
 
     def game(self):
         """Game mechanic for a normal turn""" 
@@ -224,10 +218,10 @@ class Robot_Command:
 if __name__ == "__main__":
     rospy.init_node("robot_command")
     gesture_server = GestureActionClient()
-    #dice_server = DiceActionClient()
+    dice_server = DiceActionClient()
     tablero_server = TableroActionClient()
     control = ControlRobot()
-    client = Robot_Command(gesture_server, tablero_server, control)
+    client = Robot_Command(gesture_server, tablero_server, control, dice_server=dice_server)
     # Example repeated calls
     rospy.loginfo("[ROBOT-COMMAND] Node started, waiting for gestures...")
     rospy.spin()

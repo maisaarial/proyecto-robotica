@@ -258,6 +258,7 @@ class TableroActionServer:
                         p.orientation.x, p.orientation.y, p.orientation.z, p.orientation.w = 0, 0, 0, 1
                         c.pose = p
                         c.color = colores_duros[idx]
+                        #c.color = colores[idx]
                         tablero_list.append(c)
                     result.casillas = tablero_list
                     result.fichas = [] 
