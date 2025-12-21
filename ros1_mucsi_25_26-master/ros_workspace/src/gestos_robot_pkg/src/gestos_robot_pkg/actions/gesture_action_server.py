@@ -2,13 +2,11 @@
 import rospy
 import actionlib
 import time
-import cv2
-from gestos_robot_pkg.msg import Gesture
+
 from gestos_robot_pkg.msg import GestoAction, GestoResult, GestoFeedback
 from gestos_robot_pkg.core.events import GestureEvent
 from gestos_robot_pkg.core.video import Video
 from gestos_robot_pkg.detectors.hands_detector import Hands
-from gestos_robot_pkg.detectors.face_detector import Face
 from gestos_robot_pkg.detectors.gestures_hand import clasificar_gesto_mano, es_rock_roi, gesto_tirar_dado_roi
 from gestos_robot_pkg.detectors.gestures_face import es_guiño_roi, es_parpadeo_largo_roi
 
@@ -18,10 +16,10 @@ class GestureActionServer:
         rospy.init_node("gesture_action_server")
         rospy.loginfo("[GESTURE-AS] Inicializando...")
 
-        self.video_main = Video(
-            topic_name="/cam_gestos/image_raw", #hay que cambiar el nombre
+        self.video_dice = Video(
+            topic_name="/usb_cam/image_raw", #hay que cambiar el nombre
             config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
-            section="camera",
+            section="dice_camera",
             wait_timeout=3.0
         )
         self.hands = Hands()
@@ -50,88 +48,58 @@ class GestureActionServer:
             # -------------------------
             # LECTURA DE CÁMARAS
             # -------------------------
-            frame_main = self.video_main.read()
+            frame_dice = self.video_dice.read()
             if frame_main is None:
                 print("[APP] No se pudo leer frame de la cámara principal.")
                 break
 
             # -------------------------
-            # DETECCIÓN DE MANO Y CARA (MediaPipe -> ROI)
+            # DETECCIÓN DE MANO  (MediaPipe -> ROI)
             # -------------------------
             roi_hand, bbox_hand = self.hands.detect(frame_main, draw_bbox=True)
-            roi_face, bbox_face = self.face.detect(frame_main, draw_bbox=False)
 
             # comprobar condiciones según target
             detected = False
-            
-            if roi_hand is not None:
+            if frame_dice is not None:
+            # -------- DETECCIÓN DE MANO --------
+            mano_detectada = roi_hand is not None
+
+            if mano_detectada:
+                # Procesar gestos de mano
                 gesto_mano, dedos = clasificar_gesto_mano(roi_hand)
 
                 if dedos is not None:
-                    if dedos is not None and dedos >= 4:
+                    if dedos >= 4:
+                        #Por streaming
                         gesture = GestureEvent.INICIO
-                        gesture_label = "(mano abierta)"
+                        gesture_label = "Inicio (mano abierta)"
+                        gesture_label_str = gesture_laber
+                        gesture_label_mano = gesture_label
                     elif dedos == 0:
                         gesture = GestureEvent.FICHA_ROJA
-                        gesture_label = "(0 dedos)"
-                        detected = True
-                        result.type = gesture_label
-                        result.source = "mano"
-                        result.fingers = int(dedos)
-                        result.rock = False
-                        result.wink = False
+                        gesture_label = "Ficha roja (0 dedos)"
+                        gesture_label_mano = gesture_label
                     elif dedos == 1:
                         gesture = GestureEvent.FICHA_AMARILLA
-                        gesture_label = "(1 dedo)"
-                        detected = True
-                        result.type = gesture_label
-                        result.source = "mano"
-                        result.fingers = int(dedos)
-                        result.rock = False
-                        result.wink = False
+                        gesture_label = "Ficha amarilla (1 dedo)"
+                        gesture_label_mano = gesture_label
                     elif dedos == 3:
                         gesture = GestureEvent.FICHA_VERDE
-                        gesture_label = "(3 dedos)"
-                        detected = True
-                        result.type = gesture_label
-                        result.source = "mano"
-                        result.fingers = int(dedos)
-                        result.rock = False
-                        result.wink = False
+                        gesture_label = "Ficha verde (3 dedos)"
+                        gesture_label_mano = gesture_label
 
+                # Rock (ficha azul) tiene prioridad sobre otros gestos con 2 dedos
                 if es_rock_roi(roi_hand):
                     gesture = GestureEvent.FICHA_AZUL
-                    gesture_label = "(rock)"
-                    detected = True
-                    result.type = gesture_label
-                    result.source = "mano"
-                    result.fingers = -1
-                    result.rock = True
-                    result.wink = False
+                    gesture_label = "Ficha azul (🤘)"
+                    gesture_label_mano = gesture_label
 
+                # Tirar dado (pulgar arriba)
                 if bbox_hand is not None and gesto_tirar_dado_roi(roi_hand, bbox_hand):
                     gesture = GestureEvent.TIRAR_DADO
-                    gesture_label = "(pulgar arriba)"
-                    detected = True
-                    result.type = gesture_label
-                    result.source = "mano"
-                    result.fingers = -1
-                    result.rock = False
-                    result.wink = False
-
-            if roi_face is not None:
-                gray_face = cv2.cvtColor(roi_face, cv2.COLOR_BGR2GRAY)
-                if es_guiño_roi(gray_face):
-                    gesture = GestureEvent.CONTINUAR
-                    gesture_label = "(guiño)"
-                    detected = True
-                    result.type = gesture_label
-                    result.source = "rostro"
-                    result.fingers = -1
-                    result.wink = True
-                    result.rock = False
-
-
+                    gesture_label = "Tirar dado (pulgar arriba)"
+                    gesture_label_mano = gesture_label
+            
             feedback.status = f"Buscando"
             self._as.publish_feedback(feedback)
 

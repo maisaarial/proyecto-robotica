@@ -5,6 +5,7 @@ import time
 import actionlib
 from std_msgs.msg import String
 from gestos_robot_pkg.msg import GestoAction, GestoResult
+from gestos_robot_pkg.msg import FaceGestureAction, FaceGestureResult
 from gestos_robot_pkg.msg import DiceReadAction, DiceReadResult, DiceReadFeedback
 from gestos_robot_pkg.core.video import Video
 from gestos_robot_pkg.detectors.dice_detector import DiceDetector

@@ -1,19 +1,20 @@
 from enum import Enum, auto
-from gestos_robot_pkg.core.events import GestureEvent
+from src.core.events import GestureEvent
 
 class State(Enum):
     INACTIVO = auto()
     ESPERA_INICIO = auto()
     SELECCION_FICHA = auto()
-    CONFIRMAR_MOVIMIENTO = auto()
-    EJECUTAR_ACCION = auto()
     ESPERA_TIRAR_DADO = auto()
+    CONFIRMAR_MOVIMIENTO_GUINO = auto()
+    EJECUTAR_ACCION = auto()
     DETENIDO = auto()
 
 class FSM:
     def __init__(self):
         self.state = State.ESPERA_INICIO
         self.selected_piece = None
+        self.dice_value = None
 
     def next(self, event: GestureEvent):
         # ------------------------
@@ -35,20 +36,31 @@ class FSM:
                 GestureEvent.FICHA_AZUL
             ):
                 self.selected_piece = event
-                self.state = State.CONFIRMAR_MOVIMIENTO
-                return f"Ficha seleccionada: {event.name}"
+                self.state = State.ESPERA_TIRAR_DADO
+                return f"Ficha seleccionada: {event.name}, esperando tirar dado"
 
             if event == GestureEvent.DETENER:
                 self.state = State.DETENIDO
                 return "Detenido"
 
         # ------------------------
-        # Confirmación
+        # Espera tirar dado
         # ------------------------
-        if self.state == State.CONFIRMAR_MOVIMIENTO:
+        if self.state == State.ESPERA_TIRAR_DADO:
+            if event == GestureEvent.TIRAR_DADO:
+                self.state = State.CONFIRMAR_MOVIMIENTO_GUINO
+                return "Dado tirado, esperar confirmación (guiño)"
+            if event == GestureEvent.DETENER:
+                self.state = State.DETENIDO
+                return "Detenido"
+
+        # ------------------------
+        # Confirmación de movimiento
+        # ------------------------
+        if self.state == State.CONFIRMAR_MOVIMIENTO_GUINO:
             if event == GestureEvent.CONTINUAR:
                 self.state = State.EJECUTAR_ACCION
-                return "Confirmado"
+                return "Confirmado, ejecutar movimiento"
             if event == GestureEvent.DETENER:
                 self.state = State.DETENIDO
                 return "Detenido"
@@ -57,18 +69,11 @@ class FSM:
         # Ejecutar acción
         # ------------------------
         if self.state == State.EJECUTAR_ACCION:
-            self.state = State.ESPERA_TIRAR_DADO
-            return "Ejecutar movimiento"
-
-        # ------------------------
-        # Espera tirar dado
-        # ------------------------
-        if self.state == State.ESPERA_TIRAR_DADO:
-            if event == GestureEvent.TIRAR_DADO:
-                self.state = State.SELECCION_FICHA
-                return "Dado tirado"
-            if event == GestureEvent.DETENER:
-                self.state = State.DETENIDO
-                return "Detenido"
+            # Una vez ejecutada la acción, volvemos a seleccionar ficha
+            self.state = State.SELECCION_FICHA
+            self.selected_piece = None
+            self.dice_value = None
+            return "Movimiento ejecutado, volver a seleccionar ficha"
 
         return None
+

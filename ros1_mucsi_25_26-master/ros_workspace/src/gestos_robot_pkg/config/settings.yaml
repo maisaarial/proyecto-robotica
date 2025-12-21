@@ -1,11 +1,11 @@
-camera:
-  index: 1
+camera: # cara 
+  index: 2
   width: 1280
   height: 720
   fps: 30
 
-dice_camera:    
-  index: 2       
+dice_camera:    # dado y manos
+  index: 0      
   width: 1280
   height: 720
   fps: 30
