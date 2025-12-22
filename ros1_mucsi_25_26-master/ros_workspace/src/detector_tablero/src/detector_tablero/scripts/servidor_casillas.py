@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# obtiene información del tablero y de las fichas 
+# se puede actualizar cada dos por tres
 import rospy
 import actionlib
 from cv_bridge import CvBridge
@@ -132,6 +134,8 @@ class TableroActionServer:
 
                 casillas.append(ordered)
         if len(casillas) == nCasillas:
+            return casillas
+        if len(casillas) == 21:
             return casillas
         return None
 

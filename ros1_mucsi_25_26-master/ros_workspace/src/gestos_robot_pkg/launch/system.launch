@@ -1,3 +1,6 @@
+<... Este script es para lanzar la captación de las cámaras. 
+Tenemos que tener cuidado al cambiar el orden. Para el ordenador .27
+!...>
 <?xml version="1.0"?>
 <launch>
   <node name="cam_tablero" pkg="usb_cam" type="usb_cam_node" output="screen" >
@@ -7,7 +10,7 @@
     <param name="framerate" value="30" />
     <param name="camera_frame_id" value="usb_cam" />
   </node>
-  <node name="cam_gestos" pkg="usb_cam" type="usb_cam_node" output="screen" >
+  <node name="cam_dado" pkg="usb_cam" type="usb_cam_node" output="screen" >
     <param name="video_device" value="/dev/video2"/>
     <param name="image_width" value="640" />
     <param name="image_height" value="480" />

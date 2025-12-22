@@ -17,7 +17,7 @@ class GestureActionServer:
         rospy.loginfo("[GESTURE-AS] Inicializando...")
 
         self.video_dice = Video(
-            topic_name="/usb_cam/image_raw", #hay que cambiar el nombre
+            topic_name="/cam_dado/image_raw", #hay que cambiar el nombre
             config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
             section="dice_camera",
             wait_timeout=3.0
@@ -69,35 +69,29 @@ class GestureActionServer:
                 gesto_mano, dedos = clasificar_gesto_mano(roi_hand)
 
                 if dedos is not None:
-                    if dedos >= 4:
-                        #Por streaming
-                        gesture = GestureEvent.INICIO
-                        gesture_label = "Inicio (mano abierta)"
-                        gesture_label_str = gesture_laber
-                        gesture_label_mano = gesture_label
-                    elif dedos == 0:
+                    if dedos == 0:
                         gesture = GestureEvent.FICHA_ROJA
-                        gesture_label = "Ficha roja (0 dedos)"
+                        gesture_label = "(0 dedos)" #antes: Ficha roja (0 dedos)
                         gesture_label_mano = gesture_label
                     elif dedos == 1:
                         gesture = GestureEvent.FICHA_AMARILLA
-                        gesture_label = "Ficha amarilla (1 dedo)"
+                        gesture_label = "(1 dedo)" #antes: Ficha amarilla (1 dedo),ahora se utiliza para player 1 y human
                         gesture_label_mano = gesture_label
                     elif dedos == 3:
                         gesture = GestureEvent.FICHA_VERDE
-                        gesture_label = "Ficha verde (3 dedos)"
+                        gesture_label = "(3 dedos)" #antes: Ficha verde (3 dedos)
                         gesture_label_mano = gesture_label
 
                 # Rock (ficha azul) tiene prioridad sobre otros gestos con 2 dedos
                 if es_rock_roi(roi_hand):
                     gesture = GestureEvent.FICHA_AZUL
-                    gesture_label = "Ficha azul (🤘)"
+                    gesture_label = "(rock)" #antes: Ficha azul (🤘)
                     gesture_label_mano = gesture_label
 
                 # Tirar dado (pulgar arriba)
                 if bbox_hand is not None and gesto_tirar_dado_roi(roi_hand, bbox_hand):
                     gesture = GestureEvent.TIRAR_DADO
-                    gesture_label = "Tirar dado (pulgar arriba)"
+                    gesture_label = "(pulgar arriba)" #antes: Tirar dado (pulgar arriba)
                     gesture_label_mano = gesture_label
             
             feedback.status = f"Buscando"

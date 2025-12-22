@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+#Este script es para inicializar y checkear las cámaras que esten bien calibradas (aqui se visualiza y se calibra a mano)
+#sobre todo capta el gesto de inicializacion, la mano abierta, que es el publisher, y el que inicia el juego
 import cv2
 import time
 
@@ -10,7 +11,7 @@ from gestos_robot_pkg.actions.robot import Robot
 from gestos_robot_pkg.actions.mapping import ActionMapper
 
 from gestos_robot_pkg.detectors.hands_detector import Hands
-from gestos_robot_pkg.detectors.face_detector import Face
+from gestos_robot_pkg.detectors.face_detector import Faces
 from gestos_robot_pkg.detectors.gestures_hand import (
     contar_dedos_roi,
     es_rock_roi,
@@ -40,11 +41,11 @@ def main():
     
     
     video_main = Video(
-        topic_name="/cam_gestos/image_raw", #hay que cambiar
+        topic_name="/cam_gestos/image_raw", #hay que cambiar para saber si esta bien calibrado
         config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
         section="camera")
     video_dice = Video(
-        topic_name="/cam_gestos/image_raw", #hay que cambiar
+        topic_name="/cam_gestos/image_raw", #hay que cambiar para saber si esta bien calibrado
         config_path="/home/laboratorio/ros_workspace/src/gestos_robot_pkg/config/settings.yaml",
         section="camera")
 

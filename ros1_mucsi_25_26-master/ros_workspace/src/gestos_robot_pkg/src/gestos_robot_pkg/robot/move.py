@@ -18,7 +18,8 @@ from gestos_robot_pkg.actions.request_tablero import TableroActionClient
 class ControlRobot:
     def __init__(self) -> None:
         roscpp_initialize(sys.argv)
-        rospy.init_node("control_robot", anonymous=True)
+        rospy.init_node("control_robot", anonymous=True)#tener en cuenta
+        #hay que comentar la linea anterior para poder utilizar robot_command.py
         self.robot = RobotCommander()
         self.scene = PlanningSceneInterface()
         self.group_name = "robot"
@@ -107,7 +108,7 @@ class ControlRobot:
 if __name__ == '__main__':
     # Crear el objeto de tipo robot
     control = ControlRobot()
-    tablero = TableroActionClient()
+    #tablero = TableroActionClient()
     
     pi_medios = pi/2
     # Mover el robot a articulaciones iniciales

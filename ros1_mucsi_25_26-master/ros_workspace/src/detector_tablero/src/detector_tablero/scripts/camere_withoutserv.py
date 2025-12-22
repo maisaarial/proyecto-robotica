@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Es util para saber si todas las casillas se identifican en el orden conveniente. 
+# Es normal que se pare durante las modificaciones, porque esta intentando captar el arUco y puede que en un momento lo pierda de vista
 import rospy
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
@@ -130,6 +132,7 @@ class NodoCamara:
                 casillas.append(ordered)
         if len(casillas) == 20:
             return casillas
+        elif len(casillas) == 21:
         return None
 
     def getCentro(self, casilla):
