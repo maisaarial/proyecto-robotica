@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import rospy
 import actionlib
-from detector_tablero.msg import Tablero
 from detector_tablero.msg import CasillasAction, CasillasResult, CasillasGoal
 from gestos_robot_pkg.msg import Gesture
 import time

@@ -133,7 +133,7 @@ class NodoCamara:
         if len(casillas) == 20:
             return casillas
         elif len(casillas) == 21:
-        return None
+            return None
 
     def getCentro(self, casilla):
         cx = int(sum([p[0] for p in casilla]) / len(casilla))

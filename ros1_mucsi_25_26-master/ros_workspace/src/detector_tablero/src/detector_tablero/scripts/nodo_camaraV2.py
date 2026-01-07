@@ -6,7 +6,7 @@ from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Pose
 from copy import deepcopy
-from detector_tablero.msg import Tablero, Cell
+from detector_tablero.msg import Cell
 from detector_tablero.msg import CasillasAction, CasillasResult, CasillasFeedback
 
 import cv2
@@ -57,7 +57,6 @@ class NodoCamara:
             cam_data = yaml.safe_load(f)
 
         # Extract camera matrix K
-        K = cam_data['camera_matrix']['data']
         K = cam_data['camera_matrix']['data']
         fx = K[0]   # K[0,0]
         fy = K[4]   # K[1,1]

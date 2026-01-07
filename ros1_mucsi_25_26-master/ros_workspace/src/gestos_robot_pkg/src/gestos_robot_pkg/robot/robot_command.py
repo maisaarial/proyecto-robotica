@@ -72,7 +72,7 @@ class Robot_Command:
     def setup_players(self):
         """Select the number of players as well as their colors and types""" 
         num_player = 0
-        rospy.loginfo("[SET-UP] >>> Elegir numero de jugadores (1-3) :")
+        rospy.loginfo("[SET-UP] >>> Elegir el numero de jugadores (1-3) :")
         while num_player == 0:
             result = self.gesture_server.request_gesture()
             if result == "(1 dedo)" :
@@ -89,7 +89,7 @@ class Robot_Command:
         possible_types = {"(1 dedo)":"human", "(pulgar arriba)":"robot"}
 
         for i in range (num_player):
-            rospy.loginfo(f"[SET-UP] >>> Elegir el color del jugadore {i} :")
+            rospy.loginfo(f"[SET-UP] >>> Elegir el color del jugador {i} :")
             color = None
             type = None
             while color is None :
@@ -97,13 +97,13 @@ class Robot_Command:
                 if result in fichas_disponibles.keys():
                     color = fichas_disponibles[result]
                     del fichas_disponibles[result]
-                    rospy.loginfo(f"[SET-UP] >>> Jugadore {i} is {color}:")
-                    rospy.loginfo(f"[SET-UP] >>> Elegir el tipo del jugadore {i} :")
+                    rospy.loginfo(f"[SET-UP] >>> Jugador {i} es {color}:")
+                    rospy.loginfo(f"[SET-UP] >>> Elegir el tipo del jugador {i} :")
                     while type is None :
                         result = self.gesture_server.request_gesture()
                         if result in possible_types.keys():
                             type = possible_types[result]
-                            rospy.loginfo(f"[SET-UP] >>> Jugadore {i} is {type}:")
+                            rospy.loginfo(f"[SET-UP] >>> Jugador {i} es {type}:")
                     time.sleep(2)
                 time.sleep(2)
             new_player = Player(color, type)
