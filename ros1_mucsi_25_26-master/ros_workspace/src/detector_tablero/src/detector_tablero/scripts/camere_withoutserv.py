@@ -130,7 +130,10 @@ class NodoCamara:
                 casillas.append(ordered)
         if len(casillas) == 20:
             return casillas
-        return None
+        if len(casillas) == 21:
+            casillas.pop()
+            return casillas
+        return casillas
 
     def getCentro(self, casilla):
         cx = int(sum([p[0] for p in casilla]) / len(casilla))
@@ -253,7 +256,7 @@ class NodoCamara:
                         centro[0], centro[1], rvec, tvec)
                     p.orientation.x, p.orientation.y, p.orientation.z, p.orientation.w = 0, 0, 0, 1
                     c.pose = p
-                    c.color = colores_duros[idx]
+                    #c.color = colores_duros[idx]
                     tablero_list.append(c)
                        
 

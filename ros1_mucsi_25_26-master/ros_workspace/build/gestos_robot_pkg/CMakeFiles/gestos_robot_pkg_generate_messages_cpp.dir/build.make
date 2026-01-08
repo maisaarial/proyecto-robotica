@@ -72,33 +72,33 @@ CMakeFiles/gestos_robot_pkg_generate_messages_cpp: /home/laboratorio/ros_workspa
 
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalStatus.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadAction.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/laboratorio/ros_workspace/build/gestos_robot_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from gestos_robot_pkg/DiceReadAction.msg"
 	cd /home/laboratorio/ros_workspace/src/gestos_robot_pkg && /home/laboratorio/ros_workspace/build/gestos_robot_pkg/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadAction.msg -Igestos_robot_pkg:/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg -Igestos_robot_pkg:/home/laboratorio/ros_workspace/src/gestos_robot_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/noetic/share/actionlib_msgs/cmake/../msg -p gestos_robot_pkg -o /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
 
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionGoal.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionGoal.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionGoal.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionGoal.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionGoal.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadGoal.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionGoal.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionGoal.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/laboratorio/ros_workspace/build/gestos_robot_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from gestos_robot_pkg/DiceReadActionGoal.msg"
 	cd /home/laboratorio/ros_workspace/src/gestos_robot_pkg && /home/laboratorio/ros_workspace/build/gestos_robot_pkg/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionGoal.msg -Igestos_robot_pkg:/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg -Igestos_robot_pkg:/home/laboratorio/ros_workspace/src/gestos_robot_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/noetic/share/actionlib_msgs/cmake/../msg -p gestos_robot_pkg -o /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
 
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionResult.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionResult.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionResult.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionResult.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionResult.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionResult.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadResult.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionResult.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionResult.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalStatus.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionResult.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/laboratorio/ros_workspace/build/gestos_robot_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from gestos_robot_pkg/DiceReadActionResult.msg"
@@ -106,8 +106,8 @@ CMakeFiles/gestos_robot_pkg_generate_messages_cpp: /home/laboratorio/ros_workspa
 
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionFeedback.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionFeedback.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionFeedback.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionFeedback.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionFeedback.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionFeedback.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalStatus.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionFeedback.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadFeedback.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/DiceReadActionFeedback.h: /opt/ros/noetic/share/gencpp/msg.h.template
@@ -134,23 +134,23 @@ CMakeFiles/gestos_robot_pkg_generate_messages_cpp: /home/laboratorio/ros_workspa
 
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalStatus.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoAction.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/laboratorio/ros_workspace/build/gestos_robot_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating C++ code from gestos_robot_pkg/GestoAction.msg"
 	cd /home/laboratorio/ros_workspace/src/gestos_robot_pkg && /home/laboratorio/ros_workspace/build/gestos_robot_pkg/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoAction.msg -Igestos_robot_pkg:/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg -Igestos_robot_pkg:/home/laboratorio/ros_workspace/src/gestos_robot_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/noetic/share/actionlib_msgs/cmake/../msg -p gestos_robot_pkg -o /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg -e /opt/ros/noetic/share/gencpp/cmake/..
 
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionGoal.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionGoal.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionGoal.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionGoal.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionGoal.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionGoal.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionGoal.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoGoal.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionGoal.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/laboratorio/ros_workspace/build/gestos_robot_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating C++ code from gestos_robot_pkg/GestoActionGoal.msg"
@@ -158,8 +158,8 @@ CMakeFiles/gestos_robot_pkg_generate_messages_cpp: /home/laboratorio/ros_workspa
 
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionResult.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionResult.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionResult.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionResult.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionResult.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionResult.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionResult.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalStatus.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionResult.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoResult.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionResult.h: /opt/ros/noetic/share/gencpp/msg.h.template
@@ -168,10 +168,10 @@ CMakeFiles/gestos_robot_pkg_generate_messages_cpp: /home/laboratorio/ros_workspa
 
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalStatus.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalID.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoFeedback.msg
+/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /opt/ros/noetic/share/actionlib_msgs/msg/GoalStatus.msg
 /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg/GestoActionFeedback.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/laboratorio/ros_workspace/build/gestos_robot_pkg/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating C++ code from gestos_robot_pkg/GestoActionFeedback.msg"
 	cd /home/laboratorio/ros_workspace/src/gestos_robot_pkg && /home/laboratorio/ros_workspace/build/gestos_robot_pkg/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/GestoActionFeedback.msg -Igestos_robot_pkg:/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg -Igestos_robot_pkg:/home/laboratorio/ros_workspace/src/gestos_robot_pkg/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Iactionlib_msgs:/opt/ros/noetic/share/actionlib_msgs/cmake/../msg -p gestos_robot_pkg -o /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/include/gestos_robot_pkg -e /opt/ros/noetic/share/gencpp/cmake/..

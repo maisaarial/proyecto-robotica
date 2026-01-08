@@ -46,8 +46,13 @@ class Robot_Command:
             rospy.loginfo("[GESTURE-STREAM] >>> INICIO recibido. Comenzando escucha.")
             self.on = True
             self.control.move_to_home()
-            pose = Pose(position=Point(0,0,0.5))
+            pose = Pose(position=Point(0,0,0.70))
             control.añadir_caja_a_escena_de_planificacion(pose,"obstaculo",(2,2,.05))
+            pose = Pose(position=Point(-0.5,0.2,0))
+            control.añadir_caja_a_escena_de_planificacion(pose,"pared1",(.05,1,1))
+            pose = Pose(position=Point(0,-0.3,0.2))
+            control.añadir_caja_a_escena_de_planificacion(pose,"pared2",(1,.05,1))
+            
             self.cells = None
             while self.cells is None:
                 self.cells = self.tablero_server.request_tablero(modo=0)
@@ -179,6 +184,7 @@ class Robot_Command:
                 finished = True
             else :
                 time.sleep(1)
+        rospy.loginfo(f"[Game] >>> Throwing the dice")
         control.tirar_dado() 
         dice_value = -1
         while dice_value == -1 :
@@ -221,6 +227,8 @@ if __name__ == "__main__":
     dice_server = DiceActionClient()
     tablero_server = TableroActionClient()
     control = ControlRobot()
+    control.move_group.set_max_velocity_scaling_factor(1.0)
+    control.move_group.set_max_acceleration_scaling_factor(1.0)
     client = Robot_Command(gesture_server, tablero_server, control, dice_server=dice_server)
     # Example repeated calls
     rospy.loginfo("[ROBOT-COMMAND] Node started, waiting for gestures...")

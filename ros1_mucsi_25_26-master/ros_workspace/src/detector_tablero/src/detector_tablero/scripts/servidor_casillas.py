@@ -133,6 +133,9 @@ class TableroActionServer:
                 casillas.append(ordered)
         if len(casillas) == nCasillas:
             return casillas
+        if len(casillas) == nCasillas+1:
+            casillas.pop()
+            return casillas
         return None
 
     def getCentro(self, casilla):

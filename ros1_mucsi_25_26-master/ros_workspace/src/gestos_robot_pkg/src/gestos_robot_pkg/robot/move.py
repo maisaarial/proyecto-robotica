@@ -55,8 +55,11 @@ class ControlRobot:
         return pose_stamped
     
     def mover_a_pose(self, pose_goal: Pose, wait: bool=True) -> bool:
-        self.move_group.set_pose_target(pose_goal)
-        return self.move_group.go(wait=wait)
+        ret = False
+        for i in range(5):
+            self.move_group.set_pose_target(pose_goal)
+            ret = self.move_group.go(wait=wait)
+        return ret
     
     def añadir_caja_a_escena_de_planificacion(self, pose_caja: Pose, name: str,
                                   tamaño: tuple = (.1,.1,.1)) -> None:
@@ -107,32 +110,32 @@ class ControlRobot:
         p1 = np.array([home.position.x, home.position.y, home.position.z])
         p2 = np.array([dice_pose.position.x, dice_pose.position.y, dice_pose.position.z])
         
-        puntos = np.linspace(p1, p2, 10)
-        trayectoria= []
-        for point in puntos:
-            trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
-        self.mover_trayectoria(trayectoria)
-        self.mover_a_pose(dice_pose)
+        # puntos = np.linspace(p1, p2, 10)
+        # trayectoria= []
+        # for point in puntos:
+        #     trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
+        # a=self.mover_trayectoria(trayectoria)
+        a=self.mover_a_pose(dice_pose)
         
         self.mover_pinza(anchura_dedos=10, fuerza=30)
         time.sleep(1.5)
         dice_pose.position.z += 0.05
-        self.mover_a_pose(dice_pose)
+        a=self.mover_a_pose(dice_pose)
         dice_pose = self.pose_from_yaml("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/dice_pose3.yaml")
-        self.mover_a_pose(dice_pose)
+        a=self.mover_a_pose(dice_pose)
         self.mover_pinza(anchura_dedos=80, fuerza=20)
         time.sleep(1.5)
         
         
-        p1 = np.array([dice_pose.position.x, dice_pose.position.y, dice_pose.position.z])
-        p2 = np.array([home.position.x, home.position.y, home.position.z])
+        # p1 = np.array([dice_pose.position.x, dice_pose.position.y, dice_pose.position.z])
+        # p2 = np.array([home.position.x, home.position.y, home.position.z])
         
-        puntos = np.linspace(p1, p2, 10)
-        trayectoria= []
-        for point in puntos:
-            trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
-        self.mover_trayectoria(trayectoria)
-        self.mover_a_pose(home)
+        # puntos = np.linspace(p1, p2, 10)
+        # trayectoria= []
+        # for point in puntos:
+        #     trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
+        # a=self.mover_trayectoria(trayectoria)
+        a=self.mover_a_pose(home)
     
     def move_piece_to_cell(self, ficha, casillas, idx_cell):
         self.mover_pinza(anchura_dedos=80, fuerza=20)
@@ -147,20 +150,22 @@ class ControlRobot:
         p1 = np.array([home.position.x, home.position.y, home.position.z])
         p2 = np.array([pose_1.position.x, pose_1.position.y, pose_1.position.z])
         
-        puntos = np.linspace(p1, p2, 10)
-        trayectoria= []
-        for point in puntos:
-            trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
-        self.mover_trayectoria(trayectoria)
+        # puntos = np.linspace(p1, p2, 10)
+        # trayectoria= []
+        # for point in puntos:
+        #     trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
+        # a=self.mover_trayectoria(trayectoria)
         
-        self.mover_a_pose(pose_1)
+        a=self.mover_a_pose(pose_1)
         pose_1.position.z -= 0.048
-        self.mover_a_pose(pose_1)
+        a = self.mover_trayectoria([pose_1])
+        # a=self.mover_a_pose(pose_1)
         time.sleep(2)
         self.mover_pinza(anchura_dedos=10, fuerza=20)
         time.sleep(2)
         pose_1.position.z += 0.048
-        self.mover_a_pose(pose_1)
+        a = self.mover_trayectoria([pose_1])
+        # a=self.mover_a_pose(pose_1)
         
         
         goal_cell = casillas[idx_cell].pose
@@ -170,38 +175,41 @@ class ControlRobot:
         p1 = np.array([pose_1.position.x, pose_1.position.y, pose_1.position.z])
         p2 = np.array([pose_2.position.x, pose_2.position.y, pose_2.position.z])
         
-        puntos = np.linspace(p1, p2, 10)
-        trayectoria= []
-        for point in puntos:
-            trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
-        self.mover_trayectoria(trayectoria)
+        # puntos = np.linspace(p1, p2, 10)
+        # trayectoria= []
+        # for point in puntos:
+        #     trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
+        # a=self.mover_trayectoria(trayectoria)
         
-        self.mover_a_pose(pose_2)
-        pose_2.position.z -= 0.048
-        self.mover_a_pose(pose_2)
+        a=self.mover_a_pose(pose_2)
+        pose_2.position.z -= 0.040
+        a = self.mover_trayectoria([pose_2])
+        # a=self.mover_a_pose(pose_2)
         time.sleep(2)
         self.mover_pinza(anchura_dedos=80, fuerza=20)
         pose_2.position.z += 0.048
-        self.mover_a_pose(pose_2)
+        a = self.mover_trayectoria([pose_2])
+        # a=self.mover_a_pose(pose_2)
         
         
-        p1 = np.array([pose_2.position.x, pose_2.position.y, pose_2.position.z])
-        p1 = np.array([home.position.x, home.position.y, home.position.z])
+        # p1 = np.array([pose_2.position.x, pose_2.position.y, pose_2.position.z])
+        # p1 = np.array([home.position.x, home.position.y, home.position.z])
         
-        puntos = np.linspace(p1, p2, 10)
-        trayectoria= []
-        for point in puntos:
-            trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
-        self.mover_trayectoria(trayectoria)
+        # puntos = np.linspace(p1, p2, 10)
+        # trayectoria= []
+        # for point in puntos:
+        #     trayectoria.append(Pose(position=Point(x=point[0], y=point[1], z=point[2])))
+        # a=self.mover_trayectoria(trayectoria)
         
         with open("/home/laboratorio/ros_workspace/src/gestos_robot_pkg/src/gestos_robot_pkg/robot/poses/home_position2.yaml", "r") as f:
             home_joints = yaml.safe_load(f)
-        self.mover_articulaciones(home_joints)
-        
+        a=self.mover_articulaciones(home_joints)
+        pass
         
         
 
 if __name__ == '__main__':
+
     # Crear el objeto de tipo robot
     
     # Mover el robot a articulaciones iniciales

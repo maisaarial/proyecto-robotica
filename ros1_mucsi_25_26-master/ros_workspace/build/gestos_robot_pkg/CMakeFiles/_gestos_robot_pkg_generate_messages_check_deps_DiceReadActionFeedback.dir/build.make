@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/laboratorio/ros_workspace/build/gestos_robot_pkg
 include CMakeFiles/_gestos_robot_pkg_generate_messages_check_deps_DiceReadActionFeedback.dir/progress.make
 
 CMakeFiles/_gestos_robot_pkg_generate_messages_check_deps_DiceReadActionFeedback:
-	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py gestos_robot_pkg /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg actionlib_msgs/GoalID:std_msgs/Header:actionlib_msgs/GoalStatus:gestos_robot_pkg/DiceReadFeedback
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py gestos_robot_pkg /home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/share/gestos_robot_pkg/msg/DiceReadActionFeedback.msg std_msgs/Header:actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:gestos_robot_pkg/DiceReadFeedback
 
 _gestos_robot_pkg_generate_messages_check_deps_DiceReadActionFeedback: CMakeFiles/_gestos_robot_pkg_generate_messages_check_deps_DiceReadActionFeedback
 _gestos_robot_pkg_generate_messages_check_deps_DiceReadActionFeedback: CMakeFiles/_gestos_robot_pkg_generate_messages_check_deps_DiceReadActionFeedback.dir/build.make

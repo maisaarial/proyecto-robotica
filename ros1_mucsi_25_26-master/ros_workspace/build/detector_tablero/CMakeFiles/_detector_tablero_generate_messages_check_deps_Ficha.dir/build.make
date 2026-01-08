@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/laboratorio/ros_workspace/build/detector_tablero
 include CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/progress.make
 
 CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha:
-	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py detector_tablero /home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg geometry_msgs/Quaternion:geometry_msgs/Point:geometry_msgs/Pose
+	catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py detector_tablero /home/laboratorio/ros_workspace/src/detector_tablero/msg/Ficha.msg geometry_msgs/Pose:geometry_msgs/Quaternion:geometry_msgs/Point
 
 _detector_tablero_generate_messages_check_deps_Ficha: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha
 _detector_tablero_generate_messages_check_deps_Ficha: CMakeFiles/_detector_tablero_generate_messages_check_deps_Ficha.dir/build.make

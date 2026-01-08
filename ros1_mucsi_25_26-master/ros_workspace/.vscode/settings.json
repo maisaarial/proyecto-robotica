@@ -1,4 +1,7 @@
 {
     "python.analysis.extraPaths": ["/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/lib/python3/dist-packages"],
-    "python.autoComplete.extraPaths": ["/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/lib/python3/dist-packages"]
+    "python.autoComplete.extraPaths": [
+        "/home/laboratorio/ros_workspace/devel/.private/gestos_robot_pkg/lib/python3/dist-packages"
+    ],
+    "ROS2.distro": "noetic"
 }

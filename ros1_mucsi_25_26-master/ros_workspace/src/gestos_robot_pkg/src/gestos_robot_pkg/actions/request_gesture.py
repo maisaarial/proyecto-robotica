@@ -32,20 +32,30 @@ class GestureActionClient:
             rospy.loginfo("[GESTURE-CLIENT] >>> DETENER recibido. Terminando escucha.")
             self.on = False
     """
-    
+    def check_coherencia(self, gestures):
+        valid = False
+        if len(gestures)>=3:
+            if gestures[-1]==gestures[-2] and gestures[-2]==gestures[-3]:
+                valid = True
+        return valid
+
     def request_gesture(self):
         """Send a gesture request and append the result to the list."""
         time.sleep(2)
+        gestures = []
         gesture = None
-        goal = GestoGoal()
-        self.client.send_goal(goal)
-        self.client.wait_for_result()
-
-        result = self.client.get_result()
-
-        if result and result.type:
-            gesture = result.type
-        return gesture
+        valid = False
+        while not valid :
+            goal = GestoGoal()
+            self.client.send_goal(goal)
+            self.client.wait_for_result()
+            result = self.client.get_result()
+            if result and result.type:
+                gesture = result.type
+                gestures.append(gesture)
+            valid = self.check_coherencia(gestures)
+            time.sleep(0.2)
+        return gestures[-1]
     
     def run(self):
         rate = rospy.Rate(0.2)   # 2 Hz = call server max every 0.5 seconds
