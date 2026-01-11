@@ -281,8 +281,6 @@ class NodoCamara:
     # -------------------------------------------
     # CÁMARA Y LOOP PRINCIPAL
     # -------------------------------------------
-    
-    
     def execute_cb(self, goal):
         cv2.namedWindow("Deteccion tablero y fichas")
         frame = self.cv_image
@@ -299,7 +297,7 @@ class NodoCamara:
 
         ycrcb = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
 
-        #Get Aruco info
+        # Aruco info
         rvec, tvec = self.detectarAruco(frame)
         if rvec is None:
             rospy.logwarn("ArUco no detectado")

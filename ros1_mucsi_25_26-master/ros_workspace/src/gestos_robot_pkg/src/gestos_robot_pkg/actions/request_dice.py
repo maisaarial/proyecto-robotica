@@ -11,10 +11,10 @@ class DiceActionClient:
         self.on = False
 
         # --- ACTION CLIENT SETUP ---
-        rospy.loginfo("[DICE-CLIENT] Waiting for server...")
+        rospy.loginfo("[DICE-CLIENT] Esperando al servidor...")
         self.client = actionlib.SimpleActionClient('read_dice', DiceReadAction)
         self.client.wait_for_server()
-        rospy.loginfo("[DICE-CLIENT] Server connected.")
+        rospy.loginfo("[DICE-CLIENT] Servidor conectado.")
 
         #rospy.Subscriber("/gestos/stream", Gesture, self.stream_callback)
 
@@ -23,17 +23,17 @@ class DiceActionClient:
         time.sleep(2)
         obtained_result = None
         goal = DiceReadGoal()
-        rospy.loginfo(f"[DICE-CLIENT] Sending request")
+        rospy.loginfo(f"[DICE-CLIENT] Enviando solicitud de lectura de dado...")
         self.client.send_goal(goal)
         self.client.wait_for_result()
 
         result = self.client.get_result()
 
         if result and result.value:
-            rospy.loginfo(f"[DICE-CLIENT] Detected: {result.value}")
+            rospy.loginfo(f"[DICE-CLIENT] Dado detectado: {result.value}")
             obtained_result = result.value
         else:
-            rospy.logwarn("[DICE-CLIENT] dice not detected (timeout or abort)")
+            rospy.logwarn("[DICE-CLIENT] No se detectó el dado (tiempo limite or aborto)")
         return obtained_result
     
     def run(self):

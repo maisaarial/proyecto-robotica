@@ -56,7 +56,7 @@ class TableroActionServer:
         self.cv_image = self.bridge.imgmsg_to_cv2(image, desired_encoding='bgr8')
 
     # -------------------------
-    # ArUco detection
+    # ArUco deteccion
     # -------------------------
     def detectarAruco(self, frame):
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -151,7 +151,7 @@ class TableroActionServer:
         return -1
 
     # -------------------------
-    # Color detection
+    # Color deteccion
     # -------------------------
     def detectarFichas(self, frame):
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -230,7 +230,6 @@ class TableroActionServer:
             rate.sleep()       
         mode = goal.modo
         result = CasillasResult()
-
 
         # Detect board
         if mode == 0 : 

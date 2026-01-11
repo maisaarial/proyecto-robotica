@@ -45,7 +45,7 @@ class DiceReadServer:
         #Mostrar la ventana de la cámara del dado
         while not rospy.is_shutdown():
 
-            # ❗ Si pasaron 30s -> cerrar ventana y salir
+            # Si pasaron 30s -> cerrar ventana y salir
             if time.time() - start_time > window_duration:
                 rospy.loginfo("No hemos detectado un dado después de 30 segundos.")
                 break

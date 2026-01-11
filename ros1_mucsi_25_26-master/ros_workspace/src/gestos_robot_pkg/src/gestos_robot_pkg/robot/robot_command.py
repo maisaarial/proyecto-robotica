@@ -72,7 +72,7 @@ class Robot_Command:
     def setup_players(self):
         """Select the number of players as well as their colors and types""" 
         num_player = 0
-        rospy.loginfo("[SET-UP] >>> Elegir numero de jugadores (1-3) :")
+        rospy.loginfo("[SET-UP] >>> Selecciona el numero de jugadores (1-3):")
         while num_player == 0:
             result = self.gesture_server.request_gesture()
             if result == "(1 dedo)" :
@@ -82,14 +82,14 @@ class Robot_Command:
             elif result ==  "(3 dedos)" :
                 num_player = 3
             time.sleep(2)
-        rospy.loginfo(f"[SET-UP] >>> Juego inicializado : {num_player} jugador.es")
+        rospy.loginfo(f"[SET-UP] >>> Juego inicializado con {num_player} jugador(es)")
         
         #Choose colors and type of players 
         fichas_disponibles = {"(0 dedos)":"rojo",  "(rock)":"azul", "(3 dedos)":"verde"}
         possible_types = {"(1 dedo)":"human", "(pulgar arriba)":"robot"}
 
         for i in range (num_player):
-            rospy.loginfo(f"[SET-UP] >>> Elegir el color del jugadore {i} :")
+            rospy.loginfo(f"[SET-UP] >>> Selecciona el color del jugador {i}:")
             color = None
             type = None
             while color is None :
@@ -97,13 +97,13 @@ class Robot_Command:
                 if result in fichas_disponibles.keys():
                     color = fichas_disponibles[result]
                     del fichas_disponibles[result]
-                    rospy.loginfo(f"[SET-UP] >>> Jugadore {i} is {color}:")
-                    rospy.loginfo(f"[SET-UP] >>> Elegir el tipo del jugadore {i} :")
+                    rospy.loginfo(f"[SET-UP] >>> Jugador {i} es {color}:")
+                    rospy.loginfo(f"[SET-UP] >>> Selecciona el tipo del jugador {i}:")
                     while type is None :
                         result = self.gesture_server.request_gesture()
                         if result in possible_types.keys():
                             type = possible_types[result]
-                            rospy.loginfo(f"[SET-UP] >>> Jugadore {i} is {type}:")
+                            rospy.loginfo(f"[SET-UP] >>> Jugador {i} es {type}:")
                     time.sleep(2)
                 time.sleep(2)
             new_player = Player(color, type)
@@ -112,7 +112,7 @@ class Robot_Command:
     def check_termination(self, player):
         """Check if there is a winner""" 
         if player.position == 19 :
-            rospy.loginfo(f"[Game] >>> Player {player.color} has won : Congratulations ! ")
+            rospy.loginfo(f"[Game] >>> ¡Jugador {player.color} ha ganado! ¡Felicidades! ")
             self.terminated = True
 
     def check_rules(self, player):
@@ -121,12 +121,12 @@ class Robot_Command:
         player.replay = False
         #Oca
         if color_cell == "amarillo":
-            rospy.loginfo(f"[Game] >>>  Goose cell : go to next similar")
+            rospy.loginfo(f"[Game] >>> Celda de la oca: avanzar a la siguiente celda igual")
             #Determine osition of the following siñilar cell
             following_cells = deepcopy(self.cells)
             following_cells = following_cells[player.position +1:]
             next_cell = next((c for c in following_cells if c.color == "amarillo"), None)
-            rospy.loginfo(f"[Game] >>> next similar = {next_cell.idx}")
+            rospy.loginfo(f"[Game] >>> Siguiente celda similar = {next_cell.idx}")
             player.position = next_cell.idx
             
             #move piece to next cell
@@ -138,29 +138,29 @@ class Robot_Command:
             
         #Posada
         elif color_cell == "rosa":
-            rospy.loginfo(f"[Game] >>>  Well cell : stay trapped")
+            rospy.loginfo(f"[Game] >>>  Celda del pozo : permanecer atrapado")
             player.trapped = True
         #Calavera
         elif color_cell == "morado":
-            rospy.loginfo(f"[Game] >>>  skull cell : go back to start")
+            rospy.loginfo(f"[Game] >>>  Celda de la calavera : volver al inicio")
             #move piece to start()
             player.position = 0
-            rospy.loginfo(f"[Game] >>>  new position : {player.position}")
+            rospy.loginfo(f"[Game] >>>  Nueva posicion : {player.position}")
             
             player_piece = None
             while player_piece is None :
                 self.pieces = self.tablero_server.request_tablero()
                 player_piece = next((p for p in self.pieces if p.color == player.color), None)
             self.control.move_piece_to_cell(player_piece, self.cells, player.position)
-            
+        #Dado
         elif color_cell == "naranja":
-            rospy.loginfo(f"[Game] >>>  dice cell : replay")
+            rospy.loginfo(f"[Game] >>>  Celda del dado : volver a tirar")
             player.replay = True
         
 
     def human_turn(self,player):
-        rospy.loginfo(f"[Game] >>> Player {player.color} : your turn !")
-        rospy.loginfo(f"[Game] >>> Once finished please do : gesture '1 dedo'")
+        rospy.loginfo(f"[Game] >>> Turno del jugador {player.color}!")
+        rospy.loginfo(f"[Game] >>> Cuando termines, realiza el gesto '1 dedo'")
         finished = False
         while not finished : 
             result = self.gesture_server.request_gesture()
@@ -175,8 +175,8 @@ class Robot_Command:
         player.position = player_piece.idx
     
     def robot_turn(self,player):
-        rospy.loginfo(f"[Game] >>> Player {player.color} : robot's turn !")
-        rospy.loginfo(f"[Game] >>> Tell him to throw the dice : gesture 'pulgar arriba'")
+        rospy.loginfo(f"[Game] >>> Turno del robot {player.color}!")
+        rospy.loginfo(f"[Game] >>> Indicale lanzar el dado: gesto 'pulgar arriba'")
         finished = False
         while not finished : 
             result = self.gesture_server.request_gesture()
@@ -184,19 +184,19 @@ class Robot_Command:
                 finished = True
             else :
                 time.sleep(1)
-        rospy.loginfo(f"[Game] >>> Throwing the dice")
+        rospy.loginfo(f"[Game] >>> Lanzando el dado")
         control.tirar_dado() 
         dice_value = -1
         while dice_value == -1 :
             dice_value = self.dice_server.request_dice()
             time.sleep(1)
-        rospy.loginfo(f"[Game] >>>  dice = {dice_value}")
+        rospy.loginfo(f"[Game] >>> Valor del dado = {dice_value}")
         player_piece = None
         while player_piece is None :
             self.pieces = self.tablero_server.request_tablero()
             player_piece = next((p for p in self.pieces if p.color == player.color), None)
         player.position += dice_value
-        rospy.loginfo(f"[Game] >>>  new position = {player.position}")
+        rospy.loginfo(f"[Game] >>>  Nueva posicion = {player.position}")
         self.control.move_piece_to_cell(player_piece, self.cells, player.position)
 
     def game(self):
@@ -205,8 +205,8 @@ class Robot_Command:
             for player in self.players :
                 #Check if trapped for the turn
                 if player.trapped :
-                        rospy.loginfo(f"[Game] >>> Player {player.color} : you are trapped !")
-                        rospy.loginfo(f"[Game] >>> Wait your next turn")
+                        rospy.loginfo(f"[Game] >>> Jugador {player.color} está atrapado!")
+                        rospy.loginfo(f"[Game] >>> Espera hasta tu próximo turno")
                         player.trapped = False
                 #If not we consider he'll play at least once
                 else :
@@ -231,5 +231,5 @@ if __name__ == "__main__":
     control.move_group.set_max_acceleration_scaling_factor(1.0)
     client = Robot_Command(gesture_server, tablero_server, control, dice_server=dice_server)
     # Example repeated calls
-    rospy.loginfo("[ROBOT-COMMAND] Node started, waiting for gestures...")
+    rospy.loginfo("[ROBOT-COMMAND] Nodo inicializado, esperando gestos...")
     rospy.spin()

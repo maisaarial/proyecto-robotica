@@ -53,7 +53,7 @@ def main():
     dice_detector = DiceDetector()
 
     fsm = FSM()
-    robot = Robot(mode="stub")  # Cambia a "real" cuando tengas el robot físico
+    robot = Robot(mode="stub") 
     mapper = ActionMapper(fsm, robot)
 
     print("[APP] Iniciando loop principal. ESC para salir.")
