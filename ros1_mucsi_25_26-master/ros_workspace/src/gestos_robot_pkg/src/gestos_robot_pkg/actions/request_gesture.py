@@ -13,10 +13,10 @@ class GestureActionClient:
         self.on = False
 
         # --- ACTION CLIENT SETUP ---
-        rospy.loginfo("[GESTURE-CLIENT] Waiting for server...")
+        rospy.loginfo("[GESTURE-CLIENT] Esperando al servidor...")
         self.client = actionlib.SimpleActionClient('gesto_action', GestoAction)
         self.client.wait_for_server()
-        rospy.loginfo("[GESTURE-CLIENT] Server connected.")
+        rospy.loginfo("[GESTURE-CLIENT] Servidor conectado.")
 
         #rospy.Subscriber("/gestos/stream", Gesture, self.stream_callback)
     """

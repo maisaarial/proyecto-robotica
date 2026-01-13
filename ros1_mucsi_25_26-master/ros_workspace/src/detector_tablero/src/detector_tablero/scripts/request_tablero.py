@@ -11,35 +11,36 @@ class TableroActionClient:
         #rospy.init_node('tablero_client', anonymous=True)
 
         # --- ACTION CLIENT SETUP ---
-        rospy.loginfo("[Casillas-CLIENT] Waiting for server...")
+        rospy.loginfo("[Casillas-CLIENT] Esperando al servidor...")
         self.client = actionlib.SimpleActionClient('tablero', CasillasAction)
         self.client.wait_for_server()
-        rospy.loginfo("[Casillas-CLIENT] Server connected.")
+        rospy.loginfo("[Casillas-CLIENT] Servidor conectado.")
     
     def request_tablero(self, modo=1):
-        """Send a request for pieces by default, for cells with modo = 0, return a list of Ficha.msg or a list of Cell.msg"""
+        """Send a request for pieces by default, for cells with modo = 0,
+        return a list of Ficha.msg or a list of Cell.msg"""
         time.sleep(2)
         tablero = None
         goal = CasillasGoal()
         goal.modo = modo
-        rospy.loginfo(f"[Casillas-CLIENT] Sending request")
+        rospy.loginfo(f"[Casillas-CLIENT] Enviando solicitud")
         self.client.send_goal(goal)
         self.client.wait_for_result()
 
         result = self.client.get_result()
         if modo == 0 :
             if result and result.casillas:
-                rospy.loginfo(f"[Casillas-CLIENT] Detected: {result.casillas}")
+                rospy.loginfo(f"[Casillas-CLIENT] Casillas detectadas: {result.casillas}")
                 tablero = result.casillas
             else:
-                rospy.logwarn("[Casillas-CLIENT] Cells not detected (timeout or abort)")
+                rospy.logwarn("[Casillas-CLIENT] No se detectaron casillas (tiempo limite or aborto)")
             return tablero
         elif modo == 1 :
             if result and result.fichas:
-                rospy.loginfo(f"[Casillas-CLIENT] Detected: {result.fichas}")
+                rospy.loginfo(f"[Casillas-CLIENT] Fichas detectadas: {result.fichas}")
                 tablero = result.fichas
             else:
-                rospy.logwarn("[Casillas-CLIENT] Pieces not detected (timeout or abort)")
+                rospy.logwarn("[Casillas-CLIENT] No se detectaron fichas (tiempo limite or aborto)")
             return tablero
             
     
