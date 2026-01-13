@@ -46,7 +46,7 @@ class Robot_Command:
             rospy.loginfo("[GESTURE-STREAM] >>> INICIO recibido. Comenzando escucha.")
             self.on = True
             self.control.move_to_home()
-            pose = Pose(position=Point(0,0,0.70))
+            pose = Pose(position=Point(0,0,0.60))
             control.añadir_caja_a_escena_de_planificacion(pose,"obstaculo",(2,2,.05))
             pose = Pose(position=Point(-0.5,0.2,0))
             control.añadir_caja_a_escena_de_planificacion(pose,"pared1",(.05,1,1))
@@ -56,8 +56,8 @@ class Robot_Command:
             self.cells = None
             while self.cells is None:
                 self.cells = self.tablero_server.request_tablero(modo=0)
-            #self.setup_players()
-            self.players_default()
+            self.setup_players()
+            #self.players_default()
             self.pieces = self.tablero_server.request_tablero()
             
             self.game()

@@ -1,1 +1,1 @@
-/home/laboratorio/ros_workspace/devel/lib/python3/dist-packages/detector_tablero/__init__.py 16
+/home/laboratorio/ros_workspace/devel/lib/python3/dist-packages/detector_tablero/__init__.py 17

@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <launch>
   <node name="cam_tablero" pkg="usb_cam" type="usb_cam_node" output="screen" >
-    <param name="video_device" value="/dev/video0"/>
+    <param name="video_device" value="/dev/video2"/>
     <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="framerate" value="30" />
     <param name="camera_frame_id" value="usb_cam" />
   </node>
   <node name="cam_dado" pkg="usb_cam" type="usb_cam_node" output="screen" >
-    <param name="video_device" value="/dev/video2"/>
+    <param name="video_device" value="/dev/video0"/>
     <param name="image_width" value="640" />
     <param name="image_height" value="480" />
     <param name="framerate" value="30" />
@@ -21,5 +21,10 @@
     <param name="framerate" value="30" />
     <param name="camera_frame_id" value="usb_cam" />
   </node>
+
+  <node name="gesture_action_server" pkg="gestos_robot_pkg" type="gesture_action_server.py"/>
+  <node name="dice_action_server" pkg="gestos_robot_pkg" type="dice_reader_action_server.py"/>
+  <node name="gesture_application" pkg="gestos_robot_pkg" type="appMas.py"/>
+  <node name="tablero_action_server" pkg="detector_tablero" type="servidor_casillas.py"/>
 </launch>
 

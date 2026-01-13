@@ -63,7 +63,7 @@ def main():
     # -------------------------
     last_gesture = GestureEvent.NONE
     gesture_start_time = None
-    GESTO_CONFIRMAR_SEG = 2.0  # segundos
+    GESTO_CONFIRMAR_SEG = 0.5  # segundos
 
     while True:
         # -------------------------

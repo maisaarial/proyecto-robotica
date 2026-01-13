@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="cam_tablero" pkg="usb_cam" type="usb_cam_node" output="screen" >
+    <param name="video_device" value="/dev/video2"/>
+    <param name="image_width" value="640" />
+    <param name="image_height" value="480" />
+    <param name="framerate" value="30" />
+    <param name="camera_frame_id" value="usb_cam" />
+  </node>
+  
+  <node name="tablero_calibration" pkg="gestos_robot_pkg" type="appTablero.py"/>
+  <node name="tablero_vision_test" pkg="detector_tablero" type="camere_withoutserv.py"/>
+</launch>
+
